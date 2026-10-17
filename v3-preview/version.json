@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "3.4",
-  "date": "17/10/2026 20:30",
+  "version": "3.5",
+  "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "El tablero calcula dinámicamente el alto disponible para mostrar todas las filas sin scroll y con simetría."
+  "notes": "Fecha y hora de versión generadas automáticamente en cada despliegue de GitHub Pages."
 }

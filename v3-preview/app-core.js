@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '3.4', date: '17/10/2026 20:30' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '3.5', date: '—' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -318,35 +318,31 @@ function recentResultsHTML(results, limit = 4) {
 function versionPanelHTML() {
   const info = syncState.versionInfo || {};
   const local = info.local || APP_FALLBACK_META;
-  const version = escapeHTML(local.version || APP_FALLBACK_META.version);
-  const date = escapeHTML(local.date || APP_FALLBACK_META.date);
+  const remote = info.remote || null;
+  const deployed = info.status === 'ok' && remote && String(remote.version) === String(local.version) ? remote : local;
+  const version = escapeHTML(deployed.version || APP_FALLBACK_META.version);
+  const date = escapeHTML(deployed.date || '—');
   let statusClass = 'version-neutral';
   let statusText = 'Comprobando actualizaciones...';
-  let action = '';
 
   if (info.status === 'ok' && info.updateAvailable) {
-    const remote = info.remote || {};
     statusClass = 'version-update';
-    statusText = `Nueva versi\u00f3n v${escapeHTML(remote.version || '')} disponible${remote.date ? ` \u00b7 ${escapeHTML(remote.date)}` : ''}`;
-    if (info.downloadUrl || info.releaseUrl) {
-      action = `<a class="btn btn-primary version-action" href="${escapeHTML(info.downloadUrl || info.releaseUrl)}" target="_blank" rel="noopener">Ver actualizaci\u00f3n</a>`;
-    }
+    statusText = `Nueva versión v${escapeHTML(remote?.version || '')} disponible${remote?.date ? ` · ${escapeHTML(remote.date)}` : ''}`;
   } else if (info.status === 'ok') {
     statusClass = 'version-current';
-    statusText = 'Aplicaci\u00f3n actualizada';
+    statusText = 'Aplicación actualizada';
   } else if (info.status === 'unavailable') {
-    statusText = 'No se pudo comprobar GitHub. La aplicaci\u00f3n puede usarse con normalidad.';
+    statusText = 'No se pudo comprobar la versión publicada. La aplicación puede usarse con normalidad.';
   } else if (info.status === 'not_configured') {
     statusText = 'Canal de actualizaciones pendiente de configurar.';
   }
 
   return `<div class="home-version-panel ${statusClass}">
     <div class="home-version-main">
-      <span class="home-version-label">Versi\u00f3n instalada</span>
-      <strong>v${version} <span>\u00b7 ${date}</span></strong>
+      <span class="home-version-label">Versión instalada</span>
+      <strong>v${version} <span>· ${date}</span></strong>
       <small>${statusText}</small>
     </div>
-    ${action}
   </div>`;
 }
 

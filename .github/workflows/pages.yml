@@ -26,6 +26,11 @@ jobs:
         uses: actions/checkout@v6
       - name: Configure Pages
         uses: actions/configure-pages@v5
+      - name: Stamp deployment date
+        shell: bash
+        run: |
+          export STAMP="$(TZ=Europe/Madrid date '+%d/%m/%Y %H:%M')"
+          node -e "const fs=require('fs');const p='v3-preview/version.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));j.date=process.env.STAMP;fs.writeFileSync(p,JSON.stringify(j,null,2)+'\\n');"
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
