@@ -10,3 +10,15 @@
 .admin-kpi strong{display:block;font-size:30px}.admin-kpi span{color:var(--muted);font-size:13px}.role-badge{display:inline-flex;padding:5px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:850}
 .role-badge.admin{background:#fff1d8;color:#7a5300}.privacy-note{padding:12px 14px;border-radius:14px;background:#f7f9fb;border:1px solid var(--line);color:var(--muted);font-size:13px}
 @media(max-width:700px){.admin-kpis{grid-template-columns:1fr}.user-chip-name{display:none}.auth-card{padding:24px 18px}}
+
+/* login-logo-skin */
+.auth-card .brand-mark{
+  width:132px !important;
+  height:132px !important;
+  margin:0 auto 10px !important;
+  border-radius:30px !important;
+  background:#fff url("logo.svg?v=3.0") center/contain no-repeat !important;
+  font-size:0 !important;
+  box-shadow:none !important;
+  filter:drop-shadow(0 10px 24px rgba(20,87,217,.15));
+}
