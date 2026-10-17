@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.8",
+  "version": "4.9",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Quita Memoria del menú, mantiene todas sus pruebas agrupadas en Inicio, elimina actividad/evolución de Inicio y corrige fecha/hora de versión."
+  "notes": "Añade acceso sin contraseña como usuario anonymous mediante Firebase Anonymous Authentication."
 }

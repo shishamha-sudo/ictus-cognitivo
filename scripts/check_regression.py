@@ -41,3 +41,10 @@ if errors:
     print("\n".join(errors))
     sys.exit(1)
 print("Regression checks OK")
+
+# Acceso anonymous debe seguir disponible.
+auth = Path("v3-preview/auth.js").read_text(encoding="utf-8")
+for required in ["anonymousLoginBtn","signInAnonymously","displayName=isAnonymous?'anonymous'"]:
+    if required not in auth:
+        print("Regresión: falta acceso anonymous:", required)
+        sys.exit(1)

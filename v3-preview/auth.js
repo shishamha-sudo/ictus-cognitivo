@@ -2,16 +2,70 @@
 'use strict';
 const MULTIUSER={adminEmail:String(window.ICTUS_ADMIN_EMAIL||'shishamha@gmail.com').toLowerCase(),auth:null,db:null,user:null,role:null,viewAsUser:false,wrapped:false,loginUid:null};
 function fbReady(){const c=window.ICTUS_FIREBASE_CONFIG||{};return !!(c.apiKey&&c.projectId&&!String(c.apiKey).includes('__PENDIENTE__')&&!String(c.projectId).includes('__PENDIENTE__'))}
-function authGate(msg){let g=document.getElementById('authGate');if(!g){g=document.createElement('div');g.id='authGate';g.className='auth-gate';document.body.appendChild(g)}const ok=fbReady();g.innerHTML='<section class="auth-card"><div class="brand-mark" style="margin:auto;width:62px;height:62px;font-size:26px">◉</div><h1>Entrenamiento cognitivo</h1><p>'+escapeHTML(msg||(ok?'Accede con tu cuenta de Google para continuar. Tu histórico quedará asociado a tu usuario.':'La versión multiusuario está desplegada, pero falta conectar Firebase.'))+'</p>'+(ok?'<button id="googleLoginBtn" class="btn btn-primary auth-google" type="button">Acceder con Google</button>':'<div class="auth-status"><strong>Firebase pendiente</strong><div class="small">Completa la configuración para habilitar el acceso.</div></div>')+'<p class="small">Google Authentication · histórico privado · administración restringida</p></section>';document.getElementById('googleLoginBtn')?.addEventListener('click',loginGoogle)}
+function authGate(msg){
+  let g=document.getElementById('authGate');
+  if(!g){g=document.createElement('div');g.id='authGate';g.className='auth-gate';document.body.appendChild(g)}
+  const ok=fbReady();
+  g.innerHTML='<section class="auth-card">'+
+    '<div class="brand-mark" style="margin:auto;width:62px;height:62px;font-size:26px">◉</div>'+
+    '<h1>Entrenamiento cognitivo</h1>'+
+    '<p>'+escapeHTML(msg||(ok?'Accede con Google o entra como usuario anónimo.':'La versión multiusuario está desplegada, pero falta conectar Firebase.'))+'</p>'+
+    (ok
+      ? '<div class="auth-actions">'+
+          '<button id="googleLoginBtn" class="btn btn-primary auth-google" type="button">Acceder con Google</button>'+
+          '<button id="anonymousLoginBtn" class="btn btn-secondary auth-anonymous" type="button"><span aria-hidden="true">👤</span> Entrar como anonymous</button>'+
+        '</div>'
+      : '<div class="auth-status"><strong>Firebase pendiente</strong><div class="small">Completa la configuración para habilitar el acceso.</div></div>')+
+    '<p class="small">El acceso anonymous no requiere contraseña y tiene permisos de usuario normal.</p>'+
+  '</section>';
+  document.getElementById('googleLoginBtn')?.addEventListener('click',loginGoogle);
+  document.getElementById('anonymousLoginBtn')?.addEventListener('click',loginAnonymous);
+}
 function authHide(){document.getElementById('authGate')?.remove()}
 function mobile(){return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.maxTouchPoints||0)>1}
 async function loginGoogle(){try{const p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:'select_account'});if(mobile())await MULTIUSER.auth.signInWithRedirect(p);else await MULTIUSER.auth.signInWithPopup(p)}catch(e){authGate('No se pudo iniciar sesión: '+(e?.message||'error'))}}
+async function loginAnonymous(){
+  try{
+    authGate('Entrando como anonymous…');
+    await MULTIUSER.auth.signInAnonymously();
+  }catch(e){
+    const code=String(e?.code||'');
+    const msg=code.includes('operation-not-allowed')
+      ? 'El acceso anonymous no está habilitado en Firebase Authentication.'
+      : 'No se pudo iniciar el acceso anonymous: '+(e?.message||'error');
+    authGate(msg);
+  }
+}
 async function logoutGoogle(){try{await usageLog('logout')}catch{}await MULTIUSER.auth?.signOut()}
 function cloudDate(v){if(!v)return '—';const d=typeof v.toDate==='function'?v.toDate():new Date(v);return Number.isNaN(d.getTime())?'—':d.toLocaleString('es-ES',{dateStyle:'short',timeStyle:'short'})}
-async function ensureProfile(u){const ref=MULTIUSER.db.collection('users').doc(u.uid),snap=await ref.get(),email=String(u.email||'').toLowerCase(),role=email===MULTIUSER.adminEmail?'admin':'user',base={uid:u.uid,email:u.email||'',displayName:u.displayName||'',photoURL:u.photoURL||'',lastLoginAt:firebase.firestore.FieldValue.serverTimestamp(),lastLoginClientAt:new Date().toISOString()};if(!snap.exists)await ref.set({...base,role,createdAt:firebase.firestore.FieldValue.serverTimestamp(),createdClientAt:new Date().toISOString()});else if(role==='admin')await ref.set({...base,role:'admin'},{merge:true});else await ref.set(base,{merge:true});return (await ref.get()).data()}
+async function ensureProfile(u){
+  const ref=MULTIUSER.db.collection('users').doc(u.uid);
+  const snap=await ref.get();
+  const isAnonymous=!!u.isAnonymous;
+  const email=String(u.email||'').toLowerCase();
+  const role=!isAnonymous&&email===MULTIUSER.adminEmail?'admin':'user';
+  const displayName=isAnonymous?'anonymous':(u.displayName||'');
+  const base={
+    uid:u.uid,
+    email:isAnonymous?'':(u.email||''),
+    displayName,
+    photoURL:isAnonymous?'':(u.photoURL||''),
+    isAnonymous,
+    lastLoginAt:firebase.firestore.FieldValue.serverTimestamp(),
+    lastLoginClientAt:new Date().toISOString()
+  };
+  if(!snap.exists){
+    await ref.set({...base,role,createdAt:firebase.firestore.FieldValue.serverTimestamp(),createdClientAt:new Date().toISOString()});
+  }else if(role==='admin'){
+    await ref.set({...base,role:'admin'},{merge:true});
+  }else{
+    await ref.set({...base,role:'user'},{merge:true});
+  }
+  return (await ref.get()).data();
+}
 async function loadUserResults(){const snap=await MULTIUSER.db.collection('users').doc(MULTIUSER.user.uid).collection('results').get();state.results=snap.docs.map(d=>({...d.data(),id:d.id})).sort((a,b)=>new Date(b.date||0)-new Date(a.date||0)).slice(0,500);localStorage.setItem(STORAGE_RESULTS,JSON.stringify(state.results))}
 async function saveCloudResult(){if(!MULTIUSER.user||!state.results?.length)return;const r=state.results[0];if(!r?.id)return;await MULTIUSER.db.collection('users').doc(MULTIUSER.user.uid).collection('results').doc(r.id).set({...r,uid:MULTIUSER.user.uid,email:MULTIUSER.user.email||'',savedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}
-async function usageLog(eventType,detail={}){if(!MULTIUSER.user||!MULTIUSER.db)return;const safe={};['setId','setName','mode','score','total','durationMs','screen','module'].forEach(k=>{if(detail[k]!==undefined&&detail[k]!==null)safe[k]=detail[k]});await MULTIUSER.db.collection('usageLogs').add({eventType,uid:MULTIUSER.user.uid,email:MULTIUSER.user.email||'',displayName:MULTIUSER.user.displayName||'',role:MULTIUSER.role||'user',detail:safe,createdAt:firebase.firestore.FieldValue.serverTimestamp(),clientAt:new Date().toISOString()})}
+async function usageLog(eventType,detail={}){if(!MULTIUSER.user||!MULTIUSER.db)return;const safe={};['setId','setName','mode','score','total','durationMs','screen','module'].forEach(k=>{if(detail[k]!==undefined&&detail[k]!==null)safe[k]=detail[k]});await MULTIUSER.db.collection('usageLogs').add({eventType,uid:MULTIUSER.user.uid,email:MULTIUSER.user.email||'',displayName:MULTIUSER.user.isAnonymous?'anonymous':(MULTIUSER.user.displayName||''),role:MULTIUSER.role||'user',detail:safe,createdAt:firebase.firestore.FieldValue.serverTimestamp(),clientAt:new Date().toISOString()})}
 function setAdminUserView(enabled){
   if(MULTIUSER.role!=='admin') return;
   MULTIUSER.viewAsUser=!!enabled;
@@ -36,7 +90,7 @@ function userChrome(){
   c.className='user-chip';
   const roleText=MULTIUSER.viewAsUser?'Vista usuario':(isAdmin?'Admin':'Usuario');
   c.innerHTML=(MULTIUSER.user.photoURL?'<img src="'+escapeHTML(MULTIUSER.user.photoURL)+'" alt="">':'')+
-    '<span class="user-chip-name">'+escapeHTML(MULTIUSER.user.displayName||MULTIUSER.user.email||'Usuario')+'</span>'+
+    '<span class="user-chip-name">'+escapeHTML(MULTIUSER.user.isAnonymous?'anonymous':(MULTIUSER.user.displayName||MULTIUSER.user.email||'Usuario'))+'</span>'+
     '<span class="role-badge '+(isAdmin&&!MULTIUSER.viewAsUser?'admin':'')+'">'+roleText+'</span>';
   a.prepend(c);
 

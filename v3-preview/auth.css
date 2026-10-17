@@ -22,3 +22,9 @@
   box-shadow:none !important;
   filter:drop-shadow(0 10px 24px rgba(20,87,217,.15));
 }
+
+
+/* v4.9 - acceso anonymous */
+.auth-actions{display:grid;gap:12px;margin:18px 0}
+.auth-anonymous{width:100%;min-height:56px;font-size:17px}
+.auth-anonymous span{margin-right:6px}

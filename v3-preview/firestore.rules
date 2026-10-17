@@ -6,8 +6,15 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    function isAnonymous() {
+      return signedIn()
+        && request.auth.token.firebase != null
+        && request.auth.token.firebase.sign_in_provider == "anonymous";
+    }
+
     function isAdmin() {
       return signedIn()
+        && !isAnonymous()
         && request.auth.token.email != null
         && request.auth.token.email == "shishamha@gmail.com";
     }
@@ -22,11 +29,9 @@ service cloud.firestore {
       allow create: if isOwner(uid)
         && request.resource.data.uid == uid
         && (
-          (request.auth.token.email == "shishamha@gmail.com"
-            && request.resource.data.role == "admin")
+          (isAdmin() && request.resource.data.role == "admin")
           ||
-          (request.auth.token.email != "shishamha@gmail.com"
-            && request.resource.data.role == "user")
+          (!isAdmin() && request.resource.data.role == "user")
         );
 
       allow update: if isAdmin()
@@ -48,7 +53,11 @@ service cloud.firestore {
       allow read: if isAdmin();
       allow create: if signedIn()
         && request.resource.data.uid == request.auth.uid
-        && request.resource.data.email == request.auth.token.email;
+        && (
+          (isAnonymous() && request.resource.data.email == "")
+          ||
+          (!isAnonymous() && request.resource.data.email == request.auth.token.email)
+        );
       allow update, delete: if false;
     }
   }
