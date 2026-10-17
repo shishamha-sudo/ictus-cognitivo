@@ -29,7 +29,8 @@ const ramState = {
   expected:[],
   answer:[],
   startedAt:0,
-  phase:'idle'
+  phase:'idle',
+  intervalSeconds:1.25
 };
 
 function ramShuffle(items) {
@@ -140,6 +141,11 @@ function renderRamConfig(type) {
             <option value="5" selected>5 rondas</option>
           </select>
         </div>
+        <div class="field">
+          <label for="ramInterval">Tiempo entre elementos (segundos)</label>
+          <input id="ramInterval" type="number" min="0.5" max="10" step="0.25" value="${ramState.intervalSeconds}" />
+          <span class="help">Define cuánto tiempo permanece cada elemento antes de mostrar el siguiente. Entre 0,5 y 10 segundos.</span>
+        </div>
       </div>
       <div class="actions">
         <button id="ramStartBtn" class="btn btn-primary btn-large" type="button">Comenzar</button>
@@ -149,6 +155,8 @@ function renderRamConfig(type) {
   document.getElementById('ramStartBtn').addEventListener('click',()=>{
     ramState.direction=document.getElementById('ramDirection').value;
     ramState.rounds=Number(document.getElementById('ramRounds').value);
+    const configuredInterval=Number(document.getElementById('ramInterval').value);
+    ramState.intervalSeconds=Math.min(10,Math.max(0.5,Number.isFinite(configuredInterval)?configuredInterval:1.25));
     startRamSession();
   });
   document.getElementById('ramCancelBtn').addEventListener('click', renderRamPanel);
@@ -160,7 +168,7 @@ function startRamSession() {
   ramState.correctPositions=0;
   ramState.totalPositions=0;
   ramState.startedAt=Date.now();
-  ramLog('test_started',{setId:'ram-'+ramState.type,setName:ramState.type==='words'?'RAM · Palabras':'RAM · Objetos de la casa',mode:ramState.direction});
+  ramLog('test_started',{setId:'ram-'+ramState.type,setName:ramState.type==='words'?'RAM · Palabras':'RAM · Objetos de la casa',mode:ramState.direction,intervalSeconds:ramState.intervalSeconds});
   nextRamRound();
 }
 
@@ -196,7 +204,7 @@ function showRamStimulus(index) {
       </div>
       <p style="text-align:center;color:var(--muted)">Memoriza la secuencia.</p>
     </section>`;
-  setTimeout(()=>showRamStimulus(index+1), ramState.type==='words'?1050:1350);
+  setTimeout(()=>showRamStimulus(index+1), Math.round(ramState.intervalSeconds*1000));
 }
 
 function renderRamRecall() {
@@ -282,7 +290,8 @@ function finishRamSession() {
     durationMs,
     score,
     module:'RAM',
-    rounds:ramState.round
+    rounds:ramState.round,
+    intervalSeconds:ramState.intervalSeconds
   };
   state.results.unshift(result);
   state.results=state.results.slice(0,500);
