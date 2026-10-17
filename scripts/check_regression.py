@@ -48,3 +48,10 @@ for required in ["anonymousLoginBtn","signInAnonymously","displayName=isAnonymou
     if required not in auth:
         print("Regresión: falta acceso anonymous:", required)
         sys.exit(1)
+
+# Anonymous debe poder funcionar sin Firestore.
+auth = Path("v3-preview/auth.js").read_text(encoding="utf-8")
+for required in ["loadAnonymousResults","saveAnonymousResults","u.isAnonymous","ANON_RESULTS_KEY"]:
+    if required not in auth:
+        print("Regresión: falta fallback local anonymous:", required)
+        sys.exit(1)

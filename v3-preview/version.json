@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.9",
+  "version": "4.10",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Añade acceso sin contraseña como usuario anonymous mediante Firebase Anonymous Authentication."
+  "notes": "El acceso anonymous funciona sin depender de permisos Firestore; resultados guardados localmente por dispositivo."
 }

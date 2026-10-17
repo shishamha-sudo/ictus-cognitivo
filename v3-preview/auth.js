@@ -1,5 +1,6 @@
 
 'use strict';
+const ANON_RESULTS_KEY='cognitivo.results.anonymous.v1';
 const MULTIUSER={adminEmail:String(window.ICTUS_ADMIN_EMAIL||'shishamha@gmail.com').toLowerCase(),auth:null,db:null,user:null,role:null,viewAsUser:false,wrapped:false,loginUid:null};
 function fbReady(){const c=window.ICTUS_FIREBASE_CONFIG||{};return !!(c.apiKey&&c.projectId&&!String(c.apiKey).includes('__PENDIENTE__')&&!String(c.projectId).includes('__PENDIENTE__'))}
 function authGate(msg){
@@ -63,9 +64,23 @@ async function ensureProfile(u){
   }
   return (await ref.get()).data();
 }
+function loadAnonymousResults(){
+  try{
+    const parsed=JSON.parse(localStorage.getItem(ANON_RESULTS_KEY)||'[]');
+    state.results=Array.isArray(parsed)?parsed:[];
+  }catch{
+    state.results=[];
+  }
+}
+function saveAnonymousResults(){
+  try{
+    localStorage.setItem(ANON_RESULTS_KEY,JSON.stringify((state.results||[]).slice(0,500)));
+  }catch{}
+}
+
 async function loadUserResults(){const snap=await MULTIUSER.db.collection('users').doc(MULTIUSER.user.uid).collection('results').get();state.results=snap.docs.map(d=>({...d.data(),id:d.id})).sort((a,b)=>new Date(b.date||0)-new Date(a.date||0)).slice(0,500);localStorage.setItem(STORAGE_RESULTS,JSON.stringify(state.results))}
-async function saveCloudResult(){if(!MULTIUSER.user||!state.results?.length)return;const r=state.results[0];if(!r?.id)return;await MULTIUSER.db.collection('users').doc(MULTIUSER.user.uid).collection('results').doc(r.id).set({...r,uid:MULTIUSER.user.uid,email:MULTIUSER.user.email||'',savedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}
-async function usageLog(eventType,detail={}){if(!MULTIUSER.user||!MULTIUSER.db)return;const safe={};['setId','setName','mode','score','total','durationMs','screen','module'].forEach(k=>{if(detail[k]!==undefined&&detail[k]!==null)safe[k]=detail[k]});await MULTIUSER.db.collection('usageLogs').add({eventType,uid:MULTIUSER.user.uid,email:MULTIUSER.user.email||'',displayName:MULTIUSER.user.isAnonymous?'anonymous':(MULTIUSER.user.displayName||''),role:MULTIUSER.role||'user',detail:safe,createdAt:firebase.firestore.FieldValue.serverTimestamp(),clientAt:new Date().toISOString()})}
+async function saveCloudResult(){if(!MULTIUSER.user||MULTIUSER.user.isAnonymous||!state.results?.length)return;const r=state.results[0];if(!r?.id)return;await MULTIUSER.db.collection('users').doc(MULTIUSER.user.uid).collection('results').doc(r.id).set({...r,uid:MULTIUSER.user.uid,email:MULTIUSER.user.email||'',savedAt:firebase.firestore.FieldValue.serverTimestamp()},{merge:true})}
+async function usageLog(eventType,detail={}){if(!MULTIUSER.user||MULTIUSER.user.isAnonymous||!MULTIUSER.db)return;const safe={};['setId','setName','mode','score','total','durationMs','screen','module'].forEach(k=>{if(detail[k]!==undefined&&detail[k]!==null)safe[k]=detail[k]});await MULTIUSER.db.collection('usageLogs').add({eventType,uid:MULTIUSER.user.uid,email:MULTIUSER.user.email||'',displayName:MULTIUSER.user.isAnonymous?'anonymous':(MULTIUSER.user.displayName||''),role:MULTIUSER.role||'user',detail:safe,createdAt:firebase.firestore.FieldValue.serverTimestamp(),clientAt:new Date().toISOString()})}
 function setAdminUserView(enabled){
   if(MULTIUSER.role!=='admin') return;
   MULTIUSER.viewAsUser=!!enabled;
@@ -134,8 +149,41 @@ function userChrome(){
   a.appendChild(o);
 }
 
-function wrapApp(){if(MULTIUSER.wrapped)return;MULTIUSER.wrapped=true;const sr=saveResults;saveResults=function(){sr();saveCloudResult().catch(()=>toast('Resultado guardado localmente; sincronización pendiente.'))};const ss=startSession;startSession=function(id){const set=state.content.sets.find(x=>x.id===id);usageLog('test_started',{setId:id,setName:set?.name||'',mode:state.config.mode});return ss(id)};const fs=finishSession;finishSession=function(){const x=fs();const r=state.results?.[0];if(r)usageLog('test_completed',{setId:r.setId,setName:r.setName,mode:r.mode,score:r.score,total:r.total,durationMs:r.durationMs});return x};const ra=renderAdmin;renderAdmin=function(){if(MULTIUSER.role!=='admin'||MULTIUSER.viewAsUser){toast('Solo disponible en la vista de administrador.');return renderHome()}usageLog('content_admin_opened',{screen:'content'});return ra()}}
+function wrapApp(){if(MULTIUSER.wrapped)return;MULTIUSER.wrapped=true;const sr=saveResults;saveResults=function(){sr();if(MULTIUSER.user?.isAnonymous){saveAnonymousResults();return;}saveCloudResult().catch(()=>toast('Resultado guardado localmente; sincronización pendiente.'))};const ss=startSession;startSession=function(id){const set=state.content.sets.find(x=>x.id===id);usageLog('test_started',{setId:id,setName:set?.name||'',mode:state.config.mode});return ss(id)};const fs=finishSession;finishSession=function(){const x=fs();const r=state.results?.[0];if(r)usageLog('test_completed',{setId:r.setId,setName:r.setName,mode:r.mode,score:r.score,total:r.total,durationMs:r.durationMs});return x};const ra=renderAdmin;renderAdmin=function(){if(MULTIUSER.role!=='admin'||MULTIUSER.viewAsUser){toast('Solo disponible en la vista de administrador.');return renderHome()}usageLog('content_admin_opened',{screen:'content'});return ra()}}
 async function renderUserAdmin(){if(MULTIUSER.role!=='admin'||MULTIUSER.viewAsUser)return renderHome();state.screen='multi-admin';main.innerHTML='<section class="card"><h1>Administración</h1><p>Cargando usuarios y log…</p></section>';try{await usageLog('admin_opened',{screen:'administration'});const [us,ls]=await Promise.all([MULTIUSER.db.collection('users').get(),MULTIUSER.db.collection('usageLogs').orderBy('createdAt','desc').limit(100).get()]);const users=us.docs.map(d=>d.data()),logs=ls.docs.map(d=>d.data()),admins=users.filter(u=>u.role==='admin').length;main.innerHTML='<section class="card"><div class="section-title"><div><h1 style="margin:0">Administración</h1><p>Usuarios dados de alta y actividad reciente.</p></div><button id="muBack" class="btn btn-ghost">Volver</button></div><div class="admin-kpis"><div class="admin-kpi"><strong>'+users.length+'</strong><span>Usuarios</span></div><div class="admin-kpi"><strong>'+admins+'</strong><span>Administradores</span></div><div class="admin-kpi"><strong>'+logs.length+'</strong><span>Eventos mostrados</span></div></div><div class="privacy-note">El log no guarda las respuestas concretas de los ejercicios.</div><div class="section"><h2>Usuarios</h2><div class="table-wrap"><table><thead><tr><th>Nombre</th><th>Email</th><th>Rol</th><th>Alta</th><th>Último acceso</th></tr></thead><tbody>'+users.map(u=>'<tr><td>'+escapeHTML(u.displayName||'—')+'</td><td>'+escapeHTML(u.email||'')+'</td><td><span class="role-badge '+(u.role==='admin'?'admin':'')+'">'+escapeHTML(u.role||'user')+'</span></td><td>'+escapeHTML(cloudDate(u.createdAt||u.createdClientAt))+'</td><td>'+escapeHTML(cloudDate(u.lastLoginAt||u.lastLoginClientAt))+'</td></tr>').join('')+'</tbody></table></div></div><div class="section"><h2>Log de uso</h2><div class="table-wrap"><table><thead><tr><th>Fecha</th><th>Usuario</th><th>Evento</th><th>Detalle</th></tr></thead><tbody>'+logs.map(l=>'<tr><td>'+escapeHTML(cloudDate(l.createdAt||l.clientAt))+'</td><td>'+escapeHTML(l.displayName||l.email||'')+'</td><td>'+escapeHTML(l.eventType||'')+'</td><td>'+escapeHTML(Object.entries(l.detail||{}).map(([k,v])=>k+': '+v).join(' · '))+'</td></tr>').join('')+'</tbody></table></div></div></section>';document.getElementById('muBack').onclick=renderHome}catch(e){main.innerHTML='<section class="card"><h1>Administración</h1><p>'+escapeHTML(e?.message||String(e))+'</p></section>'}}
-async function authChanged(u){if(!u){MULTIUSER.user=null;MULTIUSER.role=null;MULTIUSER.viewAsUser=false;MULTIUSER.loginUid=null;userChrome();authGate();return}MULTIUSER.user=u;const p=await ensureProfile(u);MULTIUSER.role=p.role||(String(u.email||'').toLowerCase()===MULTIUSER.adminEmail?'admin':'user');await loadUserResults();authHide();userChrome();if(MULTIUSER.loginUid!==u.uid){MULTIUSER.loginUid=u.uid;usageLog('login')}renderHome()}
+async function authChanged(u){
+  if(!u){
+    MULTIUSER.user=null;
+    MULTIUSER.role=null;
+    MULTIUSER.viewAsUser=false;
+    MULTIUSER.loginUid=null;
+    userChrome();
+    authGate();
+    return;
+  }
+
+  MULTIUSER.user=u;
+
+  if(u.isAnonymous){
+    MULTIUSER.role='user';
+    loadAnonymousResults();
+    authHide();
+    userChrome();
+    MULTIUSER.loginUid=u.uid;
+    renderHome();
+    return;
+  }
+
+  const p=await ensureProfile(u);
+  MULTIUSER.role=p.role||(String(u.email||'').toLowerCase()===MULTIUSER.adminEmail?'admin':'user');
+  await loadUserResults();
+  authHide();
+  userChrome();
+  if(MULTIUSER.loginUid!==u.uid){
+    MULTIUSER.loginUid=u.uid;
+    usageLog('login');
+  }
+  renderHome();
+}
 function initAuth(){wrapApp();document.getElementById('adminBtn')?.style.setProperty('display','none');if(!fbReady()){authGate();return}try{if(!firebase.apps.length)firebase.initializeApp(window.ICTUS_FIREBASE_CONFIG);MULTIUSER.auth=firebase.auth();MULTIUSER.db=firebase.firestore();authGate('Comprobando sesión de Google…');MULTIUSER.auth.getRedirectResult().catch(()=>{}).finally(()=>MULTIUSER.auth.onAuthStateChanged(u=>authChanged(u).catch(e=>authGate('No se pudo cargar el perfil: '+(e?.message||e)))))}catch(e){authGate('No se pudo iniciar Firebase: '+(e?.message||e))}}
 initAuth();
