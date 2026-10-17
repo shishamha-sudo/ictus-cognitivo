@@ -272,3 +272,15 @@ tr:last-child td { border-bottom: 0; }
 .stimulus-photo{display:block;width:clamp(130px,18vw,210px);height:clamp(110px,15vw,175px);object-fit:contain;border-radius:14px;background:#fff}
 .preview-box .stimulus-photo{width:min(240px,70vw);height:185px}
 @media(max-width:640px){.photo-visual{min-width:112px!important;min-height:96px!important}.stimulus-photo{width:112px;height:96px;border-radius:12px}}
+
+/* topbar-logo-skin */
+.topbar .brand-mark{
+  width:44px !important;
+  height:44px !important;
+  border-radius:12px !important;
+  background:#fff url("logo.svg?v=3.0") center/contain no-repeat !important;
+  color:transparent !important;
+  font-size:0 !important;
+  box-shadow:none !important;
+  flex:0 0 44px;
+}
