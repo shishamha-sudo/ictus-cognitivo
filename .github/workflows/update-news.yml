@@ -1,0 +1,32 @@
+name: Update cognitive news
+
+on:
+  schedule:
+    - cron: '15 5 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Update news
+        run: python3 scripts/update_news.py
+
+      - name: Commit news
+        shell: bash
+        run: |
+          if git diff --quiet -- v3-preview/news.json; then
+            echo "No news changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add v3-preview/news.json
+          git commit -m "Actualiza news cognitivas"
+          git push
