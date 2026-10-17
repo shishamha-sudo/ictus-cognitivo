@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Entrenamiento cognitivo web con figuras, colores, palabras y seguimiento de resultados." />
+  <title>Entrenamiento cognitivo</title>
+  
+  <link rel="stylesheet" href="styles.css?v=3.0">
+<link rel="stylesheet" href="auth.css?v=3.0">
+<link rel="stylesheet" href="ram.css?v=3.0">
+
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <button id="homeBtn" class="brand" type="button" aria-label="Ir al inicio">
+        <span class="brand-mark" aria-hidden="true">◉</span>
+        <span>Entrenamiento cognitivo</span>
+      </button>
+      <div class="top-actions">
+        <span id="syncStatus" class="sync-status" title="Estado de sincronización">Local</span>
+        <button id="historyBtn" class="btn btn-ghost" type="button">Resultados</button>
+        <button id="adminBtn" class="btn btn-ghost" type="button">Contenido</button>
+      </div>
+    </header>
+
+    <main id="main" class="main"></main>
+
+    <footer class="footer">
+      <span>Herramienta de entrenamiento. No sustituye una valoración médica o neuropsicológica.</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <input id="importFile" type="file" accept="application/json,.json" hidden />
+
+  <script src="app-core.js?v=3.0"></script>
+<script src="app-main.js?v=3.0"></script>
+<script src="firebase-config.js?v=3.0"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script src="auth.js?v=3.0"></script>
+<script src="ram.js?v=3.0"></script>
+</body>
+</html>
