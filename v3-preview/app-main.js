@@ -71,14 +71,14 @@ function renderRound() {
   const modeText = s.mode === 'drag' ? 'Arrastra cada elemento hasta su pareja. También puedes pulsar uno y después el otro.' : 'Pulsa un elemento de la izquierda y después su pareja de la derecha.';
 
   main.innerHTML = `
-    <section class="test-header card">
+    <section class="test-header card compact-test-header">
       <div class="progress-row"><span>${escapeHTML(s.setName)}</span><span id="progressText">${s.matched} / ${s.total}</span></div>
       <div class="progress" aria-label="Progreso"><span id="progressBar" style="width:${(s.matched/s.total)*100}%"></span></div>
       <h1 class="instruction">Relaciona los elementos</h1>
       <p style="margin:0;color:var(--muted);font-size:17px">${escapeHTML(modeText)}</p>
     </section>
-    <section class="card section">
-      <div id="board" class="test-board">
+    <section class="card section compact-test-card">
+      <div id="board" class="test-board compact-test-board">
         <svg id="matchSvg" class="match-svg" aria-hidden="true"></svg>
         <p class="column-title">Figuras</p>
         <p class="column-title">Palabras</p>
@@ -93,7 +93,36 @@ function renderRound() {
 
   bindRoundInteractions();
   document.getElementById('quitBtn').addEventListener('click', renderHome);
+  fitTestBoardToViewport();
+  requestAnimationFrame(fitTestBoardToViewport);
+  window.addEventListener('resize', fitTestBoardToViewport, { once: true });
   window.addEventListener('resize', drawLines, { once: true });
+}
+
+
+function fitTestBoardToViewport() {
+  const board = document.getElementById('board');
+  if (!board || !state.session) return;
+  const rows = Math.max(1, getRoundPairs().length);
+  const rect = board.getBoundingClientRect();
+  const viewportH = window.innerHeight || document.documentElement.clientHeight || 800;
+
+  // Espacio inferior reservado para feedback, botón y margen de seguridad.
+  const reservedBottom = viewportH <= 720 ? 72 : 88;
+  const titleHeight = viewportH <= 720 ? 22 : 26;
+  const gap = viewportH <= 720 ? 6 : 8;
+  const available = Math.max(260, viewportH - rect.top - reservedBottom - titleHeight);
+  const calculated = Math.floor((available - gap * (rows - 1)) / rows);
+  const rowHeight = Math.max(62, Math.min(112, calculated));
+  const visualHeight = Math.max(50, Math.floor(rowHeight * 0.72));
+  const visualWidth = Math.max(72, Math.min(150, Math.floor(visualHeight * 1.45)));
+
+  board.style.setProperty('--fit-row-h', rowHeight + 'px');
+  board.style.setProperty('--fit-visual-h', visualHeight + 'px');
+  board.style.setProperty('--fit-visual-w', visualWidth + 'px');
+  board.style.setProperty('--fit-gap', gap + 'px');
+
+  requestAnimationFrame(drawLines);
 }
 
 function bindRoundInteractions() {

@@ -416,3 +416,79 @@ tr:last-child td { border-bottom: 0; }
   .match-card{border-radius:14px!important}
   .card.section{padding:10px}
 }
+
+
+/* v3.4 - ejercicio ajustado al alto real de la pantalla */
+.compact-test-header{
+  padding:12px 16px!important;
+  gap:6px!important;
+  margin-bottom:10px!important;
+  border-radius:16px!important;
+}
+.compact-test-header .progress{
+  height:10px;
+}
+.compact-test-header .instruction{
+  margin:2px 0 0!important;
+  font-size:clamp(22px,2.6vw,30px)!important;
+}
+.compact-test-header p{
+  font-size:clamp(14px,1.6vw,17px)!important;
+  line-height:1.25!important;
+}
+.compact-test-card{
+  margin-top:0!important;
+  padding:10px 16px 8px!important;
+  border-radius:16px!important;
+}
+.compact-test-board{
+  row-gap:var(--fit-gap,8px)!important;
+  column-gap:clamp(18px,4vw,48px)!important;
+  grid-auto-rows:var(--fit-row-h,96px)!important;
+}
+.compact-test-board>.column-title{
+  margin:0!important;
+  min-height:20px!important;
+  line-height:20px!important;
+}
+.compact-test-board>.match-card{
+  min-height:var(--fit-row-h,96px)!important;
+  height:var(--fit-row-h,96px)!important;
+  padding:6px 10px!important;
+  border-radius:14px!important;
+}
+.compact-test-board .svg-visual,
+.compact-test-board .photo-visual{
+  width:var(--fit-visual-w,130px)!important;
+  min-width:var(--fit-visual-w,130px)!important;
+  height:var(--fit-visual-h,82px)!important;
+  min-height:var(--fit-visual-h,82px)!important;
+}
+.compact-test-card .feedback{
+  min-height:24px!important;
+  height:24px!important;
+  margin-top:4px!important;
+  font-size:16px!important;
+}
+.compact-test-card .actions{
+  margin-top:4px!important;
+}
+.compact-test-card #quitBtn{
+  min-height:36px!important;
+  padding:6px 14px!important;
+  font-size:14px!important;
+}
+@media(max-height:760px){
+  .compact-test-header{padding:8px 12px!important;margin-bottom:6px!important}
+  .compact-test-header .instruction{font-size:20px!important}
+  .compact-test-header p{font-size:13px!important}
+  .compact-test-card{padding:7px 10px 6px!important}
+  .compact-test-board>.column-title{font-size:12px!important}
+  .compact-test-card .feedback{min-height:20px!important;height:20px!important}
+  .compact-test-card #quitBtn{min-height:32px!important;padding:4px 12px!important}
+}
+@media(max-width:640px){
+  .compact-test-card{padding-left:8px!important;padding-right:8px!important}
+  .compact-test-board{column-gap:8px!important}
+  .compact-test-board>.match-card{padding:4px 6px!important}
+}
