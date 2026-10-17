@@ -1,6 +1,111 @@
 {
-  "updatedAt": "2026-10-17T19:20:07.012Z",
-  "items": [],
-  "sources": [],
+  "updatedAt": "2026-10-17T19:15:00Z",
+  "items": [
+    {
+      "id": "esj-umbrella-review-2026",
+      "source": "European Stroke Journal",
+      "title": "Interventions to reduce cognitive decline post-stroke: an umbrella review",
+      "description": "Revisión paraguas de intervenciones farmacológicas y no farmacológicas para el deterioro cognitivo posterior al ictus. Identifica señales prometedoras, aunque advierte que la calidad global de la evidencia sigue siendo limitada.",
+      "url": "https://academic.oup.com/esj/article/11/10/aakag122/8931694",
+      "publishedAt": "2026-10-16T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Ictus",
+        "Rehabilitación",
+        "Cognición"
+      ]
+    },
+    {
+      "id": "pubmed-mindlenses-2026",
+      "source": "PubMed",
+      "title": "Enhancing poststroke cognitive recovery with Mindlenses, a combined prism adaptation and serious game device",
+      "description": "Ensayo aleatorizado sobre una combinación de adaptación prismática y entrenamiento digital. El estudio analiza cambios en negligencia, lenguaje, memoria y funciones ejecutivas tras ictus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42759357/",
+      "publishedAt": "2026-09-18T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Ictus",
+        "Rehabilitación",
+        "Tecnología",
+        "Memoria"
+      ]
+    },
+    {
+      "id": "springer-connectome-2026",
+      "source": "Discover Neuroscience",
+      "title": "Connectome guided approaches to cognitive rehabilitation after stroke",
+      "description": "Revisión sobre enfoques de rehabilitación cognitiva guiados por conectividad cerebral tras ictus, con foco en cómo los mapas de redes pueden orientar intervenciones más personalizadas.",
+      "url": "https://link.springer.com/article/10.1186/s13064-026-00332-y",
+      "publishedAt": "2026-09-16T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Ictus",
+        "Neurociencia",
+        "Rehabilitación"
+      ]
+    },
+    {
+      "id": "frontiers-psci-2026",
+      "source": "Frontiers in Neuroscience / PubMed",
+      "title": "Interventions for post-stroke cognitive impairment: neuroplastic mechanisms, comparative efficacy, and multimodal approaches",
+      "description": "Revisión sistemática de intervenciones para deterioro cognitivo postictus que compara estimulación cerebral, rehabilitación cognitiva, realidad virtual y entrenamiento asistido por ordenador.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42780258/",
+      "publishedAt": "2026-09-09T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Ictus",
+        "Rehabilitación",
+        "Neuroplasticidad"
+      ]
+    },
+    {
+      "id": "nature-wm-meta-2026",
+      "source": "npj Digital Medicine",
+      "title": "Meta-analysis of computerised working memory training",
+      "description": "Metaanálisis sobre entrenamiento computerizado de memoria de trabajo, sus ganancias conductuales, parámetros de entrenamiento, mecanismos de transferencia y correlatos neurales.",
+      "url": "https://www.nature.com/articles/s41746-026-02478-9",
+      "publishedAt": "2026-03-12T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Memoria",
+        "Tecnología",
+        "Neurociencia"
+      ]
+    },
+    {
+      "id": "smart-d-2026",
+      "source": "Neuropsychological Rehabilitation",
+      "title": "Feasibility of an online cognitive intervention: SMART-d",
+      "description": "Estudio de viabilidad de una intervención cognitiva digital orientada a memoria y atención que combina entrenamiento directo con estrategias metacognitivas y modificación de conducta.",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/09602011.2026.2623957",
+      "publishedAt": "2026-02-23T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Memoria",
+        "Atención",
+        "Rehabilitación",
+        "Tecnología"
+      ]
+    },
+    {
+      "id": "virgen-rocio-ictus-2026",
+      "source": "Junta de Andalucía",
+      "title": "Rehabilitación temprana de pacientes en el nuevo gimnasio de la Unidad de Ictus del Virgen del Rocío",
+      "description": "Información sobre nuevas instalaciones de neurorehabilitación temprana integradas en una Unidad de Ictus, dentro de un enfoque que combina recuperación física, psicológica y social.",
+      "url": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/servicios/actualidad/noticias/detalle/652441.html",
+      "publishedAt": "2026-03-25T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
+      ]
+    }
+  ],
+  "sources": [
+    "Google News RSS",
+    "PubMed",
+    "European Stroke Journal",
+    "npj Digital Medicine"
+  ],
   "errors": []
-}\n
+}
