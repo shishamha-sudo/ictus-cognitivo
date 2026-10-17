@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.5",
+  "version": "4.6",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Añade News cognitivas con actualización diaria automática, tabla paginada, búsqueda y filtros entre fechas."
-}\n
+  "notes": "Corrige regresión de SVG y Memoria, deja Inicio solo con entrenamientos y añade control automático de integridad."
+}

@@ -179,7 +179,7 @@ function showRamStimulus(index) {
       <div class="ram-stage">
         ${ramState.type==='words'
           ? '<div class="ram-word-stimulus">'+escapeHTML(item)+'</div>'
-          : '<svg class="ram-photo-stimulus ram-svg-stimulus" viewBox="0 0 160 120" role="img" aria-label="'+escapeHTML(item.label)+'"><use href="assets/figuras.svg#'+escapeHTML(item.id)+'"></use></svg>'
+          : '<svg class="ram-photo-stimulus ram-svg-stimulus" viewBox="0 0 160 120" role="img" aria-label="'+escapeHTML(item.label)+'"><use href="'+escapeHTML(item.id)+'"></use></svg>'
       </div>
       <p style="text-align:center;color:var(--muted)">Memoriza la secuencia.</p>
     </section>`;
@@ -201,7 +201,7 @@ function renderRamRecall() {
       <div id="ramChoices" class="ram-choice-grid">
         ${choices.map((item,i)=>ramState.type==='words'
           ? '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item)+'" type="button">'+escapeHTML(item)+'</button>'
-          : '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item.id)+'" type="button"><svg class="ram-choice-svg" viewBox="0 0 160 120" aria-hidden="true"><use href="assets/figuras.svg#'+escapeHTML(item.id)+'"></use></svg><span>'+escapeHTML(item.label)+'</span></button>'
+          : '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item.id)+'" type="button"><svg class="ram-choice-svg" viewBox="0 0 160 120" aria-hidden="true"><use href="'+escapeHTML(item.id)+'"></use></svg><span>'+escapeHTML(item.label)+'</span></button>'
         ).join('')}
       </div>
       <div class="actions" style="justify-content:center"><button id="ramAbort" class="btn btn-ghost" type="button">Finalizar</button></div>

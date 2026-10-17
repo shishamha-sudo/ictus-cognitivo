@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.5', date: '—' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.6', date: '—' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -54,7 +54,7 @@ const FIGURE_PHOTOS = [
   id,
   visual:{
     type:'svg',
-    value:`assets/figuras.svg#${id}`,
+    value:`#${id}`,
     alt:`Figura de ${target.toLowerCase()}`,
     builtin:true
   },

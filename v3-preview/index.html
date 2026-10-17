@@ -7,15 +7,142 @@
   <meta name="description" content="Entrenamiento cognitivo web con figuras, colores, palabras y seguimiento de resultados." />
   <title>Entrenamiento cognitivo</title>
   
-  <link rel="stylesheet" href="styles.css?v=4.4">
+  <link rel="stylesheet" href="styles.css?v=4.6">
 <link rel="stylesheet" href="auth.css?v=4.4">
 <link rel="stylesheet" href="ram.css?v=4.4">
 <link rel="stylesheet" href="working-memory.css?v=4.4">
 <link rel="stylesheet" href="evidence.css?v=4.4">
-<link rel="stylesheet" href="pagination.css?v=4.4">\n<link rel="stylesheet" href="news.css?v=4.5">
+<link rel="stylesheet" href="pagination.css?v=4.4">
+<link rel="stylesheet" href="news.css?v=4.5">
 
 </head>
 <body>
+  <svg id="figureSprite" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+  <style>
+    .bg{fill:#fff}
+    .icon{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:82px;text-anchor:middle;dominant-baseline:middle}
+  </style>
+  <symbol id="manzana" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🍎</text>
+  </symbol>
+  <symbol id="perro" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐶</text>
+  </symbol>
+  <symbol id="casa" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🏠</text>
+  </symbol>
+  <symbol id="coche" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🚗</text>
+  </symbol>
+  <symbol id="gato" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐱</text>
+  </symbol>
+  <symbol id="platano" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🍌</text>
+  </symbol>
+  <symbol id="telefono" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">📱</text>
+  </symbol>
+  <symbol id="llave" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🔑</text>
+  </symbol>
+  <symbol id="reloj" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">⌚</text>
+  </symbol>
+  <symbol id="libro" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">📘</text>
+  </symbol>
+  <symbol id="pelota" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">⚽</text>
+  </symbol>
+  <symbol id="flor" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🌷</text>
+  </symbol>
+  <symbol id="taza" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">☕</text>
+  </symbol>
+  <symbol id="pan" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🥖</text>
+  </symbol>
+  <symbol id="bicicleta" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🚲</text>
+  </symbol>
+  <symbol id="avion" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">✈️</text>
+  </symbol>
+  <symbol id="sol" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">☀️</text>
+  </symbol>
+  <symbol id="luna" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🌙</text>
+  </symbol>
+  <symbol id="pez" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐟</text>
+  </symbol>
+  <symbol id="pajaro" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐦</text>
+  </symbol>
+  <symbol id="zapato" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">👟</text>
+  </symbol>
+  <symbol id="camisa" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">👕</text>
+  </symbol>
+  <symbol id="paraguas" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">☂️</text>
+  </symbol>
+  <symbol id="regalo" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🎁</text>
+  </symbol>
+  <symbol id="arbol" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🌳</text>
+  </symbol>
+  <symbol id="queso" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🧀</text>
+  </symbol>
+  <symbol id="leche" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🥛</text>
+  </symbol>
+  <symbol id="cuchara" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🥄</text>
+  </symbol>
+  <symbol id="puerta" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🚪</text>
+  </symbol>
+  <symbol id="cama" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🛏️</text>
+  </symbol>
+</svg>
   <div id="app" class="app-shell">
     <header class="topbar">
       <button id="homeBtn" class="brand" type="button" aria-label="Ir al inicio">
@@ -40,16 +167,17 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <input id="importFile" type="file" accept="application/json,.json" hidden />
 
-  <script src="app-core.js?v=4.5"></script>
+  <script src="app-core.js?v=4.6"></script>
 <script src="app-main.js?v=4.4"></script>
 <script src="firebase-config.js?v=4.4"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script src="auth.js?v=4.4"></script>
-<script src="ram.js?v=4.4"></script>
-<script src="working-memory.js?v=4.4"></script>
+<script src="ram.js?v=4.6"></script>
+<script src="working-memory.js?v=4.6"></script>
 <script src="evidence.js?v=4.4"></script>
-<script src="pagination.js?v=4.4"></script>\n<script src="news.js?v=4.5"></script>
+<script src="pagination.js?v=4.4"></script>
+<script src="news.js?v=4.6"></script>
 </body>
 </html>
