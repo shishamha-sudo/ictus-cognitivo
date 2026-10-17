@@ -1,0 +1,381 @@
+'use strict';
+
+const STORAGE_CONTENT = 'cognitivo.content.v1';
+const STORAGE_RESULTS = 'cognitivo.results.v1';
+const STORAGE_SETTINGS = 'cognitivo.settings.v1';
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '3.0', date: '17/10/2026' };
+
+const palette = {
+  rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
+  morado: '#7e57c2', rosa: '#e8659a', negro: '#222222', gris: '#87909a', marron: '#8b5e3c',
+  turquesa: '#2bbbad', celeste: '#5bb9e8', lima: '#8bc34a', beige: '#d6c5a3', granate: '#8e244d',
+  violeta: '#9c4dcc', coral: '#f26b5e', mostaza: '#c89b2c', oliva: '#7a8b3a', azulmarino: '#253b80'
+};
+
+function uid(prefix = 'id') {
+  return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`;
+}
+
+
+function complexFigureData(index) {
+  const variants = [
+    ['Rectángulo con diagonales, círculo y cruz', '<rect x="30" y="28" width="140" height="96"/><line x1="30" y1="28" x2="170" y2="124"/><line x1="170" y1="28" x2="30" y2="124"/><circle cx="100" cy="76" r="19"/><line x1="100" y1="10" x2="100" y2="142"/><line x1="16" y1="76" x2="184" y2="76"/>'],
+    ['Dos cuadrados superpuestos y triángulo superior', '<rect x="30" y="42" width="88" height="82"/><rect x="80" y="30" width="88" height="82"/><path d="M58 42 L100 8 L142 42 Z"/><line x1="30" y1="124" x2="168" y2="30"/>'],
+    ['Rombo central con círculo y líneas laterales', '<path d="M100 20 L158 76 L100 132 L42 76 Z"/><circle cx="100" cy="76" r="22"/><line x1="10" y1="40" x2="70" y2="76"/><line x1="130" y1="76" x2="190" y2="112"/><line x1="100" y1="20" x2="100" y2="132"/>'],
+    ['Figura escalonada con dos círculos', '<path d="M24 118 L24 72 L64 72 L64 38 L112 38 L112 18 L172 18 L172 118 Z"/><circle cx="52" cy="96" r="13"/><circle cx="138" cy="64" r="17"/><line x1="24" y1="118" x2="172" y2="18"/>'],
+    ['Hexágono con cruz interior y triángulo', '<path d="M55 24 L145 24 L180 76 L145 128 L55 128 L20 76 Z"/><line x1="100" y1="24" x2="100" y2="128"/><line x1="20" y1="76" x2="180" y2="76"/><path d="M72 101 L100 50 L128 101 Z"/>']
+  ];
+  const [label, body] = variants[index % variants.length];
+  const extra = index >= 5 ? `<circle cx="${30 + (index * 17) % 140}" cy="${24 + (index * 23) % 100}" r="${5 + index % 9}" fill="none"/>` : '';
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="180" viewBox="0 0 200 150"><rect width="200" height="150" fill="white"/><g fill="none" stroke="#17212b" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">${body}${extra}</g></svg>`;
+  return { value: `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`, label: `${label}${index >= 5 ? ` · variante ${index + 1}` : ''}` };
+}
+
+const complexPairs = Array.from({ length: 20 }, (_, i) => {
+  const figure = complexFigureData(i);
+  return {
+    id: `figura-compleja-${i + 1}`,
+    visual: { type: 'image', value: figure.value, alt: `Figura geométrica compleja ${i + 1}` },
+    target: figure.label.toUpperCase()
+  };
+});
+
+const defaultContent = {
+  version: 1,
+  sets: [
+    {
+      id: 'figuras-palabras',
+      name: 'Figuras y palabras',
+      short: 'Figura ↔ palabra',
+      description: 'Relaciona cada figura con la palabra que le corresponde.',
+      icon: '🍎',
+      pairs: [
+        ['manzana','🍎','MANZANA'],['perro','🐶','PERRO'],['casa','🏠','CASA'],['coche','🚗','COCHE'],
+        ['gato','🐱','GATO'],['platano','🍌','PLÁTANO'],['telefono','📱','TELÉFONO'],['llave','🔑','LLAVE'],
+        ['reloj','⌚','RELOJ'],['libro','📘','LIBRO'],['pelota','⚽','PELOTA'],['flor','🌷','FLOR'],
+        ['taza','☕','TAZA'],['pan','🥖','PAN'],['bicicleta','🚲','BICICLETA'],['avion','✈️','AVIÓN'],
+        ['sol','☀️','SOL'],['luna','🌙','LUNA'],['pez','🐟','PEZ'],['pajaro','🐦','PÁJARO'],
+        ['zapato','👟','ZAPATO'],['camisa','👕','CAMISETA'],['paraguas','☂️','PARAGUAS'],['regalo','🎁','REGALO'],
+        ['arbol','🌳','ÁRBOL'],['queso','🧀','QUESO'],['leche','🥛','LECHE'],['cuchara','🥄','CUCHARA'],
+        ['puerta','🚪','PUERTA'],['cama','🛏️','CAMA']
+      ].map(([id, value, target]) => ({ id, visual: { type: 'emoji', value }, target }))
+    },
+    {
+      id: 'colores-palabras',
+      name: 'Colores y palabras',
+      short: 'Color ↔ palabra',
+      description: 'Relaciona cada muestra de color con su nombre.',
+      icon: '🎨',
+      pairs: Object.entries(palette).map(([id, value]) => ({ id, visual: { type: 'color', value }, target: id === 'marron' ? 'MARRÓN' : id === 'azulmarino' ? 'AZUL MARINO' : id.toUpperCase() }))
+    },
+    {
+      id: 'formas-colores',
+      name: 'Formas, colores y palabras',
+      short: 'Forma + color ↔ descripción',
+      description: 'Relaciona la figura de color con su descripción completa.',
+      icon: '🔷',
+      pairs: [
+        ['circulo-rojo','circle','#e53935','CÍRCULO ROJO'],['circulo-azul','circle','#1e66f5','CÍRCULO AZUL'],
+        ['circulo-verde','circle','#2e9d57','CÍRCULO VERDE'],['circulo-amarillo','circle','#f2c94c','CÍRCULO AMARILLO'],
+        ['cuadrado-rojo','square','#e53935','CUADRADO ROJO'],['cuadrado-azul','square','#1e66f5','CUADRADO AZUL'],
+        ['cuadrado-verde','square','#2e9d57','CUADRADO VERDE'],['cuadrado-amarillo','square','#f2c94c','CUADRADO AMARILLO'],
+        ['triangulo-rojo','triangle','#e53935','TRIÁNGULO ROJO'],['triangulo-azul','triangle','#1e66f5','TRIÁNGULO AZUL'],
+        ['triangulo-verde','triangle','#2e9d57','TRIÁNGULO VERDE'],['triangulo-amarillo','triangle','#f2c94c','TRIÁNGULO AMARILLO'],
+        ['rombo-rojo','diamond','#e53935','ROMBO ROJO'],['rombo-azul','diamond','#1e66f5','ROMBO AZUL'],
+        ['rombo-verde','diamond','#2e9d57','ROMBO VERDE'],['rombo-amarillo','diamond','#f2c94c','ROMBO AMARILLO'],
+        ['rectangulo-rojo','rectangle','#e53935','RECTÁNGULO ROJO'],['rectangulo-azul','rectangle','#1e66f5','RECTÁNGULO AZUL'],
+        ['rectangulo-verde','rectangle','#2e9d57','RECTÁNGULO VERDE'],['rectangulo-amarillo','rectangle','#f2c94c','RECTÁNGULO AMARILLO']
+      ].map(([id, shape, color, target]) => ({ id, visual: { type: 'shape', shape, color }, target }))
+    },
+    {
+      id: 'figuras-complejas',
+      name: 'Figuras complejas',
+      short: 'Discriminación visual compleja',
+      description: 'Relaciona una figura geométrica compleja con su descripción. Estímulos originales para entrenamiento; no sustituye una prueba neuropsicológica validada.',
+      icon: '🧩',
+      pairs: complexPairs
+    }
+  ]
+};
+
+function ensureBuiltinSets(content) {
+  const safe = content && Array.isArray(content.sets) ? content : structuredClone(defaultContent);
+  const existing = new Set(safe.sets.map(set => set.id));
+  for (const builtIn of defaultContent.sets) {
+    if (!existing.has(builtIn.id)) safe.sets.push(structuredClone(builtIn));
+  }
+  safe.version = Math.max(Number(safe.version || 1), 2);
+  return safe;
+}
+
+const state = {
+  content: ensureBuiltinSets(loadJSON(STORAGE_CONTENT, defaultContent)),
+  results: loadJSON(STORAGE_RESULTS, []),
+  settings: loadJSON(STORAGE_SETTINGS, { roundSize: 4 }),
+  selectedSetId: null,
+  config: { count: 10, mode: 'link' },
+  session: null,
+  editing: null,
+  screen: 'home'
+};
+
+const main = document.getElementById('main');
+const toastEl = document.getElementById('toast');
+const importFile = document.getElementById('importFile');
+const syncStatusEl = document.getElementById('syncStatus');
+const syncState = { server: false, contentVersion: 0, resultsVersion: 0, appVersion: 0, checking: false, versionInfo: { local: APP_FALLBACK_META, status: 'pending', updateAvailable: false } };
+
+
+function loadJSON(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : structuredClone(fallback);
+  } catch {
+    return structuredClone(fallback);
+  }
+}
+
+function setSyncStatus(text, kind = '') {
+  if (!syncStatusEl) return;
+  syncStatusEl.textContent = text;
+  syncStatusEl.className = `sync-status ${kind}`.trim();
+}
+
+async function putServer(path, payload) {
+  const response = await fetch(path, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    cache: 'no-store'
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return response.json();
+}
+
+function saveContent() {
+  localStorage.setItem(STORAGE_CONTENT, JSON.stringify(state.content));
+  if (!syncState.server) return;
+  setSyncStatus('Guardando…', 'working');
+  putServer('/api/content', state.content)
+    .then(info => {
+      syncState.contentVersion = info.version || syncState.contentVersion;
+      setSyncStatus('Sincronizado', 'ok');
+    })
+    .catch(() => setSyncStatus('Sin conexión', 'bad'));
+}
+
+function saveResults() {
+  localStorage.setItem(STORAGE_RESULTS, JSON.stringify(state.results));
+  if (!syncState.server) return;
+  putServer('/api/results', state.results)
+    .then(info => { syncState.resultsVersion = info.version || syncState.resultsVersion; })
+    .catch(() => setSyncStatus('Sin conexión', 'bad'));
+}
+function saveSettings() { localStorage.setItem(STORAGE_SETTINGS, JSON.stringify(state.settings)); }
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>'"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','"':'&quot;'}[ch]));
+}
+
+function toast(message) {
+  toastEl.textContent = message;
+  toastEl.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => toastEl.classList.remove('show'), 1800);
+}
+
+function shuffle(items) {
+  const a = [...items];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function formatDuration(ms) {
+  const total = Math.max(0, Math.round(ms / 1000));
+  const min = Math.floor(total / 60);
+  const sec = total % 60;
+  return `${min}:${String(sec).padStart(2, '0')}`;
+}
+
+function formatDate(iso) {
+  return new Intl.DateTimeFormat('es-ES', { dateStyle: 'short', timeStyle: 'short' }).format(new Date(iso));
+}
+
+function visualHTML(visual) {
+  if (!visual) return '<span class="visual">?</span>';
+  if (visual.type === 'emoji') return `<span class="visual" aria-hidden="true">${escapeHTML(visual.value)}</span>`;
+  if (visual.type === 'color') return `<span class="visual"><span class="color-swatch" style="background:${escapeHTML(visual.value)}" aria-label="Muestra de color"></span></span>`;
+  if (visual.type === 'shape') {
+    const shape = escapeHTML(visual.shape || 'circle');
+    const color = escapeHTML(visual.color || '#333333');
+    if (shape === 'triangle') return `<span class="visual"><span class="shape triangle" style="color:${color}"></span></span>`;
+    return `<span class="visual"><span class="shape ${shape}" style="background:${color}"></span></span>`;
+  }
+  if (visual.type === 'image') return `<span class="visual photo-visual"><img class="stimulus-photo" src="${escapeHTML(visual.value)}" alt="${escapeHTML(visual.alt || 'Imagen')}" loading="lazy" referrerpolicy="no-referrer"></span>`;
+  if (visual.type === 'text') return `<span class="word">${escapeHTML(visual.value)}</span>`;
+  return `<span class="visual">${escapeHTML(visual.value || '?')}</span>`;
+}
+
+function resultTrendSVG(results, compact = false) {
+  const recent = [...results].slice(0, compact ? 8 : 12).reverse();
+  if (!recent.length) return '<div class="chart-empty">Aún no hay sesiones para mostrar.</div>';
+  const w = compact ? 640 : 760;
+  const h = compact ? 180 : 250;
+  const pad = compact ? 28 : 42;
+  const plotW = w - pad * 2;
+  const plotH = h - pad * 2;
+  const x = i => recent.length === 1 ? w/2 : pad + (i * plotW / (recent.length - 1));
+  const y = score => pad + ((100 - score) * plotH / 100);
+  const points = recent.map((r,i) => `${x(i)},${y(r.score)}`).join(' ');
+  const circles = recent.map((r,i) => `<circle cx="${x(i)}" cy="${y(r.score)}" r="${compact ? 5 : 6}"><title>${escapeHTML(r.setName)}: ${r.score}% · ${escapeHTML(formatDate(r.date))}</title></circle>`).join('');
+  const labels = compact ? '' : recent.map((r,i) => `<text x="${x(i)}" y="${h - 12}" text-anchor="middle">${new Date(r.date).toLocaleDateString('es-ES',{day:'2-digit',month:'2-digit'})}</text>`).join('');
+  return `<svg class="result-chart-svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="Evolución de puntuación de los últimos tests">
+    <g class="chart-grid">
+      <line x1="${pad}" y1="${y(100)}" x2="${w-pad}" y2="${y(100)}"></line>
+      <line x1="${pad}" y1="${y(75)}" x2="${w-pad}" y2="${y(75)}"></line>
+      <line x1="${pad}" y1="${y(50)}" x2="${w-pad}" y2="${y(50)}"></line>
+      <line x1="${pad}" y1="${y(25)}" x2="${w-pad}" y2="${y(25)}"></line>
+      <line x1="${pad}" y1="${y(0)}" x2="${w-pad}" y2="${y(0)}"></line>
+    </g>
+    <g class="chart-axis-labels"><text x="6" y="${y(100)+4}">100%</text><text x="12" y="${y(50)+4}">50%</text><text x="22" y="${y(0)+4}">0%</text>${labels}</g>
+    <polyline class="chart-line" points="${points}" fill="none"></polyline>
+    <g class="chart-points">${circles}</g>
+  </svg>`;
+}
+
+function resultByExerciseBars(results) {
+  if (!results.length) return '<div class="chart-empty">Aún no hay resultados por ejercicio.</div>';
+  const grouped = new Map();
+  results.forEach(r => {
+    const g = grouped.get(r.setName) || { sum: 0, count: 0, latest: r };
+    g.sum += Number(r.score || 0); g.count += 1;
+    if (new Date(r.date) > new Date(g.latest.date)) g.latest = r;
+    grouped.set(r.setName, g);
+  });
+  return [...grouped.entries()].map(([name,g]) => {
+    const avg = Math.round(g.sum/g.count);
+    return `<div class="result-bar-row">
+      <div class="result-bar-label"><strong>${escapeHTML(name)}</strong><span>${g.count} ${g.count === 1 ? 'test' : 'tests'} · último ${g.latest.score}%</span></div>
+      <div class="result-bar-track" aria-label="Media ${avg}%"><span style="width:${avg}%"></span></div>
+      <strong class="result-bar-value">${avg}%</strong>
+    </div>`;
+  }).join('');
+}
+
+function recentResultsHTML(results, limit = 4) {
+  if (!results.length) return '<div class="empty compact-empty">Todavía no hay tests realizados.</div>';
+  return results.slice(0, limit).map(r => `
+    <article class="recent-result">
+      <div class="recent-result-icon">${escapeHTML(state.content.sets.find(s=>s.id===r.setId)?.icon || '✓')}</div>
+      <div class="recent-result-main"><strong>${escapeHTML(r.setName)}</strong><span>${escapeHTML(formatDate(r.date))} · ${formatDuration(r.durationMs)}</span></div>
+      <div class="score-pill">${r.score}%</div>
+    </article>`).join('');
+}
+
+function versionPanelHTML() {
+  const info = syncState.versionInfo || {};
+  const local = info.local || APP_FALLBACK_META;
+  const version = escapeHTML(local.version || APP_FALLBACK_META.version);
+  const date = escapeHTML(local.date || APP_FALLBACK_META.date);
+  let statusClass = 'version-neutral';
+  let statusText = 'Comprobando actualizaciones...';
+  let action = '<button id="checkVersionBtn" class="btn btn-ghost version-action" type="button">Comprobar</button>';
+
+  if (info.status === 'ok' && info.updateAvailable) {
+    const remote = info.remote || {};
+    statusClass = 'version-update';
+    statusText = `Nueva versi\u00f3n v${escapeHTML(remote.version || '')} disponible${remote.date ? ` \u00b7 ${escapeHTML(remote.date)}` : ''}`;
+    if (info.downloadUrl || info.releaseUrl) {
+      action = `<a class="btn btn-primary version-action" href="${escapeHTML(info.downloadUrl || info.releaseUrl)}" target="_blank" rel="noopener">Ver actualizaci\u00f3n</a>`;
+    }
+  } else if (info.status === 'ok') {
+    statusClass = 'version-current';
+    statusText = 'Aplicaci\u00f3n actualizada';
+  } else if (info.status === 'unavailable') {
+    statusText = 'No se pudo comprobar GitHub. La aplicaci\u00f3n puede usarse con normalidad.';
+  } else if (info.status === 'not_configured') {
+    statusText = 'Canal de actualizaciones pendiente de configurar.';
+  }
+
+  return `<div class="home-version-panel ${statusClass}">
+    <div class="home-version-main">
+      <span class="home-version-label">Versi\u00f3n instalada</span>
+      <strong>v${version} <span>\u00b7 ${date}</span></strong>
+      <small>${statusText}</small>
+    </div>
+    ${action}
+  </div>`;
+}
+
+function renderHome() {
+  state.screen = 'home';
+  state.session = null;
+  const cards = state.content.sets.map(set => {
+    const setResults = state.results.filter(r => r.setId === set.id);
+    const last = setResults[0];
+    return `
+    <article class="app-option-card">
+      <div class="app-option-icon" aria-hidden="true">${escapeHTML(set.icon || '◉')}</div>
+      <div class="app-option-copy">
+        <span class="app-option-kicker">${set.pairs.length} elementos</span>
+        <h3>${escapeHTML(set.name)}</h3>
+        <p>${escapeHTML(set.description)}</p>
+        ${last ? `<div class="app-last-result">Último resultado: <strong>${last.score}%</strong></div>` : '<div class="app-last-result muted">Sin resultados todavía</div>'}
+      </div>
+      <button class="btn btn-primary btn-large app-option-action" data-start-set="${escapeHTML(set.id)}" type="button">Entrar</button>
+    </article>`;
+  }).join('');
+
+  const avg = state.results.length ? Math.round(state.results.reduce((sum,r)=>sum + Number(r.score||0),0)/state.results.length) : 0;
+  const last = state.results[0];
+
+  main.innerHTML = `
+    <section class="home-intro">
+      <div>
+        <span class="home-eyebrow">Entrenamiento cognitivo</span>
+        <h1>¿Qué quieres trabajar hoy?</h1>
+        <p>Elige una actividad. Los botones son grandes y funcionan con ratón o pantalla táctil.</p>
+      </div>
+      <button id="homeResultsBtn" class="home-results-button" type="button">
+        <span class="home-results-icon">▥</span>
+        <span><strong>Resultados</strong><small>${state.results.length ? `${state.results.length} tests guardados` : 'Sin tests todavía'}</small></span>
+      </button>
+    </section>
+
+    ${versionPanelHTML()}
+
+    <section class="section">
+      <div class="app-options-grid">${cards}</div>
+    </section>
+
+    <section class="section home-dashboard">
+      <div class="section-title"><div><h2>Actividad y evolución</h2><p>Vista rápida de los tests realizados y sus resultados.</p></div><button id="seeAllResultsBtn" class="btn btn-secondary" type="button">Ver todos los resultados</button></div>
+      <div class="dashboard-grid">
+        <article class="card dashboard-summary">
+          <div class="mini-stats">
+            <div><strong>${state.results.length}</strong><span>Tests</span></div>
+            <div><strong>${state.results.length ? avg + '%' : '—'}</strong><span>Media</span></div>
+            <div><strong>${last ? last.score + '%' : '—'}</strong><span>Último</span></div>
+          </div>
+          <h3>Evolución reciente</h3>
+          ${resultTrendSVG(state.results, true)}
+        </article>
+        <article class="card dashboard-recent">
+          <h3>Últimos tests</h3>
+          <div class="recent-results-list">${recentResultsHTML(state.results, 4)}</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section card local-info">
+      <div><strong>${syncState.server ? 'Servidor local conectado' : 'Modo web'}</strong><p class="small">${syncState.server ? 'Los cambios de ejercicios y resultados se sincronizan automáticamente con las tablets conectadas.' : 'Esta primera prueba web guarda ejercicios personalizados y resultados en este navegador. No se suben datos personales a GitHub.'}</p></div>
+    </section>`;
+
+  main.querySelectorAll('[data-start-set]').forEach(btn => btn.addEventListener('click', () => renderConfig(btn.dataset.startSet)));
+  document.getElementById('homeResultsBtn')?.addEventListener('click', renderHistory);
+  document.getElementById('seeAllResultsBtn')?.addEventListener('click', renderHistory);
+  document.getElementById('checkVersionBtn')?.addEventListener('click', () => checkAppVersion(true));
+}
