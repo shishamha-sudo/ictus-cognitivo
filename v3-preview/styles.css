@@ -312,3 +312,42 @@ tr:last-child td { border-bottom: 0; }
 
 /* v3.1.1 - imágenes SVG estables */
 .stimulus-photo{object-fit:contain!important;padding:8px;background:#fff}
+
+
+/* v3.2 - tablero simétrico y estímulos SVG */
+.test-board{
+  align-items:stretch!important;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  grid-template-rows:auto!important;
+  grid-auto-rows:minmax(142px,1fr)!important;
+}
+.test-board>.column-title{
+  align-self:end;
+  min-height:auto;
+}
+.test-board>.match-card{
+  height:100%;
+  min-height:142px;
+}
+.svg-visual,.photo-visual{
+  width:clamp(170px,22vw,260px);
+  min-width:clamp(170px,22vw,260px)!important;
+  height:clamp(130px,18vw,205px);
+  min-height:clamp(130px,18vw,205px)!important;
+}
+.stimulus-svg,.stimulus-photo{
+  display:block;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+}
+@media(max-width:640px){
+  .test-board{grid-auto-rows:minmax(118px,1fr)!important}
+  .test-board>.match-card{min-height:118px}
+  .svg-visual,.photo-visual{
+    width:145px;
+    min-width:145px!important;
+    height:108px;
+    min-height:108px!important;
+  }
+}

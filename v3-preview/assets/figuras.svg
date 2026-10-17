@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg{fill:#fff}
+    .icon{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:82px;text-anchor:middle;dominant-baseline:middle}
+  </style>
+  <symbol id="manzana" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🍎</text>
+  </symbol>
+  <symbol id="perro" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐶</text>
+  </symbol>
+  <symbol id="casa" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🏠</text>
+  </symbol>
+  <symbol id="coche" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🚗</text>
+  </symbol>
+  <symbol id="gato" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐱</text>
+  </symbol>
+  <symbol id="platano" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🍌</text>
+  </symbol>
+  <symbol id="telefono" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">📱</text>
+  </symbol>
+  <symbol id="llave" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🔑</text>
+  </symbol>
+  <symbol id="reloj" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">⌚</text>
+  </symbol>
+  <symbol id="libro" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">📘</text>
+  </symbol>
+  <symbol id="pelota" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">⚽</text>
+  </symbol>
+  <symbol id="flor" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🌷</text>
+  </symbol>
+  <symbol id="taza" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">☕</text>
+  </symbol>
+  <symbol id="pan" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🥖</text>
+  </symbol>
+  <symbol id="bicicleta" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🚲</text>
+  </symbol>
+  <symbol id="avion" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">✈️</text>
+  </symbol>
+  <symbol id="sol" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">☀️</text>
+  </symbol>
+  <symbol id="luna" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🌙</text>
+  </symbol>
+  <symbol id="pez" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐟</text>
+  </symbol>
+  <symbol id="pajaro" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🐦</text>
+  </symbol>
+  <symbol id="zapato" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">👟</text>
+  </symbol>
+  <symbol id="camisa" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">👕</text>
+  </symbol>
+  <symbol id="paraguas" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">☂️</text>
+  </symbol>
+  <symbol id="regalo" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🎁</text>
+  </symbol>
+  <symbol id="arbol" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🌳</text>
+  </symbol>
+  <symbol id="queso" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🧀</text>
+  </symbol>
+  <symbol id="leche" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🥛</text>
+  </symbol>
+  <symbol id="cuchara" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🥄</text>
+  </symbol>
+  <symbol id="puerta" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🚪</text>
+  </symbol>
+  <symbol id="cama" viewBox="0 0 160 120">
+    <rect class="bg" width="160" height="120" rx="16"/>
+    <text class="icon" x="80" y="62">🛏️</text>
+  </symbol>
+</svg>

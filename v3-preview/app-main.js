@@ -80,14 +80,12 @@ function renderRound() {
     <section class="card section">
       <div id="board" class="test-board">
         <svg id="matchSvg" class="match-svg" aria-hidden="true"></svg>
-        <div class="column">
-          <p class="column-title">Figuras</p>
-          ${roundPairs.map(p => `<button class="match-card source" type="button" data-source="${escapeHTML(p.id)}" aria-label="Seleccionar elemento">${visualHTML(p.visual)}</button>`).join('')}
-        </div>
-        <div class="column">
-          <p class="column-title">Palabras</p>
-          ${targets.map(p => `<button class="match-card target" type="button" data-target="${escapeHTML(p.id)}"><span class="word">${escapeHTML(p.target)}</span></button>`).join('')}
-        </div>
+        <p class="column-title">Figuras</p>
+        <p class="column-title">Palabras</p>
+        ${roundPairs.map((p,i) => `
+          <button class="match-card source" type="button" data-source="${escapeHTML(p.id)}" aria-label="Seleccionar elemento">${visualHTML(p.visual)}</button>
+          <button class="match-card target" type="button" data-target="${escapeHTML(targets[i].id)}"><span class="word">${escapeHTML(targets[i].target)}</span></button>
+        `).join('')}
       </div>
       <div id="feedback" class="feedback" aria-live="polite"></div>
       <div class="actions" style="justify-content:center"><button id="quitBtn" class="btn btn-ghost" type="button">Finalizar sin guardar</button></div>
@@ -430,7 +428,7 @@ function renderAdminSet(setId, editId = null) {
               <option value="emoji" ${type==='emoji'?'selected':''}>Emoji / símbolo</option>
               <option value="color" ${type==='color'?'selected':''}>Color</option>
               <option value="shape" ${type==='shape'?'selected':''}>Forma geométrica</option>
-              <option value="image" ${type==='image'?'selected':''}>Imagen propia</option>
+              <option value="image" ${type==='image'?'selected':''}>Imagen SVG propia</option>
               <option value="text" ${type==='text'?'selected':''}>Texto</option>
             </select>
           </div>
@@ -476,7 +474,7 @@ function renderVisualFields(type, visual) {
     wrap.innerHTML = `<div class="form-grid"><div class="field"><label for="shapeType">Forma</label><select id="shapeType"><option value="circle">Círculo</option><option value="square">Cuadrado</option><option value="triangle">Triángulo</option><option value="diamond">Rombo</option><option value="rectangle">Rectángulo</option></select></div><div class="field"><label for="shapeColor">Color</label><input id="shapeColor" type="color" value="${escapeHTML(visual?.color || '#e53935')}" /></div></div>`;
     document.getElementById('shapeType').value = visual?.shape || 'circle';
   } else if (type === 'image') {
-    wrap.innerHTML = `<div class="field"><label for="imageFile">Imagen</label><input id="imageFile" type="file" accept="image/*" ${visual?.value ? '' : 'required'} /><input id="existingImage" type="hidden" value="${escapeHTML(visual?.value || '')}" /></div><div class="field" style="margin-top:10px"><label for="imageAlt">Descripción accesible</label><input id="imageAlt" value="${escapeHTML(visual?.alt || '')}" placeholder="Ej.: foto de una taza" /></div>`;
+    wrap.innerHTML = `<div class="field"><label for="imageFile">Imagen SVG</label><input id="imageFile" type="file" accept=".svg,image/svg+xml" ${visual?.value ? '' : 'required'} /><input id="existingImage" type="hidden" value="${escapeHTML(visual?.value || '')}" /></div><div class="field" style="margin-top:10px"><label for="imageAlt">Descripción accesible</label><input id="imageAlt" value="${escapeHTML(visual?.alt || '')}" placeholder="Ej.: foto de una taza" /></div>`;
   }
   const update = () => updatePreview(type);
   wrap.querySelectorAll('input,select').forEach(el => el.addEventListener('input', update));
@@ -509,6 +507,10 @@ async function saveContentItem(event, setId) {
   let visual;
   if (type === 'image') {
     const file = document.getElementById('imageFile').files[0];
+    if (file && file.type !== 'image/svg+xml' && !file.name.toLowerCase().endsWith('.svg')) {
+      toast('Selecciona un archivo SVG.');
+      return;
+    }
     const existing = document.getElementById('existingImage').value;
     const value = file ? await fileToDataURL(file) : existing;
     if (!value) { toast('Selecciona una imagen.'); return; }

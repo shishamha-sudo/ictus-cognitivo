@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '3.1', date: '17/10/2026 20:30' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '3.2', date: '17/10/2026 20:30' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -42,20 +42,20 @@ const complexPairs = Array.from({ length: 20 }, (_, i) => {
 
 
 const FIGURE_PHOTOS = [
-  ['manzana','1F34E','MANZANA'],['perro','1F415','PERRO'],['casa','1F3E0','CASA'],['coche','1F697','COCHE'],
-  ['gato','1F408','GATO'],['platano','1F34C','PLÁTANO'],['telefono','1F4F1','TELÉFONO'],['llave','1F511','LLAVE'],
-  ['reloj','231A','RELOJ'],['libro','1F4D8','LIBRO'],['pelota','26BD','PELOTA'],['flor','1F337','FLOR'],
-  ['taza','2615','TAZA'],['pan','1F956','PAN'],['bicicleta','1F6B2','BICICLETA'],['avion','2708','AVIÓN'],
-  ['sol','2600','SOL'],['luna','1F319','LUNA'],['pez','1F41F','PEZ'],['pajaro','1F426','PÁJARO'],
-  ['zapato','1F45F','ZAPATO'],['camisa','1F455','CAMISETA'],['paraguas','2602','PARAGUAS'],['regalo','1F381','REGALO'],
-  ['arbol','1F333','ÁRBOL'],['queso','1F9C0','QUESO'],['leche','1F95B','LECHE'],['cuchara','1F944','CUCHARA'],
-  ['puerta','1F6AA','PUERTA'],['cama','1F6CF','CAMA']
-].map(([id,code,target]) => ({
+  ['manzana','MANZANA'],['perro','PERRO'],['casa','CASA'],['coche','COCHE'],
+  ['gato','GATO'],['platano','PLÁTANO'],['telefono','TELÉFONO'],['llave','LLAVE'],
+  ['reloj','RELOJ'],['libro','LIBRO'],['pelota','PELOTA'],['flor','FLOR'],
+  ['taza','TAZA'],['pan','PAN'],['bicicleta','BICICLETA'],['avion','AVIÓN'],
+  ['sol','SOL'],['luna','LUNA'],['pez','PEZ'],['pajaro','PÁJARO'],
+  ['zapato','ZAPATO'],['camisa','CAMISETA'],['paraguas','PARAGUAS'],['regalo','REGALO'],
+  ['arbol','ÁRBOL'],['queso','QUESO'],['leche','LECHE'],['cuchara','CUCHARA'],
+  ['puerta','PUERTA'],['cama','CAMA']
+].map(([id,target]) => ({
   id,
   visual:{
-    type:'image',
-    value:`https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/${code}.svg`,
-    alt:`Imagen de ${target.toLowerCase()}`,
+    type:'svg',
+    value:`assets/figuras.svg#${id}`,
+    alt:`Figura de ${target.toLowerCase()}`,
     builtin:true
   },
   target
@@ -127,7 +127,9 @@ function ensureBuiltinSets(content) {
       if (!replacement) return pair;
       const value = String(pair?.visual?.value || '');
       const isOldBuiltin = pair?.visual?.type === 'emoji'
+        || pair?.visual?.type === 'svg'
         || value.includes('loremflickr.com/')
+        || value.includes('openmoji')
         || pair?.visual?.builtin === true;
       return isOldBuiltin ? structuredClone(replacement) : pair;
     });
@@ -238,11 +240,20 @@ function visualHTML(visual) {
   if (visual.type === 'emoji') return `<span class="visual" aria-hidden="true">${escapeHTML(visual.value)}</span>`;
   if (visual.type === 'color') return `<span class="visual"><span class="color-swatch" style="background:${escapeHTML(visual.value)}" aria-label="Muestra de color"></span></span>`;
   if (visual.type === 'shape') {
-    const shape = escapeHTML(visual.shape || 'circle');
+    const shape = visual.shape || 'circle';
     const color = escapeHTML(visual.color || '#333333');
-    if (shape === 'triangle') return `<span class="visual"><span class="shape triangle" style="color:${color}"></span></span>`;
-    return `<span class="visual"><span class="shape ${shape}" style="background:${color}"></span></span>`;
+    const body = shape === 'triangle'
+      ? `<polygon points="50,8 92,88 8,88" fill="${color}"/>`
+      : shape === 'diamond'
+        ? `<polygon points="50,7 93,50 50,93 7,50" fill="${color}"/>`
+        : shape === 'rectangle'
+          ? `<rect x="8" y="24" width="84" height="52" rx="7" fill="${color}"/>`
+          : shape === 'square'
+            ? `<rect x="12" y="12" width="76" height="76" rx="8" fill="${color}"/>`
+            : `<circle cx="50" cy="50" r="40" fill="${color}"/>`;
+    return `<span class="visual svg-visual"><svg class="stimulus-svg" viewBox="0 0 100 100" role="img" aria-label="Forma geométrica">${body}</svg></span>`;
   }
+  if (visual.type === 'svg') return `<span class="visual svg-visual"><svg class="stimulus-svg" viewBox="0 0 160 120" role="img" aria-label="${escapeHTML(visual.alt || 'Figura')}"><use href="${escapeHTML(visual.value)}"></use></svg></span>`;
   if (visual.type === 'image') return `<span class="visual photo-visual"><img class="stimulus-photo" src="${escapeHTML(visual.value)}" alt="${escapeHTML(visual.alt || 'Imagen')}" loading="lazy" referrerpolicy="no-referrer"></span>`;
   if (visual.type === 'text') return `<span class="word">${escapeHTML(visual.value)}</span>`;
   return `<span class="visual">${escapeHTML(visual.value || '?')}</span>`;
