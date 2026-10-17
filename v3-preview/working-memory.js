@@ -20,7 +20,7 @@ function wmSample(a,n){ return wmShuffle(a).slice(0,n); }
 function wmTask(id){ return WM_TASKS.find(t=>t.id===id); }
 
 function wmSvgUse(id, cls='wm-object-svg'){
-  return '<svg class="'+cls+'" viewBox="0 0 160 120" aria-hidden="true"><use href="assets/figuras.svg#'+escapeHTML(id)+'"></use></svg>';
+  return '<svg class="'+cls+'" viewBox="0 0 160 120" aria-hidden="true"><use href="'+escapeHTML(id)+'"></use></svg>';
 }
 
 function wmSave(taskId, score, extra={}){

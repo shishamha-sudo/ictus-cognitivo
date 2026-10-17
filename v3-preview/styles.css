@@ -512,3 +512,11 @@ tr:last-child td { border-bottom: 0; }
 .admin-view-banner{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;padding:9px 14px;background:#fff8dc;border-bottom:1px solid #ead391;color:#725700;font-size:13px}
 .admin-view-banner strong{font-weight:900}
 .admin-view-banner span{color:#725700}
+
+
+/* v4.7 - Inicio solo con entrenamientos y memoria agrupada */
+.home-training-group{margin-top:18px}
+.memory-training-group{margin-top:26px}
+.memory-task-card{border-color:#d7def2}
+.memory-task-icon{font-weight:900}
+.training-home-intro{padding-bottom:0}

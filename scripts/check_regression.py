@@ -25,3 +25,16 @@ if errors:
     print("\n".join(errors))
     sys.exit(1)
 print("Regression checks OK")
+
+# Inicio: solo opciones de entrenamiento; estadísticas quedan en Mi progreso.
+core = Path("v3-preview/app-core.js").read_text(encoding="utf-8")
+home_start = core.find("function renderHome()")
+home = core[home_start:]
+for forbidden in ["home-dashboard","Actividad y evolución","homeResultsBtn","seeAllResultsBtn","versionPanelHTML()"]:
+    if forbidden in home:
+        print("Regresión en Inicio; contenido no permitido:", forbidden)
+        sys.exit(1)
+for required in ["RAM · Palabras","RAM · Objetos","Memoria de trabajo","data-memory-action"]:
+    if required not in home:
+        print("Regresión en Inicio; falta:", required)
+        sys.exit(1)

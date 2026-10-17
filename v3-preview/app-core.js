@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.6', date: '—' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.7', date: '—' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -349,69 +349,80 @@ function versionPanelHTML() {
 function renderHome() {
   state.screen = 'home';
   state.session = null;
-  const cards = state.content.sets.map(set => {
-    const setResults = state.results.filter(r => r.setId === set.id);
-    const last = setResults[0];
-    return `
+
+  const trainingCards = state.content.sets.map(set => `
     <article class="app-option-card">
       <div class="app-option-icon" aria-hidden="true">${escapeHTML(set.icon || '◉')}</div>
       <div class="app-option-copy">
         <span class="app-option-kicker">${set.pairs.length} elementos</span>
         <h3>${escapeHTML(set.name)}</h3>
         <p>${escapeHTML(set.description)}</p>
-        ${last ? `<div class="app-last-result">Último resultado: <strong>${last.score}%</strong></div>` : '<div class="app-last-result muted">Sin resultados todavía</div>'}
       </div>
       <button class="btn btn-primary btn-large app-option-action" data-start-set="${escapeHTML(set.id)}" type="button">Entrar</button>
-    </article>`;
-  }).join('');
+    </article>`).join('');
 
-  const avg = state.results.length ? Math.round(state.results.reduce((sum,r)=>sum + Number(r.score||0),0)/state.results.length) : 0;
-  const last = state.results[0];
+  const memoryCards = [
+    { icon:'Aa', name:'RAM · Palabras', desc:'Memoriza una secuencia de palabras y reprodúcela en orden directo o inverso.', action:'ram', task:'words' },
+    { icon:'⌂', name:'RAM · Objetos', desc:'Memoriza una secuencia de objetos cotidianos y reconstruye el orden.', action:'ram', task:'objects' },
+    ...(typeof WM_TASKS !== 'undefined' ? WM_TASKS.map(t => ({
+      icon:t.icon, name:t.name, desc:t.desc, action:'wm', task:t.id
+    })) : [])
+  ];
+
+  const memoryHTML = memoryCards.map(item => `
+    <article class="app-option-card memory-task-card">
+      <div class="app-option-icon memory-task-icon" aria-hidden="true">${escapeHTML(item.icon)}</div>
+      <div class="app-option-copy">
+        <span class="app-option-kicker">Memoria de trabajo</span>
+        <h3>${escapeHTML(item.name)}</h3>
+        <p>${escapeHTML(item.desc)}</p>
+      </div>
+      <button class="btn btn-primary btn-large app-option-action"
+        data-memory-action="${item.action}"
+        data-memory-task="${escapeHTML(item.task)}"
+        type="button">Entrar</button>
+    </article>`).join('');
 
   main.innerHTML = `
-    <section class="home-intro">
+    <section class="home-intro training-home-intro">
       <div>
         <span class="home-eyebrow">Entrenamiento cognitivo</span>
         <h1>¿Qué quieres trabajar hoy?</h1>
-        <p>Elige una actividad. Los botones son grandes y funcionan con ratón o pantalla táctil.</p>
-      </div>
-      <button id="homeResultsBtn" class="home-results-button" type="button">
-        <span class="home-results-icon">▥</span>
-        <span><strong>Resultados</strong><small>${state.results.length ? `${state.results.length} tests guardados` : 'Sin tests todavía'}</small></span>
-      </button>
-    </section>
-
-    ${versionPanelHTML()}
-
-    <section class="section">
-      <div class="app-options-grid">${cards}</div>
-    </section>
-
-    <section class="section home-dashboard">
-      <div class="section-title"><div><h2>Actividad y evolución</h2><p>Vista rápida de los tests realizados y sus resultados.</p></div><button id="seeAllResultsBtn" class="btn btn-secondary" type="button">Ver todos los resultados</button></div>
-      <div class="dashboard-grid">
-        <article class="card dashboard-summary">
-          <div class="mini-stats">
-            <div><strong>${state.results.length}</strong><span>Tests</span></div>
-            <div><strong>${state.results.length ? avg + '%' : '—'}</strong><span>Media</span></div>
-            <div><strong>${last ? last.score + '%' : '—'}</strong><span>Último</span></div>
-          </div>
-          <h3>Evolución reciente</h3>
-          ${resultTrendSVG(state.results, true)}
-        </article>
-        <article class="card dashboard-recent">
-          <h3>Últimos tests</h3>
-          <div class="recent-results-list">${recentResultsHTML(state.results, 4)}</div>
-        </article>
+        <p>Selecciona una actividad de entrenamiento.</p>
       </div>
     </section>
 
-    <section class="section card local-info">
-      <div><strong>${syncState.server ? 'Servidor local conectado' : 'Modo web'}</strong><p class="small">${syncState.server ? 'Los cambios de ejercicios y resultados se sincronizan automáticamente con las tablets conectadas.' : 'Esta primera prueba web guarda ejercicios personalizados y resultados en este navegador. No se suben datos personales a GitHub.'}</p></div>
+    <section class="section home-training-group">
+      <div class="section-title">
+        <div>
+          <h2>Asociación y discriminación</h2>
+          <p>Ejercicios visuales, semánticos y de asociación.</p>
+        </div>
+      </div>
+      <div class="app-options-grid">${trainingCards}</div>
+    </section>
+
+    <section class="section home-training-group memory-training-group">
+      <div class="section-title">
+        <div>
+          <h2>🧠 Memoria de trabajo</h2>
+          <p>RAM, secuencias, localización, actualización mental y atención dividida.</p>
+        </div>
+      </div>
+      <div class="app-options-grid memory-options-grid">${memoryHTML}</div>
     </section>`;
 
-  main.querySelectorAll('[data-start-set]').forEach(btn => btn.addEventListener('click', () => renderConfig(btn.dataset.startSet)));
-  document.getElementById('homeResultsBtn')?.addEventListener('click', renderHistory);
-  document.getElementById('seeAllResultsBtn')?.addEventListener('click', renderHistory);
+  main.querySelectorAll('[data-start-set]').forEach(btn =>
+    btn.addEventListener('click', () => renderConfig(btn.dataset.startSet))
+  );
 
+  main.querySelectorAll('[data-memory-action]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.memoryAction;
+      const task = btn.dataset.memoryTask;
+      if (action === 'ram' && typeof renderRamConfig === 'function') renderRamConfig(task);
+      if (action === 'wm' && typeof renderWmConfig === 'function') renderWmConfig(task);
+    });
+  });
 }
+
