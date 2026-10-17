@@ -7,12 +7,12 @@
   <meta name="description" content="Entrenamiento cognitivo web con figuras, colores, palabras y seguimiento de resultados." />
   <title>Entrenamiento cognitivo</title>
   
-  <link rel="stylesheet" href="styles.css?v=4.2">
-<link rel="stylesheet" href="auth.css?v=4.2">
-<link rel="stylesheet" href="ram.css?v=4.2">
-<link rel="stylesheet" href="working-memory.css?v=4.2">
-<link rel="stylesheet" href="evidence.css?v=4.2">
-<link rel="stylesheet" href="pagination.css?v=4.3">
+  <link rel="stylesheet" href="styles.css?v=4.4">
+<link rel="stylesheet" href="auth.css?v=4.4">
+<link rel="stylesheet" href="ram.css?v=4.4">
+<link rel="stylesheet" href="working-memory.css?v=4.4">
+<link rel="stylesheet" href="evidence.css?v=4.4">
+<link rel="stylesheet" href="pagination.css?v=4.4">
 
 </head>
 <body>
@@ -24,6 +24,7 @@
       </button>
       <div class="top-actions">
         <span id="syncStatus" class="sync-status" title="Estado de sincronización">Local</span>
+        <button id="ramTopBtn" class="btn btn-secondary nav-btn" type="button" title="Memoria de trabajo: ver todas las actividades" aria-label="Memoria de trabajo"><span class="nav-icon" aria-hidden="true">🧠</span><span class="nav-label">Memoria</span></button>
         <button id="historyBtn" class="btn btn-ghost nav-btn" type="button" title="Resultados e histórico de ejercicios" aria-label="Resultados"><span class="nav-icon" aria-hidden="true">▥</span><span class="nav-label">Resultados</span></button>
         <button id="adminBtn" class="btn btn-ghost nav-btn" type="button" title="Contenido: solo administrador" aria-label="Contenido" style="display:none" disabled><span class="nav-icon" aria-hidden="true">✎</span><span class="nav-label">Contenido</span></button>
       </div>
@@ -39,16 +40,16 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <input id="importFile" type="file" accept="application/json,.json" hidden />
 
-  <script src="app-core.js?v=4.3"></script>
-<script src="app-main.js?v=4.2"></script>
-<script src="firebase-config.js?v=4.2"></script>
+  <script src="app-core.js?v=4.4"></script>
+<script src="app-main.js?v=4.4"></script>
+<script src="firebase-config.js?v=4.4"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
-<script src="auth.js?v=4.2"></script>
-<script src="ram.js?v=4.2"></script>
-<script src="working-memory.js?v=4.2"></script>
-<script src="evidence.js?v=4.2"></script>
-<script src="pagination.js?v=4.3"></script>
+<script src="auth.js?v=4.4"></script>
+<script src="ram.js?v=4.4"></script>
+<script src="working-memory.js?v=4.4"></script>
+<script src="evidence.js?v=4.4"></script>
+<script src="pagination.js?v=4.4"></script>
 </body>
 </html>

@@ -347,31 +347,7 @@ async function wmDual(token){
   if(wmAlive(token))wmFinish('dual',wmState.correct/wmState.total*100,{correct:wmState.correct,total:wmState.total,summary:'Aciertos combinados: '+wmState.correct+' de '+wmState.total+'.'});
 }
 
-function injectWmHomeCard(){
-  if(document.getElementById('wmHomeEntry')) return;
-  const ram=document.getElementById('ramHomeEntry');
-  const dash=document.querySelector('.home-dashboard');
-  const anchor=ram||dash;
-  if(!anchor||!anchor.parentNode) return;
-  const section=document.createElement('section');
-  section.id='wmHomeEntry';section.className='section';
-  section.innerHTML=`
-    <div class="ram-hero wm-home-hero">
-      <span class="home-eyebrow">Memoria de trabajo</span>
-      <h2>9 actividades de memoria</h2>
-      <p>RAM de palabras y objetos, Corsi, sonidos, N-back, orden temporal, localización, actualización mental y doble tarea.</p>
-      <div class="actions"><button id="wmHomeOpenBtn" class="btn btn-primary btn-large" type="button" title="Abrir todas las actividades de memoria de trabajo"><span aria-hidden="true">🧠</span> Abrir memoria de trabajo</button></div>
-    </div>`;
-  anchor.parentNode.insertBefore(section,anchor.nextSibling);
-  document.getElementById('wmHomeOpenBtn')?.addEventListener('click',renderWmPanel);
-}
+function injectWmHomeCard(){ return; }
 
-function bootWorkingMemory(){
-  if(typeof renderHome==='function' && !renderHome._wmWrapped){
-    const original=renderHome;
-    const wrapped=function(){const out=original.apply(this,arguments);setTimeout(injectWmHomeCard,0);return out;};
-    wrapped._wmWrapped=true;renderHome=wrapped;
-  }
-  setTimeout(injectWmHomeCard,350);
-}
+function bootWorkingMemory(){ setTimeout(()=>{ if(typeof installRamEntryPoints==='function') installRamEntryPoints(); },100); }
 bootWorkingMemory();
