@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "3.5",
+  "version": "4.0",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Fecha y hora de versión generadas automáticamente en cada despliegue de GitHub Pages."
+  "notes": "Añade siete nuevas tareas de memoria de trabajo: Corsi, sonidos, N-back, orden temporal, localización, actualización mental y doble tarea."
 }
