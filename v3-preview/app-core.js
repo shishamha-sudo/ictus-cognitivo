@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '3.0', date: '17/10/2026' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '3.1', date: '17/10/2026 20:30' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -42,20 +42,21 @@ const complexPairs = Array.from({ length: 20 }, (_, i) => {
 
 
 const FIGURE_PHOTOS = [
-  ['manzana','apple',1,'MANZANA'],['perro','dog',2,'PERRO'],['casa','house',3,'CASA'],['coche','car',4,'COCHE'],
-  ['gato','cat',5,'GATO'],['platano','banana',6,'PLÁTANO'],['telefono','smartphone',7,'TELÉFONO'],['llave','keys',8,'LLAVE'],
-  ['reloj','watch',9,'RELOJ'],['libro','book',10,'LIBRO'],['pelota','football',11,'PELOTA'],['flor','flower',12,'FLOR'],
-  ['taza','cup',13,'TAZA'],['pan','bread',14,'PAN'],['bicicleta','bicycle',15,'BICICLETA'],['avion','airplane',16,'AVIÓN'],
-  ['sol','sun',17,'SOL'],['luna','moon',18,'LUNA'],['pez','fish',19,'PEZ'],['pajaro','bird',20,'PÁJARO'],
-  ['zapato','shoe',21,'ZAPATO'],['camisa','shirt',22,'CAMISETA'],['paraguas','umbrella',23,'PARAGUAS'],['regalo','gift',24,'REGALO'],
-  ['arbol','tree',25,'ÁRBOL'],['queso','cheese',26,'QUESO'],['leche','milk',27,'LECHE'],['cuchara','spoon',28,'CUCHARA'],
-  ['puerta','door',29,'PUERTA'],['cama','bed',30,'CAMA']
-].map(([id,keyword,lock,target]) => ({
+  ['manzana','1F34E','MANZANA'],['perro','1F415','PERRO'],['casa','1F3E0','CASA'],['coche','1F697','COCHE'],
+  ['gato','1F408','GATO'],['platano','1F34C','PLÁTANO'],['telefono','1F4F1','TELÉFONO'],['llave','1F511','LLAVE'],
+  ['reloj','231A','RELOJ'],['libro','1F4D8','LIBRO'],['pelota','26BD','PELOTA'],['flor','1F337','FLOR'],
+  ['taza','2615','TAZA'],['pan','1F956','PAN'],['bicicleta','1F6B2','BICICLETA'],['avion','2708','AVIÓN'],
+  ['sol','2600','SOL'],['luna','1F319','LUNA'],['pez','1F41F','PEZ'],['pajaro','1F426','PÁJARO'],
+  ['zapato','1F45F','ZAPATO'],['camisa','1F455','CAMISETA'],['paraguas','2602','PARAGUAS'],['regalo','1F381','REGALO'],
+  ['arbol','1F333','ÁRBOL'],['queso','1F9C0','QUESO'],['leche','1F95B','LECHE'],['cuchara','1F944','CUCHARA'],
+  ['puerta','1F6AA','PUERTA'],['cama','1F6CF','CAMA']
+].map(([id,code,target]) => ({
   id,
   visual:{
     type:'image',
-    value:`https://loremflickr.com/420/320/${keyword}?lock=${lock}`,
-    alt:`Fotografía de ${target.toLowerCase()}`
+    value:`https://raw.githubusercontent.com/hfg-gmuend/openmoji/master/color/svg/${code}.svg`,
+    alt:`Imagen de ${target.toLowerCase()}`,
+    builtin:true
   },
   target
 }));
@@ -122,9 +123,13 @@ function ensureBuiltinSets(content) {
   if (figures) {
     const photoById = new Map(FIGURE_PHOTOS.map(pair => [pair.id, pair]));
     figures.pairs = figures.pairs.map(pair => {
-      if (pair?.visual?.type !== 'emoji') return pair;
       const replacement = photoById.get(pair.id);
-      return replacement ? structuredClone(replacement) : pair;
+      if (!replacement) return pair;
+      const value = String(pair?.visual?.value || '');
+      const isOldBuiltin = pair?.visual?.type === 'emoji'
+        || value.includes('loremflickr.com/')
+        || pair?.visual?.builtin === true;
+      return isOldBuiltin ? structuredClone(replacement) : pair;
     });
   }
 

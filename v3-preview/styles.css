@@ -308,3 +308,7 @@ tr:last-child td { border-bottom: 0; }
   .stimulus-photo{width:145px;height:112px}
   .app-option-icon{width:68px;height:68px;font-size:40px}
 }
+
+
+/* v3.1.1 - imágenes SVG estables */
+.stimulus-photo{object-fit:contain!important;padding:8px;background:#fff}
