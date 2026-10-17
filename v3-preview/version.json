@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.2",
+  "version": "4.3",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Agrupa todas las actividades de memoria de trabajo, añade iconos y tooltips de navegación y refuerza edición de contenido solo para administrador."
+  "notes": "Paginación global para todos los listados, selector de registros por página y filtros avanzados del log por fechas, usuario y tipo de test."
 }
