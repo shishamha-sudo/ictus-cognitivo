@@ -21,3 +21,8 @@
 .ram-progress { display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:14px; }
 .ram-result-score { font-size:clamp(54px,10vw,96px); font-weight:950; color:var(--accent); line-height:1; margin:10px 0; }
 @media(max-width:720px){ .ram-grid{grid-template-columns:1fr;} .ram-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .ram-choice img{height:105px;} .ram-stage{min-height:300px;padding:12px;} }
+
+
+/* v4.2 - RAM con SVG local */
+.ram-svg-stimulus{display:block;width:min(260px,52vw);height:min(210px,30vh);margin:auto}
+.ram-choice-svg{display:block;width:86px;height:66px;margin:0 auto 4px}

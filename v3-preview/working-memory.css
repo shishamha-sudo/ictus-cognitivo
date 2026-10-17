@@ -13,3 +13,8 @@
 .wm-digit{font-size:clamp(74px,14vw,140px);font-weight:900;line-height:1.1;margin:20px}.wm-number-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:560px;margin:14px auto}.wm-mini-result,.wm-result{text-align:center}
 @media(max-width:760px){.wm-grid{grid-template-columns:1fr}.wm-card{grid-template-columns:52px 1fr}.wm-card>.btn{grid-column:1/-1}.wm-object-grid{grid-template-columns:repeat(3,1fr)}.wm-object-btn{height:96px}}
 @media(max-height:760px){.wm-stage-card{padding:12px}.wm-corsi-grid,.wm-location-grid{width:min(390px,72vh);gap:7px;margin:8px auto}.wm-big-object{height:145px}.wm-object-btn{height:82px}.wm-digit{margin:8px}.wm-listening{padding:12px}.wm-stage-card h1{margin:6px 0;font-size:24px}}
+
+
+/* v4.2 - iconografía agrupada */
+.wm-card-icon{font-family:inherit;font-size:30px}
+.wm-hero h1{margin-bottom:8px}

@@ -7,14 +7,14 @@ const RAM_WORDS = [
 ];
 
 const RAM_HOME_OBJECTS = [
-  {id:'keys', label:'LLAVES', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Light%20bulb%20and%20keys%20on%20table.jpg'},
-  {id:'lamp', label:'LÁMPARA', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Wooden%20Antique%20Table%20Lamp.jpg'},
-  {id:'chair', label:'SILLA', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Folding%20chair%20and%20piano%20lamp.jpg'},
-  {id:'jug', label:'JARRA', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Big%20jug.jpg'},
-  {id:'hangers', label:'PERCHAS', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Clothes%20hangers-20090430-jhansonxi.jpg'},
-  {id:'glass', label:'VASO', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Copo%20(1-07-03-000-05367-00-00-01),%20Acervo%20do%20Museu%20Paulista%20da%20USP.jpg'},
-  {id:'bowl', label:'CUENCO', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Bowl%20with%20Handles%20Weitling%20Fleischmann.JPG'},
-  {id:'paper', label:'PAPEL', url:'https://commons.wikimedia.org/wiki/Special:Redirect/file/Butterbrotpapier.jpg'}
+  {id:'llave', label:'LLAVE'},
+  {id:'puerta', label:'PUERTA'},
+  {id:'cama', label:'CAMA'},
+  {id:'taza', label:'TAZA'},
+  {id:'libro', label:'LIBRO'},
+  {id:'reloj', label:'RELOJ'},
+  {id:'telefono', label:'TELÉFONO'},
+  {id:'cuchara', label:'CUCHARA'}
 ];
 
 const ramState = {
@@ -45,46 +45,20 @@ function ramLog(eventType, detail={}) {
 function installRamEntryPoints() {
   if (document.getElementById('ramTopBtn')) return;
   const actions = document.querySelector('.top-actions');
-  if (actions) {
-    const btn = document.createElement('button');
-    btn.id='ramTopBtn';
-    btn.type='button';
-    btn.className='btn btn-secondary';
-    btn.textContent='RAM';
-    btn.addEventListener('click', renderRamPanel);
-    const history = document.getElementById('historyBtn');
-    actions.insertBefore(btn, history || actions.firstChild);
-  }
-
-  if (typeof renderHome === 'function' && !renderHome._ramWrapped) {
-    const original = renderHome;
-    const wrapped = function() {
-      const out = original.apply(this, arguments);
-      setTimeout(injectRamHomeCard, 0);
-      return out;
-    };
-    wrapped._ramWrapped = true;
-    renderHome = wrapped;
-  }
+  if (!actions) return;
+  const btn = document.createElement('button');
+  btn.id='ramTopBtn';
+  btn.type='button';
+  btn.className='btn btn-secondary nav-btn';
+  btn.title='Memoria de trabajo: ver todas las actividades';
+  btn.setAttribute('aria-label','Memoria de trabajo');
+  btn.innerHTML='<span class="nav-icon" aria-hidden="true">🧠</span><span class="nav-label">Memoria</span>';
+  btn.addEventListener('click', () => typeof renderWmPanel === 'function' ? renderWmPanel() : renderRamPanel());
+  const history = document.getElementById('historyBtn');
+  actions.insertBefore(btn, history || actions.firstChild);
 }
 
-function injectRamHomeCard() {
-  if (document.getElementById('ramHomeEntry')) return;
-  const dashboard = document.querySelector('.home-dashboard');
-  if (!dashboard) return;
-  const section = document.createElement('section');
-  section.id='ramHomeEntry';
-  section.className='section ram-entry';
-  section.innerHTML=`
-    <div class="ram-hero">
-      <span class="home-eyebrow">Memoria de trabajo</span>
-      <h2 style="margin:5px 0 8px;font-size:clamp(26px,4vw,38px)">Tareas RAM</h2>
-      <p style="margin:0;color:var(--muted);font-size:17px">Entrena secuencias de palabras y objetos cotidianos en orden directo o inverso.</p>
-      <div class="actions"><button id="ramHomeOpenBtn" class="btn btn-primary btn-large" type="button">Abrir RAM</button></div>
-    </div>`;
-  dashboard.parentNode.insertBefore(section, dashboard);
-  document.getElementById('ramHomeOpenBtn')?.addEventListener('click', renderRamPanel);
-}
+function injectRamHomeCard() { return; }
 
 function renderRamPanel() {
   state.screen='ram';
@@ -200,7 +174,7 @@ function showRamStimulus(index) {
       <div class="ram-stage">
         ${ramState.type==='words'
           ? '<div class="ram-word-stimulus">'+escapeHTML(item)+'</div>'
-          : '<img class="ram-photo-stimulus" src="'+escapeHTML(item.url)+'" alt="'+escapeHTML(item.label)+'" referrerpolicy="no-referrer">'}
+          : '<svg class="ram-photo-stimulus ram-svg-stimulus" viewBox="0 0 160 120" role="img" aria-label="'+escapeHTML(item.label)+'"><use href="assets/figuras.svg#'+escapeHTML(item.id)+'"></use></svg>'
       </div>
       <p style="text-align:center;color:var(--muted)">Memoriza la secuencia.</p>
     </section>`;
@@ -222,7 +196,7 @@ function renderRamRecall() {
       <div id="ramChoices" class="ram-choice-grid">
         ${choices.map((item,i)=>ramState.type==='words'
           ? '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item)+'" type="button">'+escapeHTML(item)+'</button>'
-          : '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item.id)+'" type="button"><img src="'+escapeHTML(item.url)+'" alt="'+escapeHTML(item.label)+'" referrerpolicy="no-referrer"><span>'+escapeHTML(item.label)+'</span></button>'
+          : '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item.id)+'" type="button"><svg class="ram-choice-svg" viewBox="0 0 160 120" aria-hidden="true"><use href="assets/figuras.svg#'+escapeHTML(item.id)+'"></use></svg><span>'+escapeHTML(item.label)+'</span></button>'
         ).join('')}
       </div>
       <div class="actions" style="justify-content:center"><button id="ramAbort" class="btn btn-ghost" type="button">Finalizar</button></div>

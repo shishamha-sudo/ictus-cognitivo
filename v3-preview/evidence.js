@@ -275,11 +275,11 @@ function addEvidenceButtons(){
 function installEvidenceChrome(){
   const top=document.querySelector('.top-actions');
   if(top&&!document.getElementById('myProgressBtn')){
-    const p=document.createElement('button');p.id='myProgressBtn';p.className='btn btn-ghost';p.type='button';p.textContent='Mi progreso';p.addEventListener('click',renderMyProgress);
+    const p=document.createElement('button');p.id='myProgressBtn';p.className='btn btn-ghost nav-btn';p.type='button';p.title='Mi progreso: estadísticas personales';p.setAttribute('aria-label','Mi progreso');p.innerHTML='<span class="nav-icon" aria-hidden="true">📈</span><span class="nav-label">Mi progreso</span>';p.addEventListener('click',renderMyProgress);
     const h=document.getElementById('historyBtn');top.insertBefore(p,h||null);
   }
   if(top&&!document.getElementById('bibliographyBtn')){
-    const b=document.createElement('button');b.id='bibliographyBtn';b.className='btn btn-ghost';b.type='button';b.textContent='Bibliografía';b.addEventListener('click',()=>renderEvidence());
+    const b=document.createElement('button');b.id='bibliographyBtn';b.className='btn btn-ghost nav-btn';b.type='button';b.title='Bibliografía y ayuda para interpretar actividades';b.setAttribute('aria-label','Bibliografía');b.innerHTML='<span class="nav-icon" aria-hidden="true">📚</span><span class="nav-label">Bibliografía</span>';b.addEventListener('click',()=>renderEvidence());
     const h=document.getElementById('historyBtn');top.insertBefore(b,h||null);
   }
 }

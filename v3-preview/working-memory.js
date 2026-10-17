@@ -75,22 +75,40 @@ function renderWmPanel(){
   main.innerHTML=`
     <section class="ram-hero wm-hero">
       <span class="home-eyebrow">Memoria de trabajo</span>
-      <h1>Nuevas tareas</h1>
-      <p>Ejercicios breves de memoria de trabajo, atención y organización visuoespacial.</p>
+      <h1>Actividades de memoria de trabajo</h1>
+      <p>Nueve ejercicios agrupados en un único espacio: recuerdo verbal y visual, secuencias, localización, actualización y atención dividida.</p>
     </section>
-    <section class="wm-grid">
-      ${WM_TASKS.map(t=>`
+    <section class="section">
+      <div class="section-title"><div><h2>Recuerdo secuencial</h2><p>Tareas RAM de palabras y objetos cotidianos.</p></div></div>
+      <div class="wm-grid">
         <article class="wm-card">
-          <div class="wm-card-icon">${t.icon}</div>
-          <div class="wm-card-copy"><h2>${escapeHTML(t.name)}</h2><p>${escapeHTML(t.desc)}</p></div>
-          <button class="btn btn-primary" data-wm-task="${t.id}" type="button">Configurar</button>
-        </article>`).join('')}
+          <div class="wm-card-icon" title="Memoria verbal" aria-hidden="true">Aa</div>
+          <div class="wm-card-copy"><h2>RAM · Palabras</h2><p>Memoriza una secuencia de palabras y reprodúcela en orden directo o inverso.</p></div>
+          <button class="btn btn-primary" data-ram-task="words" type="button" title="Configurar RAM de palabras">Configurar</button>
+        </article>
+        <article class="wm-card">
+          <div class="wm-card-icon" title="Memoria visual de objetos" aria-hidden="true">⌂</div>
+          <div class="wm-card-copy"><h2>RAM · Objetos</h2><p>Memoriza objetos cotidianos representados con SVG y reconstruye la secuencia.</p></div>
+          <button class="btn btn-primary" data-ram-task="objects" type="button" title="Configurar RAM de objetos">Configurar</button>
+        </article>
+      </div>
     </section>
-    <section class="card section"><div class="actions"><button id="wmBack" class="btn btn-ghost" type="button">Volver al inicio</button></div></section>`;
+    <section class="section">
+      <div class="section-title"><div><h2>Memoria de trabajo y atención</h2><p>Selecciona una actividad para configurarla.</p></div></div>
+      <div class="wm-grid">
+        ${WM_TASKS.map(t=>`
+          <article class="wm-card">
+            <div class="wm-card-icon" title="${escapeHTML(t.name)}" aria-hidden="true">${t.icon}</div>
+            <div class="wm-card-copy"><h2>${escapeHTML(t.name)}</h2><p>${escapeHTML(t.desc)}</p></div>
+            <button class="btn btn-primary" data-wm-task="${t.id}" type="button" title="Configurar ${escapeHTML(t.name)}">Configurar</button>
+          </article>`).join('')}
+      </div>
+    </section>
+    <section class="card section"><div class="actions"><button id="wmBack" class="btn btn-ghost" type="button" title="Volver al inicio">Volver al inicio</button></div></section>`;
+  main.querySelectorAll('[data-ram-task]').forEach(b=>b.addEventListener('click',()=>renderRamConfig(b.dataset.ramTask)));
   main.querySelectorAll('[data-wm-task]').forEach(b=>b.addEventListener('click',()=>renderWmConfig(b.dataset.wmTask)));
   document.getElementById('wmBack')?.addEventListener('click',renderHome);
 }
-
 function renderWmConfig(taskId){
   wmToken();
   const task=wmTask(taskId);
@@ -339,10 +357,10 @@ function injectWmHomeCard(){
   section.id='wmHomeEntry';section.className='section';
   section.innerHTML=`
     <div class="ram-hero wm-home-hero">
-      <span class="home-eyebrow">Memoria de trabajo +</span>
-      <h2>Nuevos ejercicios</h2>
-      <p>Secuencias visuoespaciales, sonidos, N-back, localización, actualización mental y doble tarea.</p>
-      <div class="actions"><button id="wmHomeOpenBtn" class="btn btn-primary btn-large" type="button">Abrir ejercicios</button></div>
+      <span class="home-eyebrow">Memoria de trabajo</span>
+      <h2>9 actividades de memoria</h2>
+      <p>RAM de palabras y objetos, Corsi, sonidos, N-back, orden temporal, localización, actualización mental y doble tarea.</p>
+      <div class="actions"><button id="wmHomeOpenBtn" class="btn btn-primary btn-large" type="button" title="Abrir todas las actividades de memoria de trabajo"><span aria-hidden="true">🧠</span> Abrir memoria de trabajo</button></div>
     </div>`;
   anchor.parentNode.insertBefore(section,anchor.nextSibling);
   document.getElementById('wmHomeOpenBtn')?.addEventListener('click',renderWmPanel);

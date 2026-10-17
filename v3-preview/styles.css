@@ -492,3 +492,15 @@ tr:last-child td { border-bottom: 0; }
   .compact-test-board{column-gap:8px!important}
   .compact-test-board>.match-card{padding:4px 6px!important}
 }
+
+
+/* v4.2 - navegación con iconos y tooltips */
+.nav-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap}
+.nav-icon{font-size:17px;line-height:1}
+.nav-label{line-height:1}
+@media(max-width:900px){
+  .top-actions{gap:6px}
+  .nav-btn{width:44px;min-width:44px;padding:8px}
+  .nav-label{display:none}
+  .nav-icon{font-size:19px}
+}

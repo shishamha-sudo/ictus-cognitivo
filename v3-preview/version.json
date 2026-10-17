@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.1",
+  "version": "4.2",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Añade Bibliografía contextual por actividad y Mi progreso con estadísticas personales por usuario."
+  "notes": "Agrupa todas las actividades de memoria de trabajo, añade iconos y tooltips de navegación y refuerza edición de contenido solo para administrador."
 }

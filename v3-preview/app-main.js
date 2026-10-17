@@ -384,6 +384,10 @@ function exportResultsCSV() {
 }
 
 function renderAdmin() {
+  if (typeof MULTIUSER !== 'undefined' && MULTIUSER.role !== 'admin') {
+    toast('Solo el administrador puede modificar el contenido.');
+    return renderHome();
+  }
   state.screen = 'admin';
   state.editing = null;
   main.innerHTML = `
