@@ -311,7 +311,7 @@ function versionPanelHTML() {
   const date = escapeHTML(local.date || APP_FALLBACK_META.date);
   let statusClass = 'version-neutral';
   let statusText = 'Comprobando actualizaciones...';
-  let action = '<button id="checkVersionBtn" class="btn btn-ghost version-action" type="button">Comprobar</button>';
+  let action = '';
 
   if (info.status === 'ok' && info.updateAvailable) {
     const remote = info.remote || {};
@@ -406,5 +406,5 @@ function renderHome() {
   main.querySelectorAll('[data-start-set]').forEach(btn => btn.addEventListener('click', () => renderConfig(btn.dataset.startSet)));
   document.getElementById('homeResultsBtn')?.addEventListener('click', renderHistory);
   document.getElementById('seeAllResultsBtn')?.addEventListener('click', renderHistory);
-  document.getElementById('checkVersionBtn')?.addEventListener('click', () => checkAppVersion(true));
+
 }
