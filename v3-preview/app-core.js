@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.7', date: '—' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.8', date: '—' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -410,6 +410,9 @@ function renderHome() {
         </div>
       </div>
       <div class="app-options-grid memory-options-grid">${memoryHTML}</div>
+    </section>
+    <section class="home-version-compact">
+      ${versionPanelHTML()}
     </section>`;
 
   main.querySelectorAll('[data-start-set]').forEach(btn =>

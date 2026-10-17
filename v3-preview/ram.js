@@ -43,24 +43,8 @@ function ramLog(eventType, detail={}) {
 }
 
 function installRamEntryPoints() {
-  const actions = document.querySelector('.top-actions');
-  if (!actions) return;
-  let btn = document.getElementById('ramTopBtn');
-  if (!btn) {
-    btn = document.createElement('button');
-    btn.id='ramTopBtn';
-    btn.type='button';
-    btn.className='btn btn-secondary nav-btn';
-    btn.innerHTML='<span class="nav-icon" aria-hidden="true">🧠</span><span class="nav-label">Memoria</span>';
-    const history = document.getElementById('historyBtn');
-    actions.insertBefore(btn, history || actions.firstChild);
-  }
-  btn.title='Memoria de trabajo: ver todas las actividades';
-  btn.setAttribute('aria-label','Memoria de trabajo');
-  if (btn.dataset.boundMemory !== '1') {
-    btn.dataset.boundMemory='1';
-    btn.addEventListener('click', () => typeof renderWmPanel === 'function' ? renderWmPanel() : renderRamPanel());
-  }
+  // Las tareas de memoria se muestran agrupadas en Inicio.
+  // No se crea un acceso adicional en la cabecera.
 }
 
 function injectRamHomeCard() { return; }

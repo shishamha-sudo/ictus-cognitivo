@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.7",
+  "version": "4.8",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Inicio solo con entrenamientos; RAM y todas las tareas de memoria agrupadas en la página principal; estadísticas solo en Mi progreso."
+  "notes": "Quita Memoria del menú, mantiene todas sus pruebas agrupadas en Inicio, elimina actividad/evolución de Inicio y corrige fecha/hora de versión."
 }
