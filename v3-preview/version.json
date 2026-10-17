@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "3.2",
+  "version": "3.3",
   "date": "17/10/2026 20:30",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Estímulos SVG editables y tablero simétrico con filas de igual altura."
+  "notes": "Diseño responsive por altura y anchura del dispositivo, manteniendo filas simétricas y reduciendo scroll."
 }
