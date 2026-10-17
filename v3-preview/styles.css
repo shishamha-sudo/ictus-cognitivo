@@ -284,3 +284,27 @@ tr:last-child td { border-bottom: 0; }
   box-shadow:none !important;
   flex:0 0 44px;
 }
+
+
+/* v3.1 - estímulos e iconos ampliados */
+.match-card{min-height:118px}
+.match-card .visual{min-width:86px;min-height:86px;font-size:68px}
+.color-swatch{width:82px;height:82px;border-radius:18px}
+.shape{width:84px;height:84px}
+.shape.triangle{border-left-width:45px;border-right-width:45px;border-bottom-width:82px}
+.shape.diamond{width:68px;height:68px}
+.shape.rectangle{width:104px;height:62px}
+.photo-visual{min-width:clamp(170px,22vw,260px)!important;min-height:clamp(130px,18vw,205px)!important}
+.stimulus-photo{width:clamp(170px,22vw,260px);height:clamp(130px,18vw,205px);object-fit:cover;border-radius:16px}
+.app-option-icon{width:88px;height:88px;font-size:50px}
+.recent-result-icon{width:54px;height:54px;font-size:32px}
+@media(max-width:640px){
+  .match-card{min-height:102px}
+  .match-card .visual{min-width:70px;min-height:70px;font-size:56px}
+  .color-swatch{width:68px;height:68px}
+  .shape{transform:scale(1)}
+  .shape.diamond{transform:rotate(45deg) scale(1)}
+  .photo-visual{min-width:145px!important;min-height:112px!important}
+  .stimulus-photo{width:145px;height:112px}
+  .app-option-icon{width:68px;height:68px;font-size:40px}
+}

@@ -40,6 +40,26 @@ const complexPairs = Array.from({ length: 20 }, (_, i) => {
   };
 });
 
+
+const FIGURE_PHOTOS = [
+  ['manzana','apple',1,'MANZANA'],['perro','dog',2,'PERRO'],['casa','house',3,'CASA'],['coche','car',4,'COCHE'],
+  ['gato','cat',5,'GATO'],['platano','banana',6,'PLÁTANO'],['telefono','smartphone',7,'TELÉFONO'],['llave','keys',8,'LLAVE'],
+  ['reloj','watch',9,'RELOJ'],['libro','book',10,'LIBRO'],['pelota','football',11,'PELOTA'],['flor','flower',12,'FLOR'],
+  ['taza','cup',13,'TAZA'],['pan','bread',14,'PAN'],['bicicleta','bicycle',15,'BICICLETA'],['avion','airplane',16,'AVIÓN'],
+  ['sol','sun',17,'SOL'],['luna','moon',18,'LUNA'],['pez','fish',19,'PEZ'],['pajaro','bird',20,'PÁJARO'],
+  ['zapato','shoe',21,'ZAPATO'],['camisa','shirt',22,'CAMISETA'],['paraguas','umbrella',23,'PARAGUAS'],['regalo','gift',24,'REGALO'],
+  ['arbol','tree',25,'ÁRBOL'],['queso','cheese',26,'QUESO'],['leche','milk',27,'LECHE'],['cuchara','spoon',28,'CUCHARA'],
+  ['puerta','door',29,'PUERTA'],['cama','bed',30,'CAMA']
+].map(([id,keyword,lock,target]) => ({
+  id,
+  visual:{
+    type:'image',
+    value:`https://loremflickr.com/420/320/${keyword}?lock=${lock}`,
+    alt:`Fotografía de ${target.toLowerCase()}`
+  },
+  target
+}));
+
 const defaultContent = {
   version: 1,
   sets: [
@@ -49,16 +69,7 @@ const defaultContent = {
       short: 'Figura ↔ palabra',
       description: 'Relaciona cada figura con la palabra que le corresponde.',
       icon: '🍎',
-      pairs: [
-        ['manzana','🍎','MANZANA'],['perro','🐶','PERRO'],['casa','🏠','CASA'],['coche','🚗','COCHE'],
-        ['gato','🐱','GATO'],['platano','🍌','PLÁTANO'],['telefono','📱','TELÉFONO'],['llave','🔑','LLAVE'],
-        ['reloj','⌚','RELOJ'],['libro','📘','LIBRO'],['pelota','⚽','PELOTA'],['flor','🌷','FLOR'],
-        ['taza','☕','TAZA'],['pan','🥖','PAN'],['bicicleta','🚲','BICICLETA'],['avion','✈️','AVIÓN'],
-        ['sol','☀️','SOL'],['luna','🌙','LUNA'],['pez','🐟','PEZ'],['pajaro','🐦','PÁJARO'],
-        ['zapato','👟','ZAPATO'],['camisa','👕','CAMISETA'],['paraguas','☂️','PARAGUAS'],['regalo','🎁','REGALO'],
-        ['arbol','🌳','ÁRBOL'],['queso','🧀','QUESO'],['leche','🥛','LECHE'],['cuchara','🥄','CUCHARA'],
-        ['puerta','🚪','PUERTA'],['cama','🛏️','CAMA']
-      ].map(([id, value, target]) => ({ id, visual: { type: 'emoji', value }, target }))
+      pairs: FIGURE_PHOTOS
     },
     {
       id: 'colores-palabras',
@@ -104,7 +115,20 @@ function ensureBuiltinSets(content) {
   for (const builtIn of defaultContent.sets) {
     if (!existing.has(builtIn.id)) safe.sets.push(structuredClone(builtIn));
   }
-  safe.version = Math.max(Number(safe.version || 1), 2);
+
+  // Migra automáticamente la colección base antigua de emojis a fotografías.
+  // Se conservan las imágenes personalizadas que haya subido el usuario.
+  const figures = safe.sets.find(set => set.id === 'figuras-palabras');
+  if (figures) {
+    const photoById = new Map(FIGURE_PHOTOS.map(pair => [pair.id, pair]));
+    figures.pairs = figures.pairs.map(pair => {
+      if (pair?.visual?.type !== 'emoji') return pair;
+      const replacement = photoById.get(pair.id);
+      return replacement ? structuredClone(replacement) : pair;
+    });
+  }
+
+  safe.version = Math.max(Number(safe.version || 1), 3);
   return safe;
 }
 
