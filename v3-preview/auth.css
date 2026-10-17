@@ -1,0 +1,12 @@
+
+/* v3.0 - autenticación y administración */
+.auth-gate{position:fixed;inset:0;z-index:5000;display:grid;place-items:center;padding:20px;background:rgba(244,246,248,.98)}
+.auth-card{width:min(540px,100%);background:#fff;border:1px solid var(--line);border-radius:26px;padding:clamp(24px,5vw,42px);box-shadow:var(--shadow);text-align:center}
+.auth-card h1{margin:12px 0 8px;font-size:clamp(30px,5vw,46px)}.auth-card p{color:var(--muted);line-height:1.55}
+.auth-google{width:100%;min-height:60px;font-size:18px}.auth-status{margin:14px 0;padding:12px 14px;border-radius:14px;background:#f7f9fb;border:1px solid var(--line);text-align:left}
+.user-chip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;background:#fff;padding:5px 10px 5px 6px;font-weight:750}
+.user-chip img{width:30px;height:30px;border-radius:50%;object-fit:cover}.user-chip-name{max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.admin-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}.admin-kpi{background:#f7f9fb;border:1px solid var(--line);border-radius:16px;padding:16px}
+.admin-kpi strong{display:block;font-size:30px}.admin-kpi span{color:var(--muted);font-size:13px}.role-badge{display:inline-flex;padding:5px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:850}
+.role-badge.admin{background:#fff1d8;color:#7a5300}.privacy-note{padding:12px 14px;border-radius:14px;background:#f7f9fb;border:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:700px){.admin-kpis{grid-template-columns:1fr}.user-chip-name{display:none}.auth-card{padding:24px 18px}}
