@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-17T19:15:00Z",
+  "updatedAt": "2026-10-18T05:39:32.998771+00:00",
   "items": [
     {
       "id": "esj-umbrella-review-2026",
@@ -59,6 +59,19 @@
       ]
     },
     {
+      "id": "virgen-rocio-ictus-2026",
+      "source": "Junta de Andalucía",
+      "title": "Rehabilitación temprana de pacientes en el nuevo gimnasio de la Unidad de Ictus del Virgen del Rocío",
+      "description": "Información sobre nuevas instalaciones de neurorehabilitación temprana integradas en una Unidad de Ictus, dentro de un enfoque que combina recuperación física, psicológica y social.",
+      "url": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/servicios/actualidad/noticias/detalle/652441.html",
+      "publishedAt": "2026-03-25T00:00:00Z",
+      "loadedAt": "2026-10-17T19:15:00Z",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
+      ]
+    },
+    {
       "id": "nature-wm-meta-2026",
       "source": "npj Digital Medicine",
       "title": "Meta-analysis of computerised working memory training",
@@ -86,26 +99,30 @@
         "Rehabilitación",
         "Tecnología"
       ]
-    },
-    {
-      "id": "virgen-rocio-ictus-2026",
-      "source": "Junta de Andalucía",
-      "title": "Rehabilitación temprana de pacientes en el nuevo gimnasio de la Unidad de Ictus del Virgen del Rocío",
-      "description": "Información sobre nuevas instalaciones de neurorehabilitación temprana integradas en una Unidad de Ictus, dentro de un enfoque que combina recuperación física, psicológica y social.",
-      "url": "https://www.juntadeandalucia.es/organismos/presidenciasanidadyemergencias/servicios/actualidad/noticias/detalle/652441.html",
-      "publishedAt": "2026-03-25T00:00:00Z",
-      "loadedAt": "2026-10-17T19:15:00Z",
-      "tags": [
-        "Ictus",
-        "Rehabilitación"
-      ]
     }
   ],
   "sources": [
-    "Google News RSS",
-    "PubMed",
-    "European Stroke Journal",
-    "npj Digital Medicine"
+    "https://news.google.com/rss/search?q=stroke%20cognitive%20rehabilitation%20memory&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=cognitive%20neuroscience%20memory%20attention%20rehabilitation&hl=en-US&gl=US&ceid=US:en",
+    "https://news.google.com/rss/search?q=ictus%20rehabilitacion%20cognitiva%20memoria%20neurorehabilitacion&hl=es&gl=ES&ceid=ES:es",
+    "https://news.google.com/rss/search?q=aphasia%20cognitive%20rehabilitation%20stroke&hl=es&gl=ES&ceid=ES:es"
   ],
-  "errors": []
+  "errors": [
+    {
+      "source": "Google News",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "source": "Google News",
+      "error": "HTTP Error 503: Service Unavailable"
+    }
+  ]
 }
