@@ -55,3 +55,58 @@ for required in ["loadAnonymousResults","saveAnonymousResults","u.isAnonymous","
     if required not in auth:
         print("Regresión: falta fallback local anonymous:", required)
         sys.exit(1)
+
+# Contrato gráfico SVG.
+index = Path("v3-preview/index.html").read_text(encoding="utf-8")
+sprite_start = index.find('id="figureSprite"')
+sprite_end = index.find('</svg>', sprite_start)
+sprite = index[sprite_start:sprite_end] if sprite_start >= 0 else ""
+if "<text" in sprite:
+    print("Regresión gráfica: el sprite contiene texto/emojis en vez de vectores")
+    sys.exit(1)
+
+main_js = Path("v3-preview/app-main.js").read_text(encoding="utf-8")
+if 'value="emoji"' in main_js or "Emoji / símbolo" in main_js:
+    print("Regresión gráfica: el editor permite elementos emoji")
+    sys.exit(1)
+
+wm = Path("v3-preview/working-memory.js").read_text(encoding="utf-8")
+ram = Path("v3-preview/ram.js").read_text(encoding="utf-8")
+if "href=\"#'+escapeHTML" not in wm:
+    print("Regresión gráfica: Memoria no usa referencias SVG con #")
+    sys.exit(1)
+if "href=\"#'+escapeHTML" not in ram:
+    print("Regresión gráfica: RAM no usa referencias SVG con #")
+    sys.exit(1)
+
+for filename in [
+    "v3-preview/app-core.js",
+    "v3-preview/app-main.js",
+    "v3-preview/working-memory.js",
+    "v3-preview/ram.js",
+    "v3-preview/evidence.js",
+    "v3-preview/news.js",
+    "v3-preview/auth.js"
+]:
+    content = Path(filename).read_text(encoding="utf-8")
+    for forbidden in ["🍎","🎨","🔷","🧩","📈","📚","📰","👁","⚙","↪","👤","🏠","🖼️","▦","♪","⌖","↻"]:
+        if forbidden in content:
+            print("Regresión gráfica: emoji/icono no SVG", forbidden, "en", filename)
+            sys.exit(1)
+
+# Cabecera y modo pantalla completa.
+index = Path("v3-preview/index.html").read_text(encoding="utf-8")
+styles = Path("v3-preview/styles.css").read_text(encoding="utf-8")
+focus = Path("v3-preview/focus-mode.js").read_text(encoding="utf-8")
+for required in ["focus-mode.js", "icon-fullscreen", "icon-exit-fullscreen"]:
+    if required not in index:
+        print("Regresión UI: falta", required)
+        sys.exit(1)
+for required in ["flex-wrap:nowrap", "training-focus", ".training-focus-btn"]:
+    if required not in styles:
+        print("Regresión UI: falta regla", required)
+        sys.exit(1)
+for required in ["requestFullscreen", "exitFullscreen", "testActive"]:
+    if required not in focus:
+        print("Regresión UI: falta modo pantalla completa", required)
+        sys.exit(1)

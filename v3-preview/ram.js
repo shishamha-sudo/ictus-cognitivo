@@ -60,15 +60,15 @@ function renderRamPanel() {
     </section>
     <section class="ram-grid">
       <article class="ram-card">
-        <div class="ram-icon">Aa</div>
+        <div class="ram-icon">${iconHTML('icon-ram-words','ram-icon-svg')}</div>
         <h2>RAM · Palabras</h2>
         <p>Memoriza una secuencia de palabras y selecciónalas después en el mismo orden o en orden inverso.</p>
         <button class="btn btn-primary btn-large" data-ram-task="words" type="button">Empezar palabras</button>
       </article>
       <article class="ram-card">
-        <div class="ram-icon">🏠</div>
+        <div class="ram-icon">${iconHTML('icon-ram-objects','ram-icon-svg')}</div>
         <h2>RAM · Objetos de la casa</h2>
-        <p>Memoriza fotografías de objetos cotidianos y reconstruye la secuencia. Las imágenes proceden de Wikimedia Commons.</p>
+        <p>Memoriza figuras SVG de objetos cotidianos y reconstruye la secuencia. Las figuras son SVG locales de la aplicación.</p>
         <button class="btn btn-primary btn-large" data-ram-task="objects" type="button">Empezar objetos</button>
       </article>
     </section>
@@ -86,7 +86,7 @@ function renderRamConfig(type) {
   ramState.type=type;
   main.innerHTML=`
     <section class="card">
-      <span class="badge">${type==='words'?'Aa':'🏠'} RAM</span>
+      <span class="badge">${iconHTML(type==='words'?'icon-ram-words':'icon-ram-objects','badge-svg')} RAM</span>
       <h1>${type==='words'?'Palabras':'Objetos de la casa'}</h1>
       <div class="form-grid section">
         <div class="field">
@@ -163,7 +163,7 @@ function showRamStimulus(index) {
       <div class="ram-stage">
         ${ramState.type==='words'
           ? '<div class="ram-word-stimulus">'+escapeHTML(item)+'</div>'
-          : '<svg class="ram-photo-stimulus ram-svg-stimulus" viewBox="0 0 160 120" role="img" aria-label="'+escapeHTML(item.label)+'"><use href="'+escapeHTML(item.id)+'"></use></svg>'
+          : '<svg class="ram-photo-stimulus ram-svg-stimulus" viewBox="0 0 160 120" role="img" aria-label="'+escapeHTML(item.label)+'"><use href="#'+escapeHTML(item.id)+'"></use></svg>'
       </div>
       <p style="text-align:center;color:var(--muted)">Memoriza la secuencia.</p>
     </section>`;
@@ -185,7 +185,7 @@ function renderRamRecall() {
       <div id="ramChoices" class="ram-choice-grid">
         ${choices.map((item,i)=>ramState.type==='words'
           ? '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item)+'" type="button">'+escapeHTML(item)+'</button>'
-          : '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item.id)+'" type="button"><svg class="ram-choice-svg" viewBox="0 0 160 120" aria-hidden="true"><use href="'+escapeHTML(item.id)+'"></use></svg><span>'+escapeHTML(item.label)+'</span></button>'
+          : '<button class="ram-choice" data-ram-choice="'+i+'" data-value="'+escapeHTML(item.id)+'" type="button"><svg class="ram-choice-svg" viewBox="0 0 160 120" aria-hidden="true"><use href="#'+escapeHTML(item.id)+'"></use></svg><span>'+escapeHTML(item.label)+'</span></button>'
         ).join('')}
       </div>
       <div class="actions" style="justify-content:center"><button id="ramAbort" class="btn btn-ghost" type="button">Finalizar</button></div>

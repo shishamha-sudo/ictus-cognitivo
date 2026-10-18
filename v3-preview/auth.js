@@ -8,13 +8,13 @@ function authGate(msg){
   if(!g){g=document.createElement('div');g.id='authGate';g.className='auth-gate';document.body.appendChild(g)}
   const ok=fbReady();
   g.innerHTML='<section class="auth-card">'+
-    '<div class="brand-mark" style="margin:auto;width:62px;height:62px;font-size:26px">◉</div>'+
+    '<div class="brand-mark" style="margin:auto;width:62px;height:62px;font-size:26px"></div>'+
     '<h1>Entrenamiento cognitivo</h1>'+
     '<p>'+escapeHTML(msg||(ok?'Accede con Google o entra como usuario anónimo.':'La versión multiusuario está desplegada, pero falta conectar Firebase.'))+'</p>'+
     (ok
       ? '<div class="auth-actions">'+
           '<button id="googleLoginBtn" class="btn btn-primary auth-google" type="button">Acceder con Google</button>'+
-          '<button id="anonymousLoginBtn" class="btn btn-secondary auth-anonymous" type="button"><span aria-hidden="true">👤</span> Entrar como anonymous</button>'+
+          '<button id="anonymousLoginBtn" class="btn btn-secondary auth-anonymous" type="button">'+iconHTML('icon-user','button-svg-icon')+' Entrar como anonymous</button>'+
         '</div>'
       : '<div class="auth-status"><strong>Firebase pendiente</strong><div class="small">Completa la configuración para habilitar el acceso.</div></div>')+
     '<p class="small">El acceso anonymous no requiere contraseña y tiene permisos de usuario normal.</p>'+
@@ -104,7 +104,7 @@ function userChrome(){
   c.id='muChip';
   c.className='user-chip';
   const roleText=MULTIUSER.viewAsUser?'Vista usuario':(isAdmin?'Admin':'Usuario');
-  c.innerHTML=(MULTIUSER.user.photoURL?'<img src="'+escapeHTML(MULTIUSER.user.photoURL)+'" alt="">':'')+
+  c.innerHTML=iconHTML('icon-user','user-chip-svg')+
     '<span class="user-chip-name">'+escapeHTML(MULTIUSER.user.isAnonymous?'anonymous':(MULTIUSER.user.displayName||MULTIUSER.user.email||'Usuario'))+'</span>'+
     '<span class="role-badge '+(isAdmin&&!MULTIUSER.viewAsUser?'admin':'')+'">'+roleText+'</span>';
   a.prepend(c);
@@ -114,7 +114,7 @@ function userChrome(){
     v.id='muViewUser';v.className='btn btn-ghost nav-btn';
     v.title='Ver la aplicación como un usuario normal';
     v.setAttribute('aria-label','Vista usuario');
-    v.innerHTML='<span class="nav-icon" aria-hidden="true">👁</span><span class="nav-label">Vista usuario</span>';
+    v.innerHTML='<span class="nav-icon">'+iconHTML('icon-view','nav-svg-icon')+'</span><span class="nav-label">Vista usuario</span>';
     v.onclick=()=>setAdminUserView(true);
     a.appendChild(v);
 
@@ -122,7 +122,7 @@ function userChrome(){
     b.id='muAdmin';b.className='btn btn-secondary nav-btn';
     b.title='Administración de usuarios y actividad';
     b.setAttribute('aria-label','Administración');
-    b.innerHTML='<span class="nav-icon" aria-hidden="true">⚙</span><span class="nav-label">Administración</span>';
+    b.innerHTML='<span class="nav-icon">'+iconHTML('icon-admin','nav-svg-icon')+'</span><span class="nav-label">Administración</span>';
     b.onclick=renderUserAdmin;
     a.appendChild(b);
   } else if(isAdmin&&MULTIUSER.viewAsUser){
@@ -130,7 +130,7 @@ function userChrome(){
     v.id='muExitUserView';v.className='btn btn-secondary nav-btn';
     v.title='Volver a la vista de administrador';
     v.setAttribute('aria-label','Volver a vista administrador');
-    v.innerHTML='<span class="nav-icon" aria-hidden="true">⚙</span><span class="nav-label">Volver a admin</span>';
+    v.innerHTML='<span class="nav-icon">'+iconHTML('icon-admin','nav-svg-icon')+'</span><span class="nav-label">Volver a admin</span>';
     v.onclick=()=>setAdminUserView(false);
     a.appendChild(v);
 
@@ -144,7 +144,7 @@ function userChrome(){
   const o=document.createElement('button');
   o.id='muLogout';o.className='btn btn-ghost nav-btn';
   o.title='Cerrar sesión';o.setAttribute('aria-label','Salir');
-  o.innerHTML='<span class="nav-icon" aria-hidden="true">↪</span><span class="nav-label">Salir</span>';
+  o.innerHTML='<span class="nav-icon">'+iconHTML('icon-logout','nav-svg-icon')+'</span><span class="nav-label">Salir</span>';
   o.onclick=logoutGoogle;
   a.appendChild(o);
 }

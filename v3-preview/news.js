@@ -168,7 +168,7 @@ function installNewsMenu(){
   button.type='button';
   button.title='News sobre cognición, memoria, ictus y neurorehabilitación';
   button.setAttribute('aria-label','News cognitivas');
-  button.innerHTML='<span class="nav-icon" aria-hidden="true">📰</span><span class="nav-label">News</span>';
+  button.innerHTML='<span class="nav-icon">'+iconHTML('icon-news','nav-svg-icon')+'</span><span class="nav-label">News</span>';
   button.addEventListener('click',renderNews);
   const history=document.getElementById('historyBtn');
   actions.insertBefore(button,history||null);

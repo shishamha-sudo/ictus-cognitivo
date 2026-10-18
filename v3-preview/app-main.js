@@ -9,7 +9,7 @@ function renderConfig(setId) {
 
   main.innerHTML = `
     <section class="card">
-      <span class="badge">${escapeHTML(set.icon || '◉')} ${escapeHTML(set.short || set.name)}</span>
+      <span class="badge">${iconHTML(setIconId(set),'badge-svg')} ${escapeHTML(set.short || set.name)}</span>
       <h1 style="margin-bottom:8px">Configurar ejercicio</h1>
       <p style="color:var(--muted);margin-top:0">${escapeHTML(set.description)}</p>
       <div class="form-grid section">
@@ -421,7 +421,7 @@ function createCollection() {
     name: name.trim(),
     short: name.trim(),
     description: description.trim(),
-    icon: '🖼️',
+    icon: 'icon-custom',
     pairs: []
   };
   state.content.sets.push(set);
@@ -441,7 +441,7 @@ function renderAdminSet(setId, editId = null) {
   if (!set) return;
   const item = editId ? set.pairs.find(p => p.id === editId) : null;
   state.editing = item ? { setId, editId } : null;
-  const type = item?.visual?.type || (setId === 'colores-palabras' ? 'color' : setId === 'formas-colores' ? 'shape' : 'emoji');
+  const type = item?.visual?.type || (setId === 'colores-palabras' ? 'color' : setId === 'formas-colores' ? 'shape' : 'image');
   const tableRows = set.pairs.map(p => `
     <tr>
       <td>${visualHTML(p.visual)}</td>
@@ -458,7 +458,6 @@ function renderAdminSet(setId, editId = null) {
           <div class="field">
             <label for="visualType">Tipo visual</label>
             <select id="visualType">
-              <option value="emoji" ${type==='emoji'?'selected':''}>Emoji / símbolo</option>
               <option value="color" ${type==='color'?'selected':''}>Color</option>
               <option value="shape" ${type==='shape'?'selected':''}>Forma geométrica</option>
               <option value="image" ${type==='image'?'selected':''}>Imagen SVG propia</option>
@@ -499,8 +498,8 @@ function renderAdminSet(setId, editId = null) {
 function renderVisualFields(type, visual) {
   const wrap = document.getElementById('visualFields');
   if (!wrap) return;
-  if (type === 'emoji' || type === 'text') {
-    wrap.innerHTML = `<div class="field"><label for="visualValue">${type === 'emoji' ? 'Emoji o símbolo' : 'Texto visual'}</label><input id="visualValue" value="${escapeHTML(visual?.value || '')}" placeholder="${type === 'emoji' ? '🍎' : 'CASA'}" required /></div>`;
+  if (type === 'text') {
+    wrap.innerHTML = `<div class="field"><label for="visualValue">Texto visual</label><input id="visualValue" value="${escapeHTML(visual?.value || '')}" placeholder="CASA" required /></div>`;
   } else if (type === 'color') {
     wrap.innerHTML = `<div class="field"><label for="visualColor">Color</label><input id="visualColor" type="color" value="${escapeHTML(visual?.value || '#1e66f5')}" /></div>`;
   } else if (type === 'shape') {
@@ -516,7 +515,7 @@ function renderVisualFields(type, visual) {
 }
 
 function currentVisualFromForm(type, fallbackVisual = null) {
-  if (type === 'emoji' || type === 'text') return { type, value: document.getElementById('visualValue')?.value || '' };
+  if (type === 'text') return { type, value: document.getElementById('visualValue')?.value || '' };
   if (type === 'color') return { type, value: document.getElementById('visualColor')?.value || '#1e66f5' };
   if (type === 'shape') return { type, shape: document.getElementById('shapeType')?.value || 'circle', color: document.getElementById('shapeColor')?.value || '#e53935' };
   if (type === 'image') return fallbackVisual || { type, value: document.getElementById('existingImage')?.value || '', alt: document.getElementById('imageAlt')?.value || '' };

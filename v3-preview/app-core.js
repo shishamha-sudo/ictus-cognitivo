@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.10', date: '—' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.12', date: '—' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -14,6 +14,21 @@ const palette = {
 
 function uid(prefix = 'id') {
   return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`;
+}
+
+const SET_ICON_BY_ID={
+  'figuras-palabras':'icon-figures',
+  'colores-palabras':'icon-colors',
+  'formas-colores':'icon-shapes',
+  'figuras-complejas':'icon-complex'
+};
+function iconHTML(id, cls='ui-svg-icon', label=''){
+  const safe=escapeHTML(String(id||'icon-custom').replace(/^#/,''));
+  const aria=label?' role="img" aria-label="'+escapeHTML(label)+'"':' aria-hidden="true"';
+  return '<svg class="'+escapeHTML(cls)+'" viewBox="0 0 160 120"'+aria+'><use href="#'+safe+'"></use></svg>';
+}
+function setIconId(set){
+  return SET_ICON_BY_ID[set?.id] || (String(set?.icon||'').startsWith('icon-')?set.icon:'icon-custom');
 }
 
 
@@ -69,7 +84,7 @@ const defaultContent = {
       name: 'Figuras y palabras',
       short: 'Figura ↔ palabra',
       description: 'Relaciona cada figura con la palabra que le corresponde.',
-      icon: '🍎',
+      icon: 'icon-figures',
       pairs: FIGURE_PHOTOS
     },
     {
@@ -77,7 +92,7 @@ const defaultContent = {
       name: 'Colores y palabras',
       short: 'Color ↔ palabra',
       description: 'Relaciona cada muestra de color con su nombre.',
-      icon: '🎨',
+      icon: 'icon-colors',
       pairs: Object.entries(palette).map(([id, value]) => ({ id, visual: { type: 'color', value }, target: id === 'marron' ? 'MARRÓN' : id === 'azulmarino' ? 'AZUL MARINO' : id.toUpperCase() }))
     },
     {
@@ -85,7 +100,7 @@ const defaultContent = {
       name: 'Formas, colores y palabras',
       short: 'Forma + color ↔ descripción',
       description: 'Relaciona la figura de color con su descripción completa.',
-      icon: '🔷',
+      icon: 'icon-shapes',
       pairs: [
         ['circulo-rojo','circle','#e53935','CÍRCULO ROJO'],['circulo-azul','circle','#1e66f5','CÍRCULO AZUL'],
         ['circulo-verde','circle','#2e9d57','CÍRCULO VERDE'],['circulo-amarillo','circle','#f2c94c','CÍRCULO AMARILLO'],
@@ -104,7 +119,7 @@ const defaultContent = {
       name: 'Figuras complejas',
       short: 'Discriminación visual compleja',
       description: 'Relaciona una figura geométrica compleja con su descripción. Estímulos originales para entrenamiento; no sustituye una prueba neuropsicológica validada.',
-      icon: '🧩',
+      icon: 'icon-complex',
       pairs: complexPairs
     }
   ]
@@ -237,8 +252,8 @@ function formatDate(iso) {
 
 function visualHTML(visual) {
   if (!visual) return '<span class="visual">?</span>';
-  if (visual.type === 'emoji') return `<span class="visual" aria-hidden="true">${escapeHTML(visual.value)}</span>`;
-  if (visual.type === 'color') return `<span class="visual"><span class="color-swatch" style="background:${escapeHTML(visual.value)}" aria-label="Muestra de color"></span></span>`;
+  if (visual.type === 'emoji') return `<span class="visual svg-visual">${iconHTML('icon-custom','stimulus-svg','Símbolo')}</span>`;
+  if (visual.type === 'color') return `<span class="visual svg-visual"><svg class="stimulus-svg" viewBox="0 0 100 100" role="img" aria-label="Muestra de color"><rect x="10" y="10" width="80" height="80" rx="18" fill="${escapeHTML(visual.value)}"/></svg></span>`;
   if (visual.type === 'shape') {
     const shape = visual.shape || 'circle';
     const color = escapeHTML(visual.color || '#333333');
@@ -254,7 +269,11 @@ function visualHTML(visual) {
     return `<span class="visual svg-visual"><svg class="stimulus-svg" viewBox="0 0 100 100" role="img" aria-label="Forma geométrica">${body}</svg></span>`;
   }
   if (visual.type === 'svg') return `<span class="visual svg-visual"><svg class="stimulus-svg" viewBox="0 0 160 120" role="img" aria-label="${escapeHTML(visual.alt || 'Figura')}"><use href="${escapeHTML(visual.value)}"></use></svg></span>`;
-  if (visual.type === 'image') return `<span class="visual photo-visual"><img class="stimulus-photo" src="${escapeHTML(visual.value)}" alt="${escapeHTML(visual.alt || 'Imagen')}" loading="lazy" referrerpolicy="no-referrer"></span>`;
+  if (visual.type === 'image') {
+    const src=String(visual.value||'');
+    const isSvg=src.startsWith('data:image/svg+xml') || /\.svg(?:$|[?#])/i.test(src);
+    return isSvg ? `<span class="visual photo-visual"><img class="stimulus-photo" src="${escapeHTML(src)}" alt="${escapeHTML(visual.alt || 'Imagen SVG')}" loading="lazy"></span>` : `<span class="visual svg-visual">${iconHTML('icon-custom','stimulus-svg','Imagen no disponible')}</span>`;
+  }
   if (visual.type === 'text') return `<span class="word">${escapeHTML(visual.value)}</span>`;
   return `<span class="visual">${escapeHTML(visual.value || '?')}</span>`;
 }
@@ -309,7 +328,7 @@ function recentResultsHTML(results, limit = 4) {
   if (!results.length) return '<div class="empty compact-empty">Todavía no hay tests realizados.</div>';
   return results.slice(0, limit).map(r => `
     <article class="recent-result">
-      <div class="recent-result-icon">${escapeHTML(state.content.sets.find(s=>s.id===r.setId)?.icon || '✓')}</div>
+      <div class="recent-result-icon">${iconHTML(setIconId(state.content.sets.find(s=>s.id===r.setId)),'recent-result-svg')}</div>
       <div class="recent-result-main"><strong>${escapeHTML(r.setName)}</strong><span>${escapeHTML(formatDate(r.date))} · ${formatDuration(r.durationMs)}</span></div>
       <div class="score-pill">${r.score}%</div>
     </article>`).join('');
@@ -352,7 +371,7 @@ function renderHome() {
 
   const trainingCards = state.content.sets.map(set => `
     <article class="app-option-card">
-      <div class="app-option-icon" aria-hidden="true">${escapeHTML(set.icon || '◉')}</div>
+      <div class="app-option-icon" aria-hidden="true">${iconHTML(setIconId(set),'app-svg-icon')}</div>
       <div class="app-option-copy">
         <span class="app-option-kicker">${set.pairs.length} elementos</span>
         <h3>${escapeHTML(set.name)}</h3>
@@ -362,8 +381,8 @@ function renderHome() {
     </article>`).join('');
 
   const memoryCards = [
-    { icon:'Aa', name:'RAM · Palabras', desc:'Memoriza una secuencia de palabras y reprodúcela en orden directo o inverso.', action:'ram', task:'words' },
-    { icon:'⌂', name:'RAM · Objetos', desc:'Memoriza una secuencia de objetos cotidianos y reconstruye el orden.', action:'ram', task:'objects' },
+    { icon:'icon-ram-words', name:'RAM · Palabras', desc:'Memoriza una secuencia de palabras y reprodúcela en orden directo o inverso.', action:'ram', task:'words' },
+    { icon:'icon-ram-objects', name:'RAM · Objetos', desc:'Memoriza una secuencia de objetos cotidianos y reconstruye el orden.', action:'ram', task:'objects' },
     ...(typeof WM_TASKS !== 'undefined' ? WM_TASKS.map(t => ({
       icon:t.icon, name:t.name, desc:t.desc, action:'wm', task:t.id
     })) : [])
@@ -371,7 +390,7 @@ function renderHome() {
 
   const memoryHTML = memoryCards.map(item => `
     <article class="app-option-card memory-task-card">
-      <div class="app-option-icon memory-task-icon" aria-hidden="true">${escapeHTML(item.icon)}</div>
+      <div class="app-option-icon memory-task-icon" aria-hidden="true">${iconHTML(item.icon,'app-svg-icon')}</div>
       <div class="app-option-copy">
         <span class="app-option-kicker">Memoria de trabajo</span>
         <h3>${escapeHTML(item.name)}</h3>

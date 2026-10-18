@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.10",
+  "version": "4.12",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "El acceso anonymous funciona sin depender de permisos Firestore; resultados guardados localmente por dispositivo."
+  "notes": "Sistema gráfico 100% SVG, cabecera siempre en una fila y modo de prueba a pantalla completa."
 }

@@ -1,13 +1,13 @@
 'use strict';
 
 const WM_TASKS = [
-  {id:'corsi', icon:'▦', name:'Secuencia visuoespacial', desc:'Recuerda posiciones que se iluminan y repítelas en orden directo o inverso.'},
-  {id:'sounds', icon:'♪', name:'Secuencia de sonidos', desc:'Escucha una serie de tonos y repítelos en el mismo orden.'},
-  {id:'nback', icon:'N', name:'N-back simplificado', desc:'Indica si el estímulo actual coincide con el de una o dos posiciones atrás.'},
-  {id:'temporal', icon:'↕', name:'Ordenación temporal', desc:'Observa varios elementos y reconstruye el orden en que aparecieron.'},
-  {id:'location', icon:'⌖', name:'Memoria de localización', desc:'Recuerda dónde estaba cada objeto dentro de una cuadrícula.'},
-  {id:'updating', icon:'↻', name:'Actualización mental', desc:'Mantén activos únicamente los últimos elementos de una secuencia.'},
-  {id:'dual', icon:'±', name:'Doble tarea', desc:'Clasifica números mientras mantienes en memoria los últimos elementos.'}
+  {id:'corsi', icon:'icon-corsi', name:'Secuencia visuoespacial', desc:'Recuerda posiciones que se iluminan y repítelas en orden directo o inverso.'},
+  {id:'sounds', icon:'icon-sound', name:'Secuencia de sonidos', desc:'Escucha una serie de tonos y repítelos en el mismo orden.'},
+  {id:'nback', icon:'icon-nback', name:'N-back simplificado', desc:'Indica si el estímulo actual coincide con el de una o dos posiciones atrás.'},
+  {id:'temporal', icon:'icon-temporal', name:'Ordenación temporal', desc:'Observa varios elementos y reconstruye el orden en que aparecieron.'},
+  {id:'location', icon:'icon-location', name:'Memoria de localización', desc:'Recuerda dónde estaba cada objeto dentro de una cuadrícula.'},
+  {id:'updating', icon:'icon-updating', name:'Actualización mental', desc:'Mantén activos únicamente los últimos elementos de una secuencia.'},
+  {id:'dual', icon:'icon-dual', name:'Doble tarea', desc:'Clasifica números mientras mantienes en memoria los últimos elementos.'}
 ];
 
 const wmState = { token:0, task:null, rounds:5, interval:900, span:3, direction:'forward', round:0, correct:0, total:0, startedAt:0 };
@@ -20,7 +20,7 @@ function wmSample(a,n){ return wmShuffle(a).slice(0,n); }
 function wmTask(id){ return WM_TASKS.find(t=>t.id===id); }
 
 function wmSvgUse(id, cls='wm-object-svg'){
-  return '<svg class="'+cls+'" viewBox="0 0 160 120" aria-hidden="true"><use href="'+escapeHTML(id)+'"></use></svg>';
+  return '<svg class="'+cls+'" viewBox="0 0 160 120" aria-hidden="true"><use href="#'+escapeHTML(String(id).replace(/^#/,''))+'"></use></svg>';
 }
 
 function wmSave(taskId, score, extra={}){
@@ -82,12 +82,12 @@ function renderWmPanel(){
       <div class="section-title"><div><h2>Recuerdo secuencial</h2><p>Tareas RAM de palabras y objetos cotidianos.</p></div></div>
       <div class="wm-grid">
         <article class="wm-card">
-          <div class="wm-card-icon" title="Memoria verbal" aria-hidden="true">Aa</div>
+          <div class="wm-card-icon" title="Memoria verbal">${iconHTML('icon-ram-words','wm-card-svg')}</div>
           <div class="wm-card-copy"><h2>RAM · Palabras</h2><p>Memoriza una secuencia de palabras y reprodúcela en orden directo o inverso.</p></div>
           <button class="btn btn-primary" data-ram-task="words" type="button" title="Configurar RAM de palabras">Configurar</button>
         </article>
         <article class="wm-card">
-          <div class="wm-card-icon" title="Memoria visual de objetos" aria-hidden="true">⌂</div>
+          <div class="wm-card-icon" title="Memoria visual de objetos">${iconHTML('icon-ram-objects','wm-card-svg')}</div>
           <div class="wm-card-copy"><h2>RAM · Objetos</h2><p>Memoriza objetos cotidianos representados con SVG y reconstruye la secuencia.</p></div>
           <button class="btn btn-primary" data-ram-task="objects" type="button" title="Configurar RAM de objetos">Configurar</button>
         </article>
@@ -98,7 +98,7 @@ function renderWmPanel(){
       <div class="wm-grid">
         ${WM_TASKS.map(t=>`
           <article class="wm-card">
-            <div class="wm-card-icon" title="${escapeHTML(t.name)}" aria-hidden="true">${t.icon}</div>
+            <div class="wm-card-icon" title="${escapeHTML(t.name)}" aria-hidden="true">${iconHTML(t.icon,'wm-card-svg')}</div>
             <div class="wm-card-copy"><h2>${escapeHTML(t.name)}</h2><p>${escapeHTML(t.desc)}</p></div>
             <button class="btn btn-primary" data-wm-task="${t.id}" type="button" title="Configurar ${escapeHTML(t.name)}">Configurar</button>
           </article>`).join('')}
@@ -120,7 +120,7 @@ function renderWmConfig(taskId){
       : '';
   main.innerHTML=`
     <section class="card wm-config">
-      <span class="badge">${task.icon} Memoria de trabajo</span>
+      <span class="badge">${iconHTML(task.icon,'badge-svg')} Memoria de trabajo</span>
       <h1>${escapeHTML(task.name)}</h1>
       <p class="muted">${escapeHTML(task.desc)}</p>
       <div class="form-grid section">
@@ -226,10 +226,10 @@ async function wmSounds(token){
   for(let r=1;r<=wmState.rounds && wmAlive(token);r++){
     const len=Math.min(6,2+r);
     const seq=Array.from({length:len},()=>Math.floor(Math.random()*6));
-    main.innerHTML=`<section class="card wm-stage-card"><div class="wm-progress"><strong>Ronda ${r} de ${wmState.rounds}</strong><span>${len} sonidos</span></div><h1>Escucha la secuencia</h1><div class="wm-listening">♪</div></section>`;
+    main.innerHTML=`<section class="card wm-stage-card"><div class="wm-progress"><strong>Ronda ${r} de ${wmState.rounds}</strong><span>${len} sonidos</span></div><h1>Escucha la secuencia</h1><div class="wm-listening">${iconHTML('icon-sound','wm-listening-svg')}</div></section>`;
     await wmWait(450);
     for(const tone of seq){ if(!wmAlive(token))return; wmTone(tone); await wmWait(wmState.interval); }
-    main.innerHTML=`<section class="card wm-stage-card"><h1>Repite los sonidos</h1><p class="muted">Puedes pulsar cada botón para escuchar el tono.</p><div class="wm-tone-grid">${WM_TONES.map((_,i)=>'<button class="wm-tone-btn" data-tone="'+i+'" type="button">♪ '+(i+1)+'</button>').join('')}</div><div id="wmCounter" class="wm-counter">0 / ${len}</div>${wmQuitButton()}</section>`;
+    main.innerHTML=`<section class="card wm-stage-card"><h1>Repite los sonidos</h1><p class="muted">Puedes pulsar cada botón para escuchar el tono.</p><div class="wm-tone-grid">${WM_TONES.map((_,i)=>'<button class="wm-tone-btn" data-tone="'+i+'" type="button">'+iconHTML('icon-sound','wm-tone-svg')+'<span>'+(i+1)+'</span></button>').join('')}</div><div id="wmCounter" class="wm-counter">0 / ${len}</div>${wmQuitButton()}</section>`;
     const answer=[];
     await new Promise(resolve=>{
       document.querySelectorAll('[data-tone]').forEach(b=>b.addEventListener('click',()=>{const i=Number(b.dataset.tone);wmTone(i);if(answer.length<len){answer.push(i);document.getElementById('wmCounter').textContent=answer.length+' / '+len;if(answer.length===len)resolve();}}));
@@ -245,7 +245,7 @@ async function wmSounds(token){
 async function wmNback(token){
   const n=wmState.n||1;
   const trials=wmState.rounds*4;
-  const symbols=['●','■','▲','◆'];
+  const symbols=['shape-circle','shape-square','shape-triangle','shape-diamond'];
   const seq=[];
   for(let i=0;i<trials;i++){
     if(i>=n && Math.random()<.35) seq.push(seq[i-n]); else seq.push(symbols[Math.floor(Math.random()*symbols.length)]);
@@ -253,7 +253,7 @@ async function wmNback(token){
   let correct=0;
   for(let i=0;i<trials && wmAlive(token);i++){
     const should=i>=n && seq[i]===seq[i-n];
-    main.innerHTML=`<section class="card wm-stage-card"><div class="wm-progress"><strong>${i+1} / ${trials}</strong><span>${n}-back</span></div><div class="wm-nback-symbol">${seq[i]}</div><p>¿Coincide con el elemento de hace ${n} posición${n>1?'es':''}?</p><div class="wm-binary"><button class="btn btn-primary btn-large" data-answer="yes" type="button">Sí</button><button class="btn btn-secondary btn-large" data-answer="no" type="button">No</button></div>${wmQuitButton()}</section>`;
+    main.innerHTML=`<section class="card wm-stage-card"><div class="wm-progress"><strong>${i+1} / ${trials}</strong><span>${n}-back</span></div><div class="wm-nback-symbol">${iconHTML(seq[i],'wm-nback-svg')}</div><p>¿Coincide con el elemento de hace ${n} posición${n>1?'es':''}?</p><div class="wm-binary"><button class="btn btn-primary btn-large" data-answer="yes" type="button">Sí</button><button class="btn btn-secondary btn-large" data-answer="no" type="button">No</button></div>${wmQuitButton()}</section>`;
     const ans=await new Promise(resolve=>{document.querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>resolve(b.dataset.answer==='yes')));wmBindAbort();});
     if(!wmAlive(token))return;
     if(ans===should)correct++;
