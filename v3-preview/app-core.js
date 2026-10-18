@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.13', date: '—' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.14', date: '—' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -269,6 +269,10 @@ function visualHTML(visual) {
     return `<span class="visual svg-visual"><svg class="stimulus-svg" viewBox="0 0 100 100" role="img" aria-label="Forma geométrica">${body}</svg></span>`;
   }
   if (visual.type === 'svg') return `<span class="visual svg-visual"><svg class="stimulus-svg" viewBox="0 0 160 120" role="img" aria-label="${escapeHTML(visual.alt || 'Figura')}"><use href="${escapeHTML(visual.value)}"></use></svg></span>`;
+  if (visual.type === 'photo') {
+    const src=String(visual.value||'');
+    return `<span class="visual photo-visual real-photo-visual"><img class="stimulus-photo real-photo-img" src="${escapeHTML(src)}" alt="${escapeHTML(visual.alt || 'Fotografía real')}" loading="eager" decoding="async" referrerpolicy="no-referrer"></span>`;
+  }
   if (visual.type === 'image') {
     const src=String(visual.value||'');
     const isSvg=src.startsWith('data:image/svg+xml') || /\.svg(?:$|[?#])/i.test(src);

@@ -130,3 +130,16 @@ if "¿Qué quieres trabajar hoy?" in core or "Entrenamiento cognitivo</span>" in
 if "body.training-focus .compact-test-board>.match-card" not in styles:
     print("Regresión: falta escalado adaptativo fullscreen")
     sys.exit(1)
+
+# Foto ↔ palabra debe estar en Inicio y no en el menú.
+photo = Path("v3-preview/photo-real.js").read_text(encoding="utf-8")
+core = Path("v3-preview/app-core.js").read_text(encoding="utf-8")
+if "menuOnly:false" not in photo or "type:'photo'" not in photo:
+    print("Regresión: Fotos reales no está configurado para Inicio/fotografía")
+    sys.exit(1)
+if "installPhotoRealMenu" in photo or "photoRealBtn" in photo and "remove()" not in photo:
+    print("Regresión: Fotos reales vuelve a crear opción de menú")
+    sys.exit(1)
+if "visual.type === 'photo'" not in core:
+    print("Regresión: el renderizador no admite fotografías reales")
+    sys.exit(1)

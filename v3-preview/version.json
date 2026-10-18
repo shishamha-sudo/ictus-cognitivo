@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.13",
+  "version": "4.14",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Cabecera solo con logo, Inicio compacto, escalado adaptativo en pantalla completa y nuevo menú Fotos reales."
+  "notes": "Mueve Foto ↔ palabra a Inicio y habilita la visualización de fotografías reales en esa actividad."
 }

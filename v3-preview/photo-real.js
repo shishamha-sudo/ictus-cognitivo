@@ -6,7 +6,7 @@ const PHOTO_REAL_SET={
   short:'Foto ↔ palabra',
   description:'Relaciona fotografías reales de objetos cotidianos con la palabra correspondiente.',
   icon:'icon-photo',
-  menuOnly:true,
+  menuOnly:false,
   sourceNote:'Fotografías procedentes de Wikimedia Commons. Las licencias y autorías se conservan en las páginas originales de cada archivo.',
   pairs:[
     ['manzana','Apple (1).jpg','MANZANA'],
@@ -22,8 +22,8 @@ const PHOTO_REAL_SET={
   ].map(([id,file,target])=>({
     id:'foto-'+id,
     visual:{
-      type:'image',
-      value:'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width=800',
+      type:'photo',
+      value:'https://commons.wikimedia.org/wiki/Special:FilePath/'+encodeURIComponent(file)+'?width=900',
       alt:'Fotografía real de '+target.toLowerCase()
     },
     target
@@ -31,28 +31,23 @@ const PHOTO_REAL_SET={
 };
 
 function ensurePhotoRealSet(){
-  if(typeof state==='undefined'||!state.content?.sets)return;
-  if(!state.content.sets.some(s=>s.id===PHOTO_REAL_SET.id)) state.content.sets.push(PHOTO_REAL_SET);
+  if(typeof state==='undefined'||!state.content?.sets)return false;
+  const index=state.content.sets.findIndex(s=>s.id===PHOTO_REAL_SET.id);
+  if(index>=0){
+    state.content.sets[index]=structuredClone(PHOTO_REAL_SET);
+  }else{
+    state.content.sets.push(structuredClone(PHOTO_REAL_SET));
+  }
+  document.getElementById('photoRealBtn')?.remove();
+  return true;
 }
 
-function installPhotoRealMenu(){
-  ensurePhotoRealSet();
-  const actions=document.querySelector('.top-actions');
-  if(!actions||document.getElementById('photoRealBtn'))return;
-  const button=document.createElement('button');
-  button.id='photoRealBtn';
-  button.type='button';
-  button.className='btn btn-ghost nav-btn';
-  button.title='Ejercicios con fotografías reales';
-  button.setAttribute('aria-label','Fotos reales');
-  button.innerHTML='<span class="nav-icon">'+iconHTML('icon-photo','nav-svg-icon')+'</span><span class="nav-label">Fotos reales</span>';
-  button.addEventListener('click',()=>{
-    ensurePhotoRealSet();
-    renderConfig('fotos-reales');
-  });
-  const history=document.getElementById('historyBtn');
-  actions.insertBefore(button,history||null);
+function installPhotoRealHome(){
+  if(!ensurePhotoRealSet())return;
+  if(typeof state!=='undefined' && state.screen==='home' && typeof renderHome==='function'){
+    renderHome();
+  }
 }
 
-installPhotoRealMenu();
-setTimeout(installPhotoRealMenu,300);
+installPhotoRealHome();
+setTimeout(installPhotoRealHome,300);

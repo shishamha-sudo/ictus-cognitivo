@@ -617,3 +617,9 @@ body.training-focus .ram-svg-stimulus{width:min(44vw,52vh)!important;height:min(
   body.training-focus .compact-test-board>.match-card{height:clamp(48px,calc((100vh - 200px)/4),110px)!important}
   body.training-focus .compact-test-header .instruction{font-size:clamp(18px,3vh,28px)!important}
 }
+
+
+/* v4.14 - fotos reales en Inicio */
+.real-photo-visual{width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.real-photo-img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;background:#fff}
+.photo-load-error{display:grid;place-items:center;background:#f7f9fb;color:var(--muted)}
