@@ -70,6 +70,7 @@ function renderRound() {
   s.lines = [];
   const targets = shuffle(roundPairs);
   const modeText = s.mode === 'drag' ? 'Arrastra cada elemento hasta su pareja. También puedes pulsar uno y después el otro.' : 'Pulsa un elemento de la izquierda y después su pareja de la derecha.';
+  const isPhotoTest = s.setId === 'fotos-reales';
 
   main.innerHTML = `
     <section class="test-header card compact-test-header">
@@ -78,10 +79,10 @@ function renderRound() {
       <h1 class="instruction">Relaciona los elementos</h1>
       <p style="margin:0;color:var(--muted);font-size:17px">${escapeHTML(modeText)}</p>
     </section>
-    <section class="card section compact-test-card">
-      <div id="board" class="test-board compact-test-board">
+    <section class="card section compact-test-card ${isPhotoTest ? 'photo-test-card' : ''}">
+      <div id="board" class="test-board compact-test-board ${isPhotoTest ? 'photo-test-board' : ''}">
         <svg id="matchSvg" class="match-svg" aria-hidden="true"></svg>
-        <p class="column-title">Figuras</p>
+        <p class="column-title">${isPhotoTest ? 'Fotos' : 'Figuras'}</p>
         <p class="column-title">Palabras</p>
         ${roundPairs.map((p,i) => `
           <button class="match-card source" type="button" data-source="${escapeHTML(p.id)}" aria-label="Seleccionar elemento">${visualHTML(p.visual)}</button>
@@ -104,24 +105,58 @@ function renderRound() {
 function fitTestBoardToViewport() {
   const board = document.getElementById('board');
   if (!board || !state.session) return;
-  const rows = Math.max(1, getRoundPairs().length);
-  const rect = board.getBoundingClientRect();
-  const viewportH = window.innerHeight || document.documentElement.clientHeight || 800;
 
-  // Espacio inferior reservado para feedback, botón y margen de seguridad.
-  const reservedBottom = viewportH <= 720 ? 72 : 88;
-  const titleHeight = viewportH <= 720 ? 22 : 26;
-  const gap = viewportH <= 720 ? 6 : 8;
-  const available = Math.max(260, viewportH - rect.top - reservedBottom - titleHeight);
-  const calculated = Math.floor((available - gap * (rows - 1)) / rows);
-  const rowHeight = Math.max(62, Math.min(112, calculated));
-  const visualHeight = Math.max(50, Math.floor(rowHeight * 0.72));
-  const visualWidth = Math.max(72, Math.min(150, Math.floor(visualHeight * 1.45)));
+  const rows = Math.max(1, getRoundPairs().length);
+  const viewportH = window.innerHeight || document.documentElement.clientHeight || 800;
+  const viewportW = window.innerWidth || document.documentElement.clientWidth || 1200;
+  const isPhotoTest = state.session.setId === 'fotos-reales';
+  const isFocus = document.body.classList.contains('training-focus') || !!document.fullscreenElement;
+
+  const boardRect = board.getBoundingClientRect();
+  const card = board.closest('.compact-test-card');
+  const feedback = card?.querySelector('.feedback');
+  const actions = card?.querySelector('.actions');
+
+  const feedbackH = feedback ? Math.ceil(feedback.getBoundingClientRect().height) : 0;
+  const actionsH = actions ? Math.ceil(actions.getBoundingClientRect().height) : 0;
+  const safeBottom = isFocus ? 10 : 18;
+  const internalGap = isFocus ? 6 : 10;
+  const titleRowH = isFocus ? 20 : 22;
+  const rowGap = isFocus ? 5 : 7;
+
+  // Reserve all controls below the board before calculating row height.
+  const controlsH = feedbackH + actionsH + internalGap + safeBottom;
+  const availableH = Math.max(220, viewportH - boardRect.top - controlsH - titleRowH);
+  const calculatedRow = Math.floor((availableH - rowGap * Math.max(0, rows - 1)) / rows);
+
+  const minRow = isPhotoTest ? (viewportH < 650 ? 68 : 82) : (viewportH < 650 ? 56 : 64);
+  const maxRow = isFocus
+    ? (isPhotoTest ? 220 : 175)
+    : (isPhotoTest ? 170 : 120);
+  const rowHeight = Math.max(minRow, Math.min(maxRow, calculatedRow));
+
+  const boardWidth = Math.max(280, board.clientWidth || viewportW);
+  const columnGap = Math.max(8, Math.min(28, Math.floor(boardWidth * 0.025)));
+  const columnWidth = Math.max(120, Math.floor((boardWidth - columnGap) / 2));
+
+  const visualHeight = isPhotoTest
+    ? Math.max(56, rowHeight - 6)
+    : Math.max(46, Math.floor(rowHeight * 0.82));
+  const visualWidth = isPhotoTest
+    ? Math.max(100, columnWidth - 8)
+    : Math.max(68, Math.min(columnWidth - 12, Math.floor(visualHeight * 1.55)));
+
+  const wordSize = Math.max(
+    isFocus ? 18 : 16,
+    Math.min(isFocus ? 38 : 30, Math.floor(rowHeight * (isPhotoTest ? 0.24 : 0.22)))
+  );
 
   board.style.setProperty('--fit-row-h', rowHeight + 'px');
   board.style.setProperty('--fit-visual-h', visualHeight + 'px');
   board.style.setProperty('--fit-visual-w', visualWidth + 'px');
-  board.style.setProperty('--fit-gap', gap + 'px');
+  board.style.setProperty('--fit-word-size', wordSize + 'px');
+  board.style.setProperty('--fit-gap', rowGap + 'px');
+  board.style.setProperty('--fit-column-gap', columnGap + 'px');
 
   requestAnimationFrame(drawLines);
 }

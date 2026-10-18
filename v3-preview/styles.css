@@ -568,7 +568,7 @@ tr:last-child td { border-bottom: 0; }
   .nav-svg-icon{width:17px;height:17px}
   .user-chip{display:none}
 }
-.training-focus-btn{position:fixed;right:18px;bottom:18px;z-index:1000;display:flex;align-items:center;gap:8px;box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.training-focus-btn{position:static;display:inline-flex;align-items:center;gap:8px;box-shadow:none}
 .focus-mode-svg{width:22px;height:22px;display:block}
 body.training-focus .topbar,body.training-focus .footer,body.training-focus .toast{display:none!important}
 body.training-focus .main{width:100%!important;max-width:none!important;margin:0!important;padding:10px!important;min-height:100vh}
@@ -623,3 +623,143 @@ body.training-focus .ram-svg-stimulus{width:min(44vw,52vh)!important;height:min(
 .real-photo-visual{width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .real-photo-img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px;background:#fff}
 .photo-load-error{display:grid;place-items:center;background:#f7f9fb;color:var(--muted)}
+
+
+/* v4.16 - fullscreen sin superposiciones y escalado conjunto */
+.training-focus-toolbar{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  width:100%;
+  min-height:42px;
+  margin:0 0 8px;
+  padding:0;
+  position:static;
+  z-index:auto;
+}
+.training-focus-btn{
+  position:static!important;
+  right:auto!important;
+  bottom:auto!important;
+  margin:0!important;
+  flex:0 0 auto;
+}
+body.training-focus .training-focus-toolbar{
+  min-height:38px;
+  margin-bottom:5px;
+}
+.compact-test-board{
+  column-gap:var(--fit-column-gap,clamp(12px,3vw,36px))!important;
+  row-gap:var(--fit-gap,7px)!important;
+}
+.compact-test-board>.match-card,
+body.training-focus .compact-test-board>.match-card{
+  height:var(--fit-row-h,96px)!important;
+  min-height:var(--fit-row-h,96px)!important;
+  max-height:var(--fit-row-h,96px)!important;
+  overflow:hidden;
+}
+.compact-test-board .word,
+body.training-focus .compact-test-board .word{
+  font-size:var(--fit-word-size,22px)!important;
+  line-height:1.08!important;
+  max-width:100%;
+  overflow-wrap:anywhere;
+}
+.compact-test-board .svg-visual,
+.compact-test-board .photo-visual,
+body.training-focus .compact-test-board .svg-visual,
+body.training-focus .compact-test-board .photo-visual{
+  width:var(--fit-visual-w,130px)!important;
+  min-width:0!important;
+  max-width:100%!important;
+  height:var(--fit-visual-h,82px)!important;
+  min-height:0!important;
+  max-height:var(--fit-visual-h,82px)!important;
+}
+.compact-test-board .stimulus-svg,
+.compact-test-board .stimulus-photo,
+body.training-focus .compact-test-board .stimulus-svg,
+body.training-focus .compact-test-board .stimulus-photo{
+  width:100%!important;
+  max-width:100%!important;
+  height:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  padding:0!important;
+}
+.photo-test-board>.match-card.source{
+  padding:3px!important;
+}
+.photo-test-board .real-photo-visual{
+  width:100%!important;
+  height:100%!important;
+}
+.photo-test-board .real-photo-img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:0!important;
+}
+body.training-focus .compact-test-card .feedback{
+  flex:0 0 auto;
+  min-height:20px!important;
+  height:auto!important;
+  margin-top:3px!important;
+  font-size:clamp(13px,1.8vh,18px)!important;
+}
+body.training-focus .compact-test-card .actions{
+  flex:0 0 auto;
+  margin-top:3px!important;
+  min-height:34px;
+}
+body.training-focus .compact-test-card #quitBtn{
+  min-height:32px!important;
+  padding:4px 12px!important;
+  font-size:clamp(12px,1.6vh,16px)!important;
+}
+body.training-focus .compact-test-header{
+  flex:0 0 auto;
+}
+body.training-focus .main{
+  min-height:100vh!important;
+  height:auto!important;
+  overflow:visible!important;
+}
+body.training-focus .ram-stage,
+body.training-focus .wm-stage-card{
+  max-width:min(1100px,100%)!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+body.training-focus .ram-word-stimulus{
+  font-size:clamp(40px,min(9vw,11vh),108px)!important;
+  line-height:1!important;
+}
+body.training-focus .ram-svg-stimulus{
+  width:min(48vw,58vh)!important;
+  height:min(40vw,48vh)!important;
+}
+body.training-focus .wm-big-object{
+  width:min(46vw,54vh)!important;
+  height:min(38vw,46vh)!important;
+}
+body.training-focus .wm-card,
+body.training-focus .ram-choice{
+  font-size:clamp(15px,2.2vh,24px)!important;
+}
+@media(max-height:680px){
+  .training-focus-toolbar{min-height:34px;margin-bottom:3px}
+  body.training-focus .compact-test-header{padding:4px 8px!important;margin-bottom:3px!important}
+  body.training-focus .compact-test-header .instruction{font-size:clamp(17px,2.6vh,24px)!important}
+  body.training-focus .compact-test-header p{font-size:12px!important}
+  body.training-focus .progress-row{font-size:12px!important}
+  body.training-focus .compact-test-card{padding:4px 7px!important}
+  body.training-focus .compact-test-card .actions{min-height:30px}
+}
+@media(max-width:700px){
+  .training-focus-toolbar{justify-content:center}
+  .training-focus-btn{min-height:38px}
+  .focus-mode-label{display:inline!important}
+}

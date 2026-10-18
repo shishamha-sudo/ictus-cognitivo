@@ -1,6 +1,7 @@
 'use strict';
 
 (function(){
+  let toolbar=null;
   let button=null;
   let focusActive=false;
   let scheduled=false;
@@ -31,6 +32,12 @@
     button.setAttribute('aria-label',button.title);
   }
 
+  function refit(){
+    if(typeof fitTestBoardToViewport==='function'){
+      requestAnimationFrame(()=>fitTestBoardToViewport());
+    }
+  }
+
   async function setFocus(enabled){
     focusActive=!!enabled;
     document.body.classList.toggle('training-focus',focusActive);
@@ -42,23 +49,36 @@
       }
     }catch{}
     syncButton();
+    refit();
   }
 
-  function ensureButton(){
+  function ensureToolbar(){
     const active=testActive();
     if(!active){
       if(focusActive)setFocus(false);
-      button?.remove();
+      toolbar?.remove();
+      toolbar=null;
       button=null;
       return;
     }
-    if(!button){
+
+    const host=typeof main!=='undefined' ? main : document.querySelector('main');
+    if(!host)return;
+
+    if(!toolbar){
+      toolbar=document.createElement('div');
+      toolbar.id='trainingFocusToolbar';
+      toolbar.className='training-focus-toolbar';
       button=document.createElement('button');
       button.id='trainingFocusBtn';
       button.type='button';
       button.className='btn btn-secondary training-focus-btn';
       button.addEventListener('click',()=>setFocus(!(focusActive||document.fullscreenElement)));
-      document.body.appendChild(button);
+      toolbar.appendChild(button);
+    }
+
+    if(toolbar.parentElement!==host){
+      host.prepend(toolbar);
     }
     syncButton();
   }
@@ -68,7 +88,8 @@
     scheduled=true;
     requestAnimationFrame(()=>{
       scheduled=false;
-      ensureButton();
+      ensureToolbar();
+      refit();
     });
   }
 
@@ -78,6 +99,7 @@
       document.body.classList.remove('training-focus');
     }
     syncButton();
+    refit();
   });
 
   const observer=new MutationObserver(schedule);

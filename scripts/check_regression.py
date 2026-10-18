@@ -143,3 +143,20 @@ if "installPhotoRealMenu" in photo or "photoRealBtn" in photo and "remove()" not
 if "visual.type === 'photo'" not in core:
     print("Regresión: el renderizador no admite fotografías reales")
     sys.exit(1)
+
+# Pantalla completa: controles fuera del tablero y tamaños adaptativos.
+focus = Path("v3-preview/focus-mode.js").read_text(encoding="utf-8")
+main_js = Path("v3-preview/app-main.js").read_text(encoding="utf-8")
+styles = Path("v3-preview/styles.css").read_text(encoding="utf-8")
+for required in ["training-focus-toolbar","host.prepend(toolbar)","refit()"]:
+    if required not in focus:
+        print("Regresión fullscreen toolbar:", required)
+        sys.exit(1)
+for required in ["feedbackH","actionsH","--fit-word-size","--fit-column-gap"]:
+    if required not in main_js:
+        print("Regresión fullscreen sizing:", required)
+        sys.exit(1)
+for required in ["position:static!important","var(--fit-row-h","var(--fit-word-size"]:
+    if required not in styles:
+        print("Regresión fullscreen CSS:", required)
+        sys.exit(1)
