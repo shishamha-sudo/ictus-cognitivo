@@ -3,7 +3,7 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.12', date: '—' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.13', date: '—' };
 
 const palette = {
   rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
@@ -369,7 +369,7 @@ function renderHome() {
   state.screen = 'home';
   state.session = null;
 
-  const trainingCards = state.content.sets.map(set => `
+  const trainingCards = state.content.sets.filter(set => !set.menuOnly).map(set => `
     <article class="app-option-card">
       <div class="app-option-icon" aria-hidden="true">${iconHTML(setIconId(set),'app-svg-icon')}</div>
       <div class="app-option-copy">
@@ -403,12 +403,8 @@ function renderHome() {
     </article>`).join('');
 
   main.innerHTML = `
-    <section class="home-intro training-home-intro">
-      <div>
-        <span class="home-eyebrow">Entrenamiento cognitivo</span>
-        <h1>¿Qué quieres trabajar hoy?</h1>
-        <p>Selecciona una actividad de entrenamiento.</p>
-      </div>
+    <section class="home-intro training-home-intro home-intro-compact">
+      <h1>Entrenamientos</h1>
     </section>
 
     <section class="section home-training-group">
@@ -424,7 +420,7 @@ function renderHome() {
     <section class="section home-training-group memory-training-group">
       <div class="section-title">
         <div>
-          <h2>🧠 Memoria de trabajo</h2>
+          <h2>${iconHTML('icon-memory','section-title-svg')} Memoria de trabajo</h2>
           <p>RAM, secuencias, localización, actualización mental y atención dividida.</p>
         </div>
       </div>

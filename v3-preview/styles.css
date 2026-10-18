@@ -578,3 +578,42 @@ body.training-focus{background:#fff;overflow:auto}
   .training-focus-btn{right:10px;bottom:10px;padding:8px 10px}
   .focus-mode-label{display:none}
 }
+
+
+/* v4.13 - cabecera mínima, inicio compacto y escalado fullscreen */
+.brand{flex:0 0 auto}
+.brand>span:not(.brand-mark){display:none!important}
+.home-intro-compact{padding:8px 0 2px!important}
+.home-intro-compact h1{margin:0!important;font-size:clamp(22px,2.4vw,32px)!important;line-height:1.1}
+.section-title-svg{width:28px;height:28px;display:inline-block;vertical-align:middle;margin-right:6px}
+.source-note{margin:10px 0 0;padding:10px 12px;border-radius:12px;background:#f7f9fb;border:1px solid var(--line);color:var(--muted);font-size:13px}
+.real-photo-visual img,.real-photo-img{display:block;width:100%;height:100%;object-fit:contain;border-radius:12px;background:#fff}
+body.training-focus .compact-test-header{padding:clamp(6px,1.2vh,14px) clamp(10px,2vw,24px)!important;margin-bottom:clamp(4px,.8vh,10px)!important}
+body.training-focus .compact-test-header .instruction{font-size:clamp(20px,3.2vh,38px)!important;margin:clamp(2px,.6vh,8px) 0!important}
+body.training-focus .compact-test-header p{font-size:clamp(13px,2vh,21px)!important}
+body.training-focus .progress-row{font-size:clamp(13px,1.8vh,19px)!important}
+body.training-focus .compact-test-card{padding:clamp(6px,1vh,12px)!important}
+body.training-focus .compact-test-board{gap:clamp(5px,.8vh,10px) clamp(8px,1vw,16px)!important}
+body.training-focus .compact-test-board>.column-title{font-size:clamp(12px,1.8vh,18px)!important}
+body.training-focus .compact-test-board>.match-card{
+  min-height:0!important;
+  height:clamp(58px,calc((100vh - 245px)/4),155px)!important;
+  padding:clamp(3px,.7vh,8px)!important;
+  font-size:clamp(16px,2.5vh,30px)!important
+}
+body.training-focus .compact-test-board .visual,
+body.training-focus .compact-test-board .visual svg,
+body.training-focus .compact-test-board .stimulus-photo{
+  max-height:clamp(48px,calc((100vh - 275px)/4),135px)!important;
+  width:100%!important
+}
+body.training-focus .wm-stage-card h1{font-size:clamp(24px,4vh,46px)!important}
+body.training-focus .wm-big-object{width:min(42vw,48vh)!important;height:min(34vw,42vh)!important}
+body.training-focus .wm-object-btn{height:clamp(72px,16vh,150px)!important}
+body.training-focus .ram-stimulus-wrap{min-height:0!important}
+body.training-focus .ram-word-stimulus{font-size:clamp(48px,10vh,110px)!important}
+body.training-focus .ram-svg-stimulus{width:min(44vw,52vh)!important;height:min(38vw,46vh)!important}
+@media(max-height:650px){
+  body.training-focus .compact-test-board>.match-card{height:clamp(48px,calc((100vh - 200px)/4),110px)!important}
+  body.training-focus .compact-test-header .instruction{font-size:clamp(18px,3vh,28px)!important}
+}

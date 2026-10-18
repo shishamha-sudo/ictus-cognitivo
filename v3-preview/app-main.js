@@ -12,6 +12,7 @@ function renderConfig(setId) {
       <span class="badge">${iconHTML(setIconId(set),'badge-svg')} ${escapeHTML(set.short || set.name)}</span>
       <h1 style="margin-bottom:8px">Configurar ejercicio</h1>
       <p style="color:var(--muted);margin-top:0">${escapeHTML(set.description)}</p>
+      ${set.sourceNote ? '<p class="source-note">'+escapeHTML(set.sourceNote)+'</p>' : ''}
       <div class="form-grid section">
         <div class="field">
           <label for="countSelect">Número total de elementos</label>

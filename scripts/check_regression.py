@@ -110,3 +110,23 @@ for required in ["requestFullscreen", "exitFullscreen", "testActive"]:
     if required not in focus:
         print("Regresión UI: falta modo pantalla completa", required)
         sys.exit(1)
+
+# Fotos reales y cabecera compacta.
+index = Path("v3-preview/index.html").read_text(encoding="utf-8")
+photo = Path("v3-preview/photo-real.js").read_text(encoding="utf-8")
+core = Path("v3-preview/app-core.js").read_text(encoding="utf-8")
+styles = Path("v3-preview/styles.css").read_text(encoding="utf-8")
+for required in ["photo-real.js","icon-photo"]:
+    if required not in index:
+        print("Regresión: falta Fotos reales", required)
+        sys.exit(1)
+for required in ["photoRealBtn","Special:FilePath","fotos-reales"]:
+    if required not in photo:
+        print("Regresión: falta funcionalidad Fotos reales", required)
+        sys.exit(1)
+if "¿Qué quieres trabajar hoy?" in core or "Entrenamiento cognitivo</span>" in index:
+    print("Regresión: cabecera/Inicio no están compactos")
+    sys.exit(1)
+if "body.training-focus .compact-test-board>.match-card" not in styles:
+    print("Regresión: falta escalado adaptativo fullscreen")
+    sys.exit(1)
