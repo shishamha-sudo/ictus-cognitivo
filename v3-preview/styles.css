@@ -763,3 +763,52 @@ body.training-focus .ram-choice{
   .training-focus-btn{min-height:38px}
   .focus-mode-label{display:inline!important}
 }
+
+
+/* v4.17 - fotografía siempre completa dentro de su celda */
+.photo-test-board>.match-card.source{
+  position:relative!important;
+  display:block!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+.photo-test-board>.match-card.source .real-photo-visual{
+  position:absolute!important;
+  inset:6px!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+}
+.photo-test-board>.match-card.source .real-photo-img,
+.photo-test-board>.match-card.source .stimulus-photo.real-photo-img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-width:0!important;
+  min-height:0!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:9px!important;
+  box-sizing:border-box!important;
+}
+body.training-focus .photo-test-board>.match-card.source .real-photo-visual{
+  inset:4px!important;
+}
+@media(max-width:700px){
+  .photo-test-board>.match-card.source .real-photo-visual{inset:4px!important}
+  .photo-test-board>.match-card.source .real-photo-img{border-radius:7px!important}
+}

@@ -160,3 +160,15 @@ for required in ["position:static!important","var(--fit-row-h","var(--fit-word-s
     if required not in styles:
         print("Regresión fullscreen CSS:", required)
         sys.exit(1)
+
+# fotografía siempre dentro de la celda
+styles = Path("v3-preview/styles.css").read_text(encoding="utf-8")
+for required in [
+    ".photo-test-board>.match-card.source .real-photo-visual",
+    "position:absolute!important",
+    "object-fit:contain!important",
+    "object-position:center center!important"
+]:
+    if required not in styles:
+        print("Regresión ajuste de fotografías:", required)
+        sys.exit(1)
