@@ -172,3 +172,19 @@ for required in [
     if required not in styles:
         print("Regresión ajuste de fotografías:", required)
         sys.exit(1)
+
+# Evento de pantalla completa debe ser robusto.
+focus = Path("v3-preview/focus-mode.js").read_text(encoding="utf-8")
+for required in [
+    "document.addEventListener('click',toggleFromUserEvent,true)",
+    "requestFullscreen",
+    "webkitRequestFullscreen",
+    "fullscreenElement()",
+    "ICTUS_FULLSCREEN"
+]:
+    if required not in focus:
+        print("Regresión evento fullscreen:", required)
+        sys.exit(1)
+if "catch{}" in focus:
+    print("Regresión fullscreen: no se deben silenciar errores de fullscreen")
+    sys.exit(1)

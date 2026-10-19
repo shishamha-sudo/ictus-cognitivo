@@ -812,3 +812,22 @@ body.training-focus .photo-test-board>.match-card.source .real-photo-visual{
   .photo-test-board>.match-card.source .real-photo-visual{inset:4px!important}
   .photo-test-board>.match-card.source .real-photo-img{border-radius:7px!important}
 }
+
+
+/* v4.18 - fullscreen nativo robusto */
+#app:fullscreen,
+#app:-webkit-full-screen{
+  width:100%!important;
+  height:100%!important;
+  min-height:100%!important;
+  overflow:auto!important;
+  background:#fff!important;
+}
+#app:fullscreen .main,
+#app:-webkit-full-screen .main{
+  min-height:100%!important;
+}
+.training-focus-btn[aria-pressed="true"]{
+  border-color:var(--accent);
+  background:var(--accent-soft);
+}
