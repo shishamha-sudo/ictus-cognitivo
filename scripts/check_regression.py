@@ -188,3 +188,14 @@ for required in [
 if "catch{}" in focus:
     print("Regresión fullscreen: no se deben silenciar errores de fullscreen")
     sys.exit(1)
+
+# Espectro sencillo de colores.
+core = Path("v3-preview/app-core.js").read_text(encoding="utf-8")
+for forbidden in ["turquesa:", "celeste:", "lima:", "beige:", "granate:", "violeta:", "coral:", "mostaza:", "oliva:", "azulmarino:"]:
+    if forbidden in core:
+        print("Regresión colores: tono complejo presente", forbidden)
+        sys.exit(1)
+for required in ["rojo:", "azul:", "verde:", "amarillo:", "naranja:", "morado:", "rosa:", "marron:", "gris:", "negro:"]:
+    if required not in core:
+        print("Regresión colores: falta color básico", required)
+        sys.exit(1)

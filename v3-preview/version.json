@@ -1,8 +1,8 @@
 {
   "app": "ICTUS Cognitivo Web",
-  "version": "4.18",
+  "version": "4.19",
   "date": "se actualiza automáticamente al desplegar",
   "channel": "preview",
   "repositoryUrl": "https://github.com/shishamha-sudo/ictus-cognitivo",
-  "notes": "Corrige el evento de Pantalla completa con listener delegado, fullscreen nativo sobre la aplicación, compatibilidad WebKit y fallback visible."
+  "notes": "Simplifica el espectro de colores a diez colores básicos y claramente diferenciables."
 }

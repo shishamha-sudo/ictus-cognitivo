@@ -3,14 +3,20 @@
 const STORAGE_CONTENT = 'cognitivo.content.v1';
 const STORAGE_RESULTS = 'cognitivo.results.v1';
 const STORAGE_SETTINGS = 'cognitivo.settings.v1';
-const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.18', date: '—' };
+const APP_FALLBACK_META = { app: 'ICTUS Cognitivo Web', version: '4.19', date: '—' };
 
 const palette = {
-  rojo: '#e53935', azul: '#1e66f5', verde: '#2e9d57', amarillo: '#f2c94c', naranja: '#f28c28',
-  morado: '#7e57c2', rosa: '#e8659a', negro: '#222222', gris: '#87909a', marron: '#8b5e3c',
-  turquesa: '#2bbbad', celeste: '#5bb9e8', lima: '#8bc34a', beige: '#d6c5a3', granate: '#8e244d',
-  violeta: '#9c4dcc', coral: '#f26b5e', mostaza: '#c89b2c', oliva: '#7a8b3a', azulmarino: '#253b80'
-};
+  rojo: '#e53935',
+  azul: '#1e66f5',
+  verde: '#2e9d57',
+  amarillo: '#f2c94c',
+  naranja: '#f28c28',
+  morado: '#7e57c2',
+  rosa: '#e8659a',
+  marron: '#8b5e3c',
+  gris: '#87909a',
+  negro: '#222222'
+}
 
 function uid(prefix = 'id') {
   return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`;
@@ -93,7 +99,7 @@ const defaultContent = {
       short: 'Color ↔ palabra',
       description: 'Relaciona cada muestra de color con su nombre.',
       icon: 'icon-colors',
-      pairs: Object.entries(palette).map(([id, value]) => ({ id, visual: { type: 'color', value }, target: id === 'marron' ? 'MARRÓN' : id === 'azulmarino' ? 'AZUL MARINO' : id.toUpperCase() }))
+      pairs: Object.entries(palette).map(([id, value]) => ({ id, visual: { type: 'color', value }, target: id === 'marron' ? 'MARRÓN' : id.toUpperCase() }))
     },
     {
       id: 'formas-colores',
