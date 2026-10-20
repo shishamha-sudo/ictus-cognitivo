@@ -1,6 +1,18 @@
 {
-  "updatedAt": "2026-10-19T05:42:04.651355+00:00",
+  "updatedAt": "2026-10-20T05:42:13.990541+00:00",
   "items": [
+    {
+      "id": "069fa6ecc5327b3d4ff7",
+      "source": "Open Magazine",
+      "title": "Speak, Memory - Open Magazine",
+      "description": "Speak, Memory Open Magazine",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE43Z2dqT243bUllYmVEQlNvNnpvZTB1SWRRRHRLeVZ4em5rU0Z4c0txYnhzNDJLN1UzbGoybWdQT0FEQVB6YnR2amlZUkpaa0dSZm1pT3VkNFpYS3Vva2Rqa0d3?oc=5",
+      "publishedAt": "2026-10-17T08:48:27+00:00",
+      "loadedAt": "2026-10-20T05:42:13.990541+00:00",
+      "tags": [
+        "Memoria"
+      ]
+    },
     {
       "id": "esj-umbrella-review-2026",
       "source": "European Stroke Journal",
@@ -494,6 +506,18 @@
       ]
     },
     {
+      "id": "81f7415fd4f64029175a",
+      "source": "Infobae",
+      "title": "Pacientes con ACV muestran mayor adherencia a la rehabilitación con realidad virtual - Infobae",
+      "description": "Pacientes con ACV muestran mayor adherencia a la rehabilitación con realidad virtual Infobae",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNNFhMTS1HUUJJTjFhNk9faU9yVUdxZXJQOHV6LWh3VXRoRmJnelliMUFheWcxbUc1ZUUzZUk1VGtyc21ZZnRyUUx3RE1uN25wam9LN3FRODBRbGlhUUpuaFZIWmxVNENYTUxTTHFSVnVHdHhOcUFST2kzYXlyS0NGYnRXUDhma3JaeVdKaUFQbTNOSVBqZkh6RlJMRldUeE5vMmFFWXBpeXRXMDlZdjhfeGpud0NKcGlCNVRZU0s5SWNOejhf0gHfAUFVX3lxTE9tS1lPSFY3X0pMSlp5MU5qZC15blkxOERHNUtoeFJpcDdwYnlhN1FSb18wXzZGMDNNekRwdWl1WTllTS1Ibzdpam1naWVYUi0wWEpDQnlIc3dHRkRHTWMzaU1EeTZfNVViQVBVemRGWXhHb2w2Z1RHejJBOXhkbTNJRXJtV3YycnN2QjZGNmhwU2p5YWNrdHZoQ2ZPWGVkdklIY3VUNFBkUVljT0RhLWc2SHUyZHp1MWl4dkppV24zLVF1NktRaEloSWlQSk0wWmZHaW0yS2NDcjVRQmdUaWc?oc=5",
+      "publishedAt": "2025-06-03T07:00:00+00:00",
+      "loadedAt": "2026-10-20T05:42:13.990541+00:00",
+      "tags": [
+        "Rehabilitación"
+      ]
+    },
+    {
       "id": "e7744f634171b1b064f8",
       "source": "Frontiers",
       "title": "Is scenery mandatory for restoration? Attention restoration without visual nature elements - Frontiers",
@@ -879,6 +903,19 @@
       "tags": [
         "Memoria",
         "Atención"
+      ]
+    },
+    {
+      "id": "4977962a26690f370664",
+      "source": "Healthline",
+      "title": "Can Cognitive Rehabilitation Therapy Help After a Brain Injury? - Healthline",
+      "description": "Can Cognitive Rehabilitation Therapy Help After a Brain Injury? Healthline",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBNWU1yRE5hUHdjMlMxQ1JfdndzdW9DdHZoZEJkeV9HY2hQWW91ZFp3cGVSZEdDQ1JPREw5YzExODM1SThPNkxfOXg2b2M0c3NVQjRCRkpJRVE5bk5DeVEyR0FnZHpkRTI1SkM2Zmk4anlYNFFhNC0yenBVNlM?oc=5",
+      "publishedAt": "2022-09-29T07:00:00+00:00",
+      "loadedAt": "2026-10-20T05:42:13.990541+00:00",
+      "tags": [
+        "Rehabilitación",
+        "Neurociencia"
       ]
     },
     {
