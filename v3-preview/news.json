@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T05:42:13.990541+00:00",
+  "updatedAt": "2026-10-21T05:41:54.939560+00:00",
   "items": [
     {
       "id": "069fa6ecc5327b3d4ff7",
@@ -96,6 +96,18 @@
       ]
     },
     {
+      "id": "4751936572e07a90f1cf",
+      "source": "MedicalNewsToday",
+      "title": "New stroke rehab guidelines put early, whole-person recovery in focus - MedicalNewsToday",
+      "description": "New stroke rehab guidelines put early, whole-person recovery in focus MedicalNewsToday",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOQTJSMmVwNm9MWDI2S21QeXhfUk9NUmR4dlBIbkc5eXJzd0szY0VxdjdLUHFjR0V6VFA3S2F0Z1FDUFJ2X1d3Nnd2XzNnYjQ0QmIyWTc2M1BlSkdNYS1jWThDdktUOUhHTnB0SktKTEpWenZmZ2txN0lUc0pHSUhtaFo1X2FJclg3UkZWQ1VBVEFzWGRfaUZxaHk5Zy02T2g4aU83OWZKbWpLRnVJQ0JVQWZtLUVtQkcyZDI3enRQTQ?oc=5",
+      "publishedAt": "2026-09-03T07:00:00+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": [
+        "Ictus"
+      ]
+    },
+    {
       "id": "91bbe2e2d499e5e4e224",
       "source": "Medical News Today",
       "title": "New stroke rehab guidelines put early, whole-person recovery in focus - Medical News Today",
@@ -141,6 +153,19 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Ictus"
+      ]
+    },
+    {
+      "id": "b61a484e7b66488b07cd",
+      "source": "Frontiers",
+      "title": "Gender differences in post-stroke cognitive outcomes in rehabilitation: insights from MoCA domain index scores - Frontiers",
+      "description": "Gender differences in post-stroke cognitive outcomes in rehabilitation: insights from MoCA domain index scores Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNdi01WXNyN3p6R0MtS2poRmg4OThTUUN4V0ozdkxLZUxJLVpMRkYtTmMxN3laSmYweFdHZW1HOG9JM0tRRHFjTUtmZ3hmN3p5am9ueGM5MXp6Y25Vc1FxdklxSlVubUxlbkxMSU9aME9oakR2NThLRzFYVUFVYlVnU3dtVHlYcmZ6WTRPVFJ6dEY?oc=5",
+      "publishedAt": "2026-07-18T00:35:10+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
       ]
     },
     {
@@ -470,6 +495,18 @@
       ]
     },
     {
+      "id": "b1dca7b83a10530b7b67",
+      "source": "The New York Times",
+      "title": "A Surprising (and Easy) Way to Boost Your Attention Span (Published 2025) - The New York Times",
+      "description": "A Surprising (and Easy) Way to Boost Your Attention Span (Published 2025) The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE11QWFQeGdiRzNZak1ULTJEM3czbWNnOUJUX1ZjWmdDOFJTZzVGRkk1UVRDUUtLM2Jyc2RhMUVBR3h3VXpQN2k0aEdUWVltLWFkQWVYVENHTXNQMm84dHlKbF94NFp6RkdERTBLdU1FSHRDaEViQU9iUC1WNlc?oc=5",
+      "publishedAt": "2025-08-14T07:00:00+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": [
+        "Atención"
+      ]
+    },
+    {
       "id": "747ccaac2c2dec5507ac",
       "source": "Frontiers",
       "title": "Protocol for a randomized controlled trial: efficacy and mechanisms of dual-target anodal tDCS in post-stroke cognitive impairment - Frontiers",
@@ -561,6 +598,18 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Rehabilitación"
+      ]
+    },
+    {
+      "id": "837bd85182f43aa387a8",
+      "source": "Frontiers",
+      "title": "Advancing personalized digital therapeutics: integrating music therapy, brainwave entrainment methods, and AI-driven biofeedback - Frontiers",
+      "description": "Advancing personalized digital therapeutics: integrating music therapy, brainwave entrainment methods, and AI-driven biofeedback Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQRVI1QmdMZURwMUdiVjgzalNSTHNZUmRWZHRtdEoxcmlJSHVCOTFORmVpX1BOX0VwazlaOER1enFjNTdEQ2VwRUZ1cmJhaEhEc1BJejFrMlZleWJWSTR5WXFPcTRXb3VfSXMxMjAzMjlJZ2E1eF9zYWlJZk9Ud1J2T2p2Qm9iV2ZIODN5TmxPOTlwWFlURy13?oc=5",
+      "publishedAt": "2025-02-24T08:00:00+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": [
+        "Neurociencia"
       ]
     },
     {
@@ -663,6 +712,20 @@
       ]
     },
     {
+      "id": "5215dfbb27d516798034",
+      "source": "Frontiers",
+      "title": "Competition Enhances the Effectiveness and Motivation of Attention Rehabilitation After Stroke. A Randomized Controlled Trial - Frontiers",
+      "description": "Competition Enhances the Effectiveness and Motivation of Attention Rehabilitation After Stroke. A Randomized Controlled Trial Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPd3Q0dFJwN3dVTncxeGJVZ1hNZ0o0OEY3ak55TGU3eU9CZVpral94blg2T19vdXNydzdlbW95MFRQaFZVbXludHpYa2xZcTByaGsyOFZRLTdjS055ZnpFcklIZmtNcmx5c3hPWFBFUmRyWjU5MFphcC1DTXB2TkFLbGI2WE5kOFVzeVFNOUxJUEliWUh3dnpJQlZiRQ?oc=5",
+      "publishedAt": "2024-06-29T05:25:32+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación",
+        "Atención"
+      ]
+    },
+    {
       "id": "8623e259f70f1734e811",
       "source": "Frontiers",
       "title": "Brain plasticity and motor practice in cognitive aging - Frontiers",
@@ -745,6 +808,31 @@
       "tags": [
         "Ictus",
         "Atención"
+      ]
+    },
+    {
+      "id": "a0fbf0c15df24322c2fb",
+      "source": "Frontiers",
+      "title": "Virtual reality technology in the rehabilitation of post-stroke cognitive impairment: an opinion article on recent findings - Frontiers",
+      "description": "Virtual reality technology in the rehabilitation of post-stroke cognitive impairment: an opinion article on recent findings Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPVWhDUHRMS3htR2Y2T3FvXzRHYmdETDlzcl9qWEFlOTQ3bUo2MHU5anBCenpKWVVVRXNzT093RWg3a2FsOERRSDlkOUh6R085NkZvWHZHbG02M09pd2Z2c2lHQm1LcUVpeFNkTHZLc1RJX21mOTA5aGt3eTVhMEt3RzJ6RUg4TE54b05fRTNJRWt5Zw?oc=5",
+      "publishedAt": "2024-02-19T17:27:41+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
+      ]
+    },
+    {
+      "id": "cc7add7a874bede3f217",
+      "source": "Frontiers",
+      "title": "Cognitive telerehabilitation: an expert consensus paper on current evidence and future perspective - Frontiers",
+      "description": "Cognitive telerehabilitation: an expert consensus paper on current evidence and future perspective Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZERqQmdQdFJfTHF2UnBfdko3dGl1SkxNVnhmRzBkZGRMT2N3Z2NINE9QX3pCc1hPOWp4cVVQMUpsRS1uSDIxOGNaZGpsMk0zOHRGRndFa01pb0ZMR0U1QW9UWTNUeFVFTTZYTE5kT29MMGdWbTRLcU1WaU5uak84ODhnN0pueHBZbVJROVFKWjY?oc=5",
+      "publishedAt": "2024-02-16T09:42:06+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": [
+        "Rehabilitación"
       ]
     },
     {
@@ -1198,6 +1286,16 @@
         "Ictus",
         "Rehabilitación"
       ]
+    },
+    {
+      "id": "6373fec7c549e8cbe84e",
+      "source": "www.elsevier.com",
+      "title": "Diagnóstico del deterioro cognitivo vascular y sus principales categorías - www.elsevier.com",
+      "description": "Diagnóstico del deterioro cognitivo vascular y sus principales categorías www.elsevier.com",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPLTVFN19fY2tTc0twd0tadmRSNUFvRmRPMHEzU1F5V1dfM3FQWnl5VnVEYnZpSkFXR3RZUEtQcnhmYng4aEhRcHJQVXJMbDhnT29VVFNONUJXdkpUbHJtLXRDeWpPaE9WVTYtYjR2V1RRNTBMUjFXWjJKWlYyakNIZFo0b09pbFVzclFJRFB2MmhqVXE4c1B4MnNkZXZHRzI3cGJWenVFN1FiYmdhZDducV9FUkRXMUszaVNsTFBR?oc=5",
+      "publishedAt": "2019-03-29T14:30:05+00:00",
+      "loadedAt": "2026-10-21T05:41:54.939560+00:00",
+      "tags": []
     },
     {
       "id": "8baa1f203fcf77ab62e3",
