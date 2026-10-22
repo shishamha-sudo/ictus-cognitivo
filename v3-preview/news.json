@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T05:41:54.939560+00:00",
+  "updatedAt": "2026-10-22T05:41:27.847979+00:00",
   "items": [
     {
       "id": "069fa6ecc5327b3d4ff7",
@@ -25,6 +25,19 @@
         "Ictus",
         "Rehabilitación",
         "Cognición"
+      ]
+    },
+    {
+      "id": "9d9921cd9cfcd99be822",
+      "source": "MedicalNewsToday",
+      "title": "Stroke: Memory and thinking speed tests may predict risk, study finds - MedicalNewsToday",
+      "description": "Stroke: Memory and thinking speed tests may predict risk, study finds MedicalNewsToday",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQUUU0RjNIbFlpd2VsMTdxbVA1U05EVFdseUt0ZHlERTBWbE5FVVU2OUxHMUxPay1sQllGQ3RScUJpTGcwNE4xdUd0V05fQ2d0ZS0zRjdWV2FYbTBsT0xxcDdCY3FjSVhyS3ltWk5DaV9BYjFlTWlQYW1VUG9aa1dyZkJnekRMRUJ3dU1mVW94VkI2NTVjbGRsMU5WRGFjV3JnSWthZDBWZC1fbFlG?oc=5",
+      "publishedAt": "2026-10-07T07:00:00+00:00",
+      "loadedAt": "2026-10-22T05:41:27.847979+00:00",
+      "tags": [
+        "Ictus",
+        "Memoria"
       ]
     },
     {
@@ -368,7 +381,7 @@
       "title": "Editorial: Neuro-cognition in human movement: from fundamental experiments to bio-inspired innovation - Frontiers",
       "description": "Editorial: Neuro-cognition in human movement: from fundamental experiments to bio-inspired innovation Frontiers",
       "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxObXl1ZmYtQkk3RlJGMVl5ZW4xZ3FZdnZCcGxRTlpBQXotWEptOFRvTTRRdDNTeFprbXFQcmJKTERGMnBFdjVQVElFc3BpeDl5R01heGRlMTRkdEJQRnIwbGF6WURXLVgzamdxUVJZaDJYbW54TW5NdmtlclBnZjVIazZpWDF1ek5rbWQzckh0NlQ?oc=5",
-      "publishedAt": "2026-01-28T08:00:00+00:00",
+      "publishedAt": "2026-01-27T08:00:00+00:00",
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": []
     },
@@ -949,7 +962,7 @@
       "title": "Cognitive rehabilitation in multiple sclerosis: Three digital ingredients to address current and future priorities - Frontiers",
       "description": "Cognitive rehabilitation in multiple sclerosis: Three digital ingredients to address current and future priorities Frontiers",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOY19qbTVxYmFKLUVhUXdLWUloWUI0Vk9ES3ktcnltZy1ocXkzNFVrQ2dvUDJBQmU2RFdZdFhTUE9nUjlZSVNNczdJcXBHM1RCal9WeU9fNVZtODY2bVZCNnJFN29uWlpmVWlMWk05aUNnZDZibkFLX0FJRlRTakpQSXJKUXkzOW9QOEd2NjMtcnhNWkNGcHhmUVVFSW4?oc=5",
-      "publishedAt": "2023-02-23T08:00:00+00:00",
+      "publishedAt": "2023-02-22T08:00:00+00:00",
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Rehabilitación"
@@ -1348,6 +1361,18 @@
       ]
     },
     {
+      "id": "35f9e9bb444bbac0a0f1",
+      "source": "MedicalNewsToday",
+      "title": "10 of the best apps for stroke recovery in 2018 - MedicalNewsToday",
+      "description": "10 of the best apps for stroke recovery in 2018 MedicalNewsToday",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBDc2ZMX29sdW9XcWFCUEhpUW9lWEdmWmVwbENuM254dGtDZDhrQVZkaTRpdG8wWXZ5LTBWSHVOZWpYZE8yV1Ezd05jdVEzQVBXaUpfYjYyNFV3QTha?oc=5",
+      "publishedAt": "2018-02-07T08:00:00+00:00",
+      "loadedAt": "2026-10-22T05:41:27.847979+00:00",
+      "tags": [
+        "Ictus"
+      ]
+    },
+    {
       "id": "e252a989620306e1e4e7",
       "source": "Medical News Today",
       "title": "10 of the best apps for stroke recovery in 2018 - Medical News Today",
@@ -1481,6 +1506,18 @@
       "tags": [
         "Rehabilitación",
         "Atención"
+      ]
+    },
+    {
+      "id": "051eed3ef393c0ca93a2",
+      "source": "American Psychological Association (APA)",
+      "title": "A workout for working memory - American Psychological Association (APA)",
+      "description": "A workout for working memory American Psychological Association (APA)",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4xY2hNcXcxbWloU3pZMFNYZzZLeGx1Nk1oMVVRVVNONDV3WlJUanhwZi13cUlaRXdQbnhodDBZaUZQbEY4c25oTVpOdVZSNkdSZDBB?oc=5",
+      "publishedAt": "2005-09-01T07:00:00+00:00",
+      "loadedAt": "2026-10-22T05:41:27.847979+00:00",
+      "tags": [
+        "Memoria"
       ]
     }
   ],
