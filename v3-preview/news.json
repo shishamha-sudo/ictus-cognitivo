@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T05:41:27.847979+00:00",
+  "updatedAt": "2026-10-23T05:41:41.968202+00:00",
   "items": [
     {
       "id": "069fa6ecc5327b3d4ff7",
@@ -95,6 +95,18 @@
       ]
     },
     {
+      "id": "e37faf354f02b5d39366",
+      "source": "Daijiworld",
+      "title": "Robot-assisted therapy improves arm recovery after chronic stroke: Study - Daijiworld",
+      "description": "Robot-assisted therapy improves arm recovery after chronic stroke: Study Daijiworld",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNTFvNl8zUElOUnRMQzdDYUIxaEFmd051V3VwOUttMnExcmhadzl2eV85Q1E0U2lhOEtiTldHQUk2LVNQYnNaQThBVXF3RVM1ZG1NU1BBbWpRLWpVM2dia01rel8wSjNFSVE?oc=5",
+      "publishedAt": "2026-09-10T12:26:35+00:00",
+      "loadedAt": "2026-10-23T05:41:41.968202+00:00",
+      "tags": [
+        "Ictus"
+      ]
+    },
+    {
       "id": "frontiers-psci-2026",
       "source": "Frontiers in Neuroscience / PubMed",
       "title": "Interventions for post-stroke cognitive impairment: neuroplastic mechanisms, comparative efficacy, and multimodal approaches",
@@ -145,6 +157,18 @@
       ]
     },
     {
+      "id": "36c1fcd7bd1aa9d55a42",
+      "source": "Frontiers",
+      "title": "Home-based cognitive telerehabilitation in multiple sclerosis: differential cognitive trajectories according to baseline impairment severity - Frontiers",
+      "description": "Home-based cognitive telerehabilitation in multiple sclerosis: differential cognitive trajectories according to baseline impairment severity Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQZUFweHRLWWxMbmJzVFFUa19CZl9TLS1oWXJnODBjRWxLQ2wyV0FvR1RJRjE1QkFqdlpDc2M5eUVjYXhBcEU3cFNLNWFRUkp4N24wR1RDUkhaXzFKWlNvaUxzZzRJU0NPbUVPY1JaZkJlRXZpZmFTMHJCaWZUVG9jREJzOGZ1cHUycHZVNEdWLVp4RlRvSDBEUlJ6X3FwVU1TUTZZ?oc=5",
+      "publishedAt": "2026-08-14T07:31:54+00:00",
+      "loadedAt": "2026-10-23T05:41:41.968202+00:00",
+      "tags": [
+        "Rehabilitación"
+      ]
+    },
+    {
       "id": "0c25183710957d60cade",
       "source": "Frontiers",
       "title": "Non-linear effects of technological immersion on directed attention restoration: an exploratory study across smartphone, tablet, and virtual reality interfaces - Frontiers",
@@ -154,6 +178,19 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Atención"
+      ]
+    },
+    {
+      "id": "dee3adac2be43e4c9291",
+      "source": "Frontiers",
+      "title": "Robot-assisted integrated cognitive-motor rehabilitation in patients with chronic stroke: a randomized controlled trial - Frontiers",
+      "description": "Robot-assisted integrated cognitive-motor rehabilitation in patients with chronic stroke: a randomized controlled trial Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNbXR6bU1tNGZKcFp1cm52bzRMY0Fyb2E0Ny05Ym1veDQ2eXVERF9Sc1gzWWdNSTBxNlVKMkl5OUV3ck1wb3hQTnBWQjFTUUdYMDllLXhPOEFQc2VHYnJDbmxzYld5dmdMUVkwdFUwREdpTFQ1QnlxcC1pWEotUDhIOTBFR3ZOVjNwZXdVZzNMNUE?oc=5",
+      "publishedAt": "2026-07-29T00:17:29+00:00",
+      "loadedAt": "2026-10-23T05:41:41.968202+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
       ]
     },
     {
@@ -413,6 +450,19 @@
       ]
     },
     {
+      "id": "e3079622d20efe16eeb1",
+      "source": "CORDIS",
+      "title": "AI-powered stroke telerehabilitation at home | PHRASE Project | Results in Brief | HORIZON - CORDIS",
+      "description": "AI-powered stroke telerehabilitation at home | PHRASE Project | Results in Brief | HORIZON CORDIS",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPOEljZE9kZTNEZXpZclhwVjFuUFZkRmhNMFFLSWJoMGlNTHNiZV92T1BkbkQ0NGZoM0JIOC1XbEZPS3dLXzJSMFdPSDg5R010MElSbjBsQWZ1bllSbzUwYVJSVi1Zc2RPOXh0VUYzZmdmNERZX25wczhyN0c0eXRMbnAzQ1Y2aWJFOHNvcEg5ZkE?oc=5",
+      "publishedAt": "2025-12-18T08:00:00+00:00",
+      "loadedAt": "2026-10-23T05:41:41.968202+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
+      ]
+    },
+    {
       "id": "2b051716de2a6c5dbde4",
       "source": "UC San Diego Today",
       "title": "Researchers Show Visual Training Dramatically Improves Cognitive Function After Concussion - UC San Diego Today",
@@ -592,6 +642,18 @@
       ]
     },
     {
+      "id": "8bb98defb7ad530088a4",
+      "source": "Frontiers",
+      "title": "New Paradigm of Attention and Attention Training: Mechanisms and Applications - Frontiers",
+      "description": "New Paradigm of Attention and Attention Training: Mechanisms and Applications Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNOEdrenBkaXpBUW95OUN5ZTE2eXgwM1hmVS00eTVRN2ViTG14V3JVZlBPX1c3S3Rncy1FcWpXZHB5T3BrTk9yMDJIRjg4MmpzaElwVTluSXEtdDRfbTR5dVM4cUNVdlFfRW9CQmQzOUd6blRaRW81MU5NSDExYkFjSkhZNllrN1dad21aUTd5TzBKU01XTEtQSUM4THpGTHlYcklZQ1VScTNQdHd5SlRHREFrZkk4Z0EtMW9jWnB0RThvWkJ5aUJlMHVjSUk4QVct?oc=5",
+      "publishedAt": "2025-03-29T04:21:05+00:00",
+      "loadedAt": "2026-10-23T05:41:41.968202+00:00",
+      "tags": [
+        "Atención"
+      ]
+    },
+    {
       "id": "3a958712db21020c1528",
       "source": "American Heart Association Journals",
       "title": "Long-Term Cognitive Decline After Subarachnoid Hemorrhage: Pathophysiology, Management, and Future Directions - American Heart Association Journals",
@@ -673,6 +735,18 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Deterioro cognitivo"
+      ]
+    },
+    {
+      "id": "08b35bbf39e6e165142b",
+      "source": "Nature",
+      "title": "The influence of a walk in nature on human resting brain activity: a randomized controlled trial | Scientific Reports - Nature",
+      "description": "The influence of a walk in nature on human resting brain activity: a randomized controlled trial | Scientific Reports Nature",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE8zdjlxbjZfZXlUT0Y4SGFSMTM3TnpCUTBMUEtQVF85NDAtN00tVXBqVHFvV2pBQWRRaE9yeTlhV1h5UHZaU1lvcVRtRlhaekV4Vm45QW9PUTVMdzhCLUtR?oc=5",
+      "publishedAt": "2024-11-08T08:00:00+00:00",
+      "loadedAt": "2026-10-23T05:41:41.968202+00:00",
+      "tags": [
+        "Neurociencia"
       ]
     },
     {
@@ -1137,6 +1211,18 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Ictus"
+      ]
+    },
+    {
+      "id": "384117c0b24701ab7b86",
+      "source": "MedicalNewsToday",
+      "title": "Dementia: Could infrared light therapy be the future? - MedicalNewsToday",
+      "description": "Dementia: Could infrared light therapy be the future? MedicalNewsToday",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOYmlBSjUwYXAzRGR1bHVXd1VzYWR6S015X2NELW9mRXR2d293cmdqUmNBbzUyUTVsam1NVGVqV3hZSE4yVHZyUzZQbzYyVnNQLW9hcW9oa0N1ODBwZmtGTlNnUndmNGZhS2p6cTZPVzVxS2NFMjlmVEZJS1lfVHN5TC1HTENGc1JYUENPSTN0ZTE2UHVTU3c?oc=5",
+      "publishedAt": "2021-10-22T07:00:00+00:00",
+      "loadedAt": "2026-10-23T05:41:41.968202+00:00",
+      "tags": [
+        "Deterioro cognitivo"
       ]
     },
     {
