@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T05:41:41.968202+00:00",
+  "updatedAt": "2026-10-24T05:41:58.956537+00:00",
   "items": [
     {
       "id": "069fa6ecc5327b3d4ff7",
@@ -152,6 +152,18 @@
       "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQMGxzcHdoZUItQkxNcXpCOThVbHhPQXJ5aGgtN0x2WDNLaDU2XzNRNUw5bExvWE04Y3JGRGJuOHJNWWNCUkNOTEFoMXkxYnd0RTVUdDVuQ0pGNTk0bm52YWkzLURiS2g4aW1VaDdhWk1QZ0FYWElELVMyTnNMU1Zmajlib2g3VlAwTDBDbENMV2IySmtybUN5LVdoZFRkVm5yZjFN?oc=5",
       "publishedAt": "2026-08-28T07:00:00+00:00",
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
+      "tags": [
+        "Ictus"
+      ]
+    },
+    {
+      "id": "e2f527f51df03ba3be41",
+      "source": "Tribune Online",
+      "title": "Stroke can leave one in two survivors with cognitive problems — Prof Akinyemi - Tribune Online",
+      "description": "Stroke can leave one in two survivors with cognitive problems — Prof Akinyemi Tribune Online",
+      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9mc2toNjdtX1MzRFZaOFI4X1IyQWFCZ01QNzV0dlFUMWZ4ZU5IT2FCMXVTZkVjU3NsSGcxYkhCV3g4RmdwOWdxUmhFajdRODQ?oc=5",
+      "publishedAt": "2026-08-20T07:00:00+00:00",
+      "loadedAt": "2026-10-24T05:41:58.956537+00:00",
       "tags": [
         "Ictus"
       ]
@@ -507,6 +519,18 @@
       ]
     },
     {
+      "id": "92571856b1b7bbb73642",
+      "source": "DongA Science",
+      "title": "Playing 3D video games may improve memory, study finds - DongA Science",
+      "description": "Playing 3D video games may improve memory, study finds DongA Science",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBIVjhCbnFRei1FNFo1VmdnbGwtS09kOUNTZ2dOcjBBVnVucllKYXpuc0tJdWdRV1pMX1pxNFJ4THVmVjF0ZVp3U1JyUmo1c2szd1VV?oc=5",
+      "publishedAt": "2025-11-01T04:54:05+00:00",
+      "loadedAt": "2026-10-24T05:41:58.956537+00:00",
+      "tags": [
+        "Memoria"
+      ]
+    },
+    {
       "id": "9897966e053aab2a0ab3",
       "source": "Frontiers",
       "title": "Editorial: Unlocking potential: cognitive rehabilitation for individuals with acquired brain injuries - Frontiers",
@@ -591,6 +615,18 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Ictus"
+      ]
+    },
+    {
+      "id": "5473f0b8ba015b4d1a6f",
+      "source": "Nature",
+      "title": "The overlooked role of exergames in cognitive-motor neurorehabilitation: a systematic review - Nature",
+      "description": "The overlooked role of exergames in cognitive-motor neurorehabilitation: a systematic review Nature",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1Pb2loX3V2azRxUDZVTkRHMlNfek5JZ2NFZmE5RU54MVpnQ1MwMTFvQ2lIdmNEVVhSR20xbW9ZN0x5dDhWdnU3UkFsdWF1ZS1nVUlPa0NPN0hxU3haV3BB?oc=5",
+      "publishedAt": "2025-07-09T07:00:00+00:00",
+      "loadedAt": "2026-10-24T05:41:58.956537+00:00",
+      "tags": [
+        "Rehabilitación"
       ]
     },
     {
@@ -1408,6 +1444,18 @@
         "Ictus",
         "Rehabilitación",
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "1b9f40d6699cca03080c",
+      "source": "Frontiers",
+      "title": "Cognitive Restoration in Children Following Exposure to Nature: Evidence From the Attention Network Task and Mobile Eye Tracking - Frontiers",
+      "description": "Cognitive Restoration in Children Following Exposure to Nature: Evidence From the Attention Network Task and Mobile Eye Tracking Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcHZVVzQzTWZHNl8tTS01ZFJzZHFLdWZwWnk0Z2JvTENFenhSaUJfYW9sQ3o5RWJaUlJ0VjA0WDBTcXJJUWdKSTFRVzY3dmlKcDFWUGNDb3lCQWwxS1ZzcGtSbUZ2bGxQVk5FMmtYeU9FcmozY2w0SjVOQ0stR1BhYkhHd2xmdzRMVG5GRy1QOA?oc=5",
+      "publishedAt": "2019-02-05T08:00:00+00:00",
+      "loadedAt": "2026-10-24T05:41:58.956537+00:00",
+      "tags": [
+        "Atención"
       ]
     },
     {
