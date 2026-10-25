@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T05:41:58.956537+00:00",
+  "updatedAt": "2026-10-25T05:39:51.005268+00:00",
   "items": [
     {
       "id": "069fa6ecc5327b3d4ff7",
@@ -63,6 +63,18 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "c50677ed098cafbb6d51",
+      "source": "Medical Buyer",
+      "title": "Gleneagles Hospital, Mumbai launches memory clinic and CR services - Medical Buyer",
+      "description": "Gleneagles Hospital, Mumbai launches memory clinic and CR services Medical Buyer",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcXJ0UkkyWVVBR2RMMkRub3ZEdTNLdk8tNzQ3SnY5amQ3T0p4enMzMjYzZnZlb3gzdm42cW12VVMydDhPNldaSVczRmU4eEtFTXV4a0RNY1FELXpXZHQyWTRwMFhMaV83OVowVWdtcm5FT3dJclEtbDkwUURDZzZ4d2ozRWUwTEFRUm1MaW9EZU83NVBGM1U2OQ?oc=5",
+      "publishedAt": "2026-09-22T07:00:00+00:00",
+      "loadedAt": "2026-10-25T05:39:51.005268+00:00",
+      "tags": [
+        "Memoria"
       ]
     },
     {
@@ -435,6 +447,19 @@
       "tags": []
     },
     {
+      "id": "723ccef81747ad87ef4c",
+      "source": "European Medical Journal",
+      "title": "Attention Changes Following Computer-Based Cognitive Training After Acquired Brain Damage - European Medical Journal",
+      "description": "Attention Changes Following Computer-Based Cognitive Training After Acquired Brain Damage European Medical Journal",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNSmlvUlg1UzhIU29IUm9lYVJFa1RSUzloTHNxN3BXY3FySUNqMUdvWGVoZHpacU8xbWNfVk1vTXRfd1lIZ2RsUG03WE9HUkNodGtMdFdaamxyX2NMZzBiRUtEaE9obExGZlJmZUFBQVBocWI0cVFMbS1sYmFMc0hDZGVWdmdEVUlOMThlQlRZMlp2WEJNQzVSM2diY2thWk9sT0NNLTJ6Tjdvd1VYMGlFTW80ZFZQZzRmR29Rb0VUenBRblhwVjFkbWVVUENscTFldDR2YjE0QlJ2R253?oc=5",
+      "publishedAt": "2026-01-20T08:00:00+00:00",
+      "loadedAt": "2026-10-25T05:39:51.005268+00:00",
+      "tags": [
+        "Neurociencia",
+        "Atención"
+      ]
+    },
+    {
       "id": "64b58dd5eb5a47603069",
       "source": "EMJ",
       "title": "Attention Changes Following Computer-Based Cognitive Training After Acquired Brain Damage - EMJ",
@@ -445,6 +470,20 @@
       "tags": [
         "Neurociencia",
         "Atención"
+      ]
+    },
+    {
+      "id": "9c2a71520892b28e4d35",
+      "source": "Nature",
+      "title": "A Systematic review and meta-analysis on prospective memory rehabilitation in adults with non-progressive acquired brain injury | Scientific Reports - Nature",
+      "description": "A Systematic review and meta-analysis on prospective memory rehabilitation in adults with non-progressive acquired brain injury | Scientific Reports Nature",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5pMXRWSF8zTmFQZnhZM1dLei00bk5qNy1CLVJudFVOR3ZCNUp4U3dWVXpPWGl4V1NnbUVtbjBla3NIUGpXMFRkXzJYZXRmdUgteFdpbmNJcThQWE1LX05r?oc=5",
+      "publishedAt": "2026-01-14T08:00:00+00:00",
+      "loadedAt": "2026-10-25T05:39:51.005268+00:00",
+      "tags": [
+        "Memoria",
+        "Rehabilitación",
+        "Neurociencia"
       ]
     },
     {
