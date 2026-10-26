@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25T05:39:51.005268+00:00",
+  "updatedAt": "2026-10-26T05:44:58.668049+00:00",
   "items": [
     {
       "id": "069fa6ecc5327b3d4ff7",
@@ -75,6 +75,19 @@
       "loadedAt": "2026-10-25T05:39:51.005268+00:00",
       "tags": [
         "Memoria"
+      ]
+    },
+    {
+      "id": "70e0c101899ed3026a5e",
+      "source": "Ubergizmo",
+      "title": "Could Your Webcam Help With Dementia and Stroke Rehab? This Startup Thinks So - Ubergizmo",
+      "description": "Could Your Webcam Help With Dementia and Stroke Rehab? This Startup Thinks So Ubergizmo",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPaEhudTI4NEJwcTdMVG5HMk0yakRYa3NjaHVEQ3JDZ3VBQjM2NDhDU2tNRGx0VU1SSEMyYldoZ0lJNGVNd3o0dHo0ZUswLVlZOFRIZlg4T19qNTlDbkU0VzNHMWNnejdnbDdQRkxPc3RGUUQyNFZXdTc2Q0NrRXpEb0hJRGZRdEMzRFVBQkVuX043Znk2bzFuRG9oanZKVXhFTGxsN1NFRWFOUDh4c3J0Tg?oc=5",
+      "publishedAt": "2026-09-20T13:47:00+00:00",
+      "loadedAt": "2026-10-26T05:44:58.668049+00:00",
+      "tags": [
+        "Ictus",
+        "Deterioro cognitivo"
       ]
     },
     {
@@ -888,6 +901,20 @@
       ]
     },
     {
+      "id": "6fc908f41b6add52cda5",
+      "source": "Frontiers",
+      "title": "Selective visual attention to drive cognitive brain–machine interfaces: from concepts to neurofeedback and rehabilitation applications - Frontiers",
+      "description": "Selective visual attention to drive cognitive brain–machine interfaces: from concepts to neurofeedback and rehabilitation applications Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaUpUWDJTNFR0QVpoZlU3RTZqcHBvZFRjaExCRmwxXzJYRWNsdmpvMFNWMng5X3g0aGppejBpREJkNjhRLUdRTEdIN0VES2NmelZJRklKeExyOGZMX3pLNmV3Wm9qTkxWMmxhbWt1VWVKVVVVanlaQTllYk9LVXhvd3NhU1BoRzQtYmlCdjlNeEhBemhBb2Jxbjg1alI?oc=5",
+      "publishedAt": "2024-06-29T02:53:29+00:00",
+      "loadedAt": "2026-10-26T05:44:58.668049+00:00",
+      "tags": [
+        "Rehabilitación",
+        "Neurociencia",
+        "Atención"
+      ]
+    },
+    {
       "id": "8623e259f70f1734e811",
       "source": "Frontiers",
       "title": "Brain plasticity and motor practice in cognitive aging - Frontiers",
@@ -910,6 +937,16 @@
       "tags": [
         "Neurociencia"
       ]
+    },
+    {
+      "id": "6b7070d3f732eaed7093",
+      "source": "Frontiers",
+      "title": "Can transcranial photobiomodulation improve cognitive function in TBI patients? A systematic review - Frontiers",
+      "description": "Can transcranial photobiomodulation improve cognitive function in TBI patients? A systematic review Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQRlBZRGtaSEdjbHpmZ003ODNkSzhkR0ZzR2tEUElpT0pfeFA4eU5LWHlnVlF0MWRXNms5bTZOZ3ZZOGgtc0FOV0t4a29CbHJ4bGxRNVBxTU5ISTBsREdjNzlTWmJpQm1FeFBjMVFCM29wRWtJLV9vaWs2V3lwd19HM1JsZjRWN0tYaGQ0U0RfT295Zw?oc=5",
+      "publishedAt": "2024-06-16T07:00:00+00:00",
+      "loadedAt": "2026-10-26T05:44:58.668049+00:00",
+      "tags": []
     },
     {
       "id": "99b4308b0e4c0305ddea",
@@ -1333,6 +1370,19 @@
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOaXJ1N3ViOG4zWjFSUlZpcjZCMUhWZ0lsaEhyRmczQm96Y0pEWXJvVUY4aG1YM2RKZldNeGltMGY4YTZHdTd2Z3dKMGxYbnRHejE1Mmk2R1Nmanp1eGtaMnBXQ3ZBRUhLeWVwZy1QZmc3ZEtwQkRwM3dES0lOOUZ3N0VoUkNRWUs4UVVZX2pyaG9TSW1md0wtcUl6OTN5UDBLV254TW1aUmJ2aUQ3RHhob1N4VVVMLXZkMkVfS1QyQnR0dw?oc=5",
       "publishedAt": "2021-05-19T02:20:05+00:00",
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
+      ]
+    },
+    {
+      "id": "42f0e89867aba159e6a4",
+      "source": "medRxiv",
+      "title": "Impaired everyday executive functions and cognitive strategy use on the Weekly Calendar Planning Activity in individuals with stroke undergoing acute inpatient rehabilitation - medRxiv",
+      "description": "Impaired everyday executive functions and cognitive strategy use on the Weekly Calendar Planning Activity in individuals with stroke undergoing acute inpatient rehabilitation medRxiv",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9MZVk0ajQwNl9obXAxR3FoOEVBdUJuQTM3NllRb2sweHNJSGVpc2V1cXczTzJvdFRUekhHekdlSGdhSl9JT2JGMVR3NUVPd2NRVGIzR2xuZW1ld21zVlZHbWl5Wk1YeUxJbzZNaldOUS04anVENXJiVzR1bw?oc=5",
+      "publishedAt": "2021-05-05T07:00:00+00:00",
+      "loadedAt": "2026-10-26T05:44:58.668049+00:00",
       "tags": [
         "Ictus",
         "Rehabilitación"
