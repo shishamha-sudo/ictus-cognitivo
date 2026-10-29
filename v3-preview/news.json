@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T05:51:51.843037+00:00",
+  "updatedAt": "2026-10-29T05:52:52.314000+00:00",
   "items": [
     {
       "id": "069fa6ecc5327b3d4ff7",
@@ -549,6 +549,16 @@
       "tags": []
     },
     {
+      "id": "d4b61aa83dbe10ad8397",
+      "source": "EurekAlert!",
+      "title": "Researchers show visual training dramatically improves cognitive function after concussion - EurekAlert!",
+      "description": "Researchers show visual training dramatically improves cognitive function after concussion EurekAlert!",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1PTFM3RldRN3lpMl9zbGxtdFpaWXh5cWliVjd3N1RObFZEQjBLUElFMkFzVlM3M2Zncjd2NGR0elVsOWdnZFRFSDQwUE9DMG1UbjJNTlZJU0FSZUxa?oc=5",
+      "publishedAt": "2025-12-15T08:00:00+00:00",
+      "loadedAt": "2026-10-29T05:52:52.314000+00:00",
+      "tags": []
+    },
+    {
       "id": "15cbc48b1e537e0ff4da",
       "source": "Frontiers",
       "title": "Effects of restorative environments on mental health and its cognitive neural mechanisms - Frontiers",
@@ -973,6 +983,32 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "41e9ad09344cb0adda09",
+      "source": "Frontiers",
+      "title": "Harnessing the neuroplastic potential of the human brain & the future of cognitive rehabilitation - Frontiers",
+      "description": "Harnessing the neuroplastic potential of the human brain & the future of cognitive rehabilitation Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOLWpyOGlMTUx4QTBnV1ZadmktMHhITjFCeHZrY2dNc2xGYmtYVFQ1TGpIQ3lTNDdtdnplellkU0VUU1hwSTA5REpScVJYckhVdXpHaUF5cUswOTUxNWhMc1JMV2hjNW11cFhPWGk3VTZsdzVuZlJSN19rV3hrYkZhX2EybW9mUjVoTkVpZFRPbEJhYlYtRldHVkJR?oc=5",
+      "publishedAt": "2024-06-26T23:30:16+00:00",
+      "loadedAt": "2026-10-29T05:52:52.314000+00:00",
+      "tags": [
+        "Rehabilitación",
+        "Neurociencia"
+      ]
+    },
+    {
+      "id": "941a80875fda18aa3345",
+      "source": "Frontiers",
+      "title": "Multisensory Stimulation in Stroke Rehabilitation - Frontiers",
+      "description": "Multisensory Stimulation in Stroke Rehabilitation Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQVUc3YVFfWk40QlhsSkhuWDFzOW5NQkhua2FNQXQ5a2ZmN2tqTW8xOFlsbHBpOU9aUS0tX2dramN2bDVUb3BkS3dWSGZrQnV1bTk4M0NsRUlneE1ySFlScldld0dQczZKREJoSkpPSTRPWUNOaFQtYUtRTTQ4RlI1S2pnQi1BVUVvazd3WW1TOFg2SnJMa3prVGln?oc=5",
+      "publishedAt": "2024-06-26T21:40:18+00:00",
+      "loadedAt": "2026-10-29T05:52:52.314000+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
       ]
     },
     {
@@ -1538,6 +1574,18 @@
       ]
     },
     {
+      "id": "adc9cd0a6ed156fc4011",
+      "source": "navarra.es",
+      "title": "La Clínica Ubarmin implanta una nueva herramienta para tratar las secuelas al Daño Cerebral Adquirido - navarra.es",
+      "description": "La Clínica Ubarmin implanta una nueva herramienta para tratar las secuelas al Daño Cerebral Adquirido navarra.es",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaml3ZzZSN1IwbEVPV1VJRHEyOVE0NXpjVkI0cm00MFFiVkFhWjA4NFZBUGxMektTZ3RDMnJYS1RicXFfV2o1X2VpOFVUb2x6YVdPTVRWVDV3SDE1SzBYeVVfOEZkSllHYkZCTXRKZk43eHYyc2lzUFExTVdHOEkwSEhVTWJzT3RGOVhPa2x4Z0Z3NFNtVTBQc3UyYTVwMkpnY2dfN3hmU0cxMzFrS1JGMmtjT2xYZU40cWlnZ0NtY3B3eHJTNnQ4eG9OaXlqb193T29TczRBN3E5bWRPcDB0Tg?oc=5",
+      "publishedAt": "2019-10-24T07:00:00+00:00",
+      "loadedAt": "2026-10-29T05:52:52.314000+00:00",
+      "tags": [
+        "Neurociencia"
+      ]
+    },
+    {
       "id": "5f7f51a89d4e5d768a8e",
       "source": "Navarra.es",
       "title": "La Clínica Ubarmin implanta una nueva herramienta para tratar las secuelas al Daño Cerebral Adquirido - Navarra.es",
@@ -1570,6 +1618,18 @@
       "tags": [
         "Ictus",
         "Rehabilitación"
+      ]
+    },
+    {
+      "id": "18864c74dca121b6e428",
+      "source": "PBS",
+      "title": "Pentagon study finds promise in brain training program for veterans with cognitive issues - PBS",
+      "description": "Pentagon study finds promise in brain training program for veterans with cognitive issues PBS",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPeVVFU21fai1vQmctVkdjRjJpbEFNY01DRXpveXB5MHZPdGxuaGxoV04yQ0NuTEw5am9kbV9yWDRQQm1lZGdLLWtEMDNOSkVrUFRBY09CMUF3bmVKbm4tQndseVAtSUhucjNhRUJSYTdGN0pVTHFGVndfZlJkVEZqcTd1RDk3S1U2bHVwQTcxRHBGbFFpSDY1eTllck9HRGtmaU9Sa3VLVWhyVGpoRkRPbTdjRjNnQjZPMXhmM0NWWG9WajZT0gHKAUFVX3lxTE5nQUg1bVlGalp2a283VUJtWmpJTUpWYzRxbnpqNzlOeDJNT0tSaGg5TmRCSUNPVjJmeHpBM3ZJY0Q0SjRwcDBnbHNtSHkzb2t4UjBRcjE5bnY3enJxbWZKdGFMcVVCX0pXZWo4NEw4a25KeTJTd2d4Ql9uNmZ6VDhqYko2ajF3dnEwSWhNbHNDb0cySDRPQ2w3WWM0bjlDNVlxSXFPcEpTTnRuYmljbXUzOTNTQjktcDc0aFFvLUhPYzJTTVVmY2JZMHc?oc=5",
+      "publishedAt": "2019-05-16T07:00:00+00:00",
+      "loadedAt": "2026-10-29T05:52:52.314000+00:00",
+      "tags": [
+        "Neurociencia"
       ]
     },
     {
