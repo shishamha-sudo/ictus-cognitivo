@@ -1,6 +1,32 @@
 {
-  "updatedAt": "2026-10-29T05:52:52.314000+00:00",
+  "updatedAt": "2026-10-30T05:53:26.905017+00:00",
   "items": [
+    {
+      "id": "90eeee3a645f2d6f6ef8",
+      "source": "Bioengineer.org",
+      "title": "Brain Wiring Maps Could Steer Personalized Cognitive Rehab After Stroke - Bioengineer.org",
+      "description": "Brain Wiring Maps Could Steer Personalized Cognitive Rehab After Stroke Bioengineer.org",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOOE9DYUFlMlNlc2hVbXlrcDVjaVNqR2JRdWZKV0I5N3lKRzYyTTJvclV2U3MtY1E0UExvYzJ5NFZZWkpnNlRFRWFYVkl6dE9iazZrRUkyUE14UnM2ZFJiVDlVb2NkZFA5NWplamdSWDU1MllDTWJFQVlWUFprNGphVENYM2poQ0g4OXA5REt5YlNvRWh1bW1vTGFHMkY?oc=5",
+      "publishedAt": "2026-10-29T14:38:06+00:00",
+      "loadedAt": "2026-10-30T05:53:26.905017+00:00",
+      "tags": [
+        "Ictus",
+        "Neurociencia"
+      ]
+    },
+    {
+      "id": "7dedbb34d4bea8aac5f8",
+      "source": "Bioengineer.org",
+      "title": "Dragon’s Blood Resin Shows Preclinical Promise for Protecting Post-Stroke Memory - Bioengineer.org",
+      "description": "Dragon’s Blood Resin Shows Preclinical Promise for Protecting Post-Stroke Memory Bioengineer.org",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdmpBNWNsTE5LQl9MTnpJNjRlaXNsaWNIbUVtQk8zZHhJZjROZWRWOWZxcVllMVAtdU1ra2pKS1lDQlFfR1NIUFlqYTVrSEg0SWEtQXBYc3NwVHlQaGswWUlaWDNYTTRORnRKeldEZkNwdE5wSUMtMi1wMTA4YlhCZjJlLWh6SXdzNk44ek5kYW9pdWpsMmJMMUtMMzRRMFhBb0NiTWNmdw?oc=5",
+      "publishedAt": "2026-10-27T20:29:39+00:00",
+      "loadedAt": "2026-10-30T05:53:26.905017+00:00",
+      "tags": [
+        "Ictus",
+        "Memoria"
+      ]
+    },
     {
       "id": "069fa6ecc5327b3d4ff7",
       "source": "Open Magazine",
@@ -25,6 +51,18 @@
         "Ictus",
         "Rehabilitación",
         "Cognición"
+      ]
+    },
+    {
+      "id": "c9b2f033323a206b9a1d",
+      "source": "Mayo Clinic Press",
+      "title": "Cognitive stimulation therapy for Alzheimer’s - Mayo Clinic Press",
+      "description": "Cognitive stimulation therapy for Alzheimer’s Mayo Clinic Press",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPNEh0b29jYTVJYkdVVXhVajdOeTI0Zk9xdWdoanRpNWc4WC15aFlqMlcxOTFjODlJVnpzSzBwelpEaDNnS2hjcm5laTJRb3JVdG9sYUJnRUYxQW1fUjBCdkNObDVtZFQxZ0pIaERsMG1XQkM4OWwxTHFSdHhHanJQVmgzcXU5U3JQb0RMVFQ3czFsdFNU?oc=5",
+      "publishedAt": "2026-10-15T07:00:00+00:00",
+      "loadedAt": "2026-10-30T05:53:26.905017+00:00",
+      "tags": [
+        "Deterioro cognitivo"
       ]
     },
     {
@@ -523,6 +561,18 @@
         "Memoria",
         "Rehabilitación",
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "073eeb2ac4cd404e9a76",
+      "source": "World Health Organization (WHO)",
+      "title": "Stroke - World Health Organization (WHO)",
+      "description": "Stroke World Health Organization (WHO)",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBldU1uNy1EZXFlQlJJSkxsTGhRSVgwUWxnclJONUtRMTlQTlJxVWJJSWsteGNHWmUxVFRTMDVXUS1peFhJLWl3azJBM09lSFFhLUR1MC1HTWctSndzcnRWREY5V1ZKQQ?oc=5",
+      "publishedAt": "2025-12-19T08:00:00+00:00",
+      "loadedAt": "2026-10-30T05:53:26.905017+00:00",
+      "tags": [
+        "Ictus"
       ]
     },
     {
