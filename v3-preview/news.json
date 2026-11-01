@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T05:49:45.662492+00:00",
+  "updatedAt": "2026-11-01T05:52:26.693145+00:00",
   "items": [
     {
       "id": "90eeee3a645f2d6f6ef8",
@@ -1573,6 +1573,18 @@
       ]
     },
     {
+      "id": "f19dd4513601d7c6c4f6",
+      "source": "Frontiers",
+      "title": "Brain Computer Interfaces for Improving the Quality of Life of Older Adults and Elderly Patients - Frontiers",
+      "description": "Brain Computer Interfaces for Improving the Quality of Life of Older Adults and Elderly Patients Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNbU1yaUtCU3pEQXhzMFB6N0JYSUpWMDJXNGtOUWhFLXozRXgyN2Etd1lNS3ZmWlk4dDdCZDc4MHBlNHQ3OGFob05VcWMyN0VQNVRQaUFEd1ZDM2dVU1NycjNhZ2NyV0RGVGNacGlNMnhucGN3c19kWUgxQjdpM3hGTHA0VEtseERmMVo5N1hHQUlnQQ?oc=5",
+      "publishedAt": "2020-06-29T07:00:00+00:00",
+      "loadedAt": "2026-11-01T05:52:26.693145+00:00",
+      "tags": [
+        "Neurociencia"
+      ]
+    },
+    {
       "id": "be03fd09b5335b457a09",
       "source": "Frontiers",
       "title": "Impact of Memory Problems Post-stroke on Patients and Their Family Carers: A Qualitative Study - Frontiers",
@@ -1833,7 +1845,7 @@
       "title": "Editorial: Music, Brain, and Rehabilitation: Emerging Therapeutic Applications and Potential Neural Mechanisms - Frontiers",
       "description": "Editorial: Music, Brain, and Rehabilitation: Emerging Therapeutic Applications and Potential Neural Mechanisms Frontiers",
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQU1hsWVQ0UThSbi1oNTBDZERQek1nMm55VFQxd2dqU2p3R2JXZVAwbDFJSjVlRDZjbjhmeDVUM0tvMlAtUTl4eTVUbTUtTklxZUI2U080WV96cWljZ1V6aFVmbmlRYU9qWjdlY3QxS3FiRHdiSFZRZmNCOWRkZFdrNFVKSXJWTTFYRTFVMnQzQlFPSElTV2pVUkNR?oc=5",
-      "publishedAt": "2016-03-08T08:00:00+00:00",
+      "publishedAt": "2016-03-09T08:00:00+00:00",
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Rehabilitación",
