@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T06:00:32.480664+00:00",
+  "updatedAt": "2026-11-04T06:07:14.008441+00:00",
   "items": [
     {
       "id": "90eeee3a645f2d6f6ef8",
@@ -1872,6 +1872,31 @@
       "loadedAt": "2026-11-03T06:00:32.480664+00:00",
       "tags": [
         "Ictus",
+        "Neurociencia"
+      ]
+    },
+    {
+      "id": "4583b70672669e5616f8",
+      "source": "Frontiers",
+      "title": "Tuning Up the Old Brain with New Tricks: Attention Training via Neurofeedback - Frontiers",
+      "description": "Tuning Up the Old Brain with New Tricks: Attention Training via Neurofeedback Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQUVF4OE44Wjd1SzBUSjlfZThGMUxCUDZNdWpEbmVQcjRwRHp5X25rSFRQLUYyaHU3TVFlUDVTZm5keUVOcUUyZF9ka2k4WVJUSGkweG93X0Y1N1JQdlpJN3hPbUoydFlkYWZES2xfN3I5c0FwcEh0SHo4Z1RyVnAxZ3c5UzVDMnY3bi1WeWtyR1pIdDhHb2ttLXlB?oc=5",
+      "publishedAt": "2017-03-12T08:00:00+00:00",
+      "loadedAt": "2026-11-04T06:07:14.008441+00:00",
+      "tags": [
+        "Neurociencia",
+        "Atención"
+      ]
+    },
+    {
+      "id": "d1b85000881b8038f0df",
+      "source": "Brain & Behavior Research Foundation",
+      "title": "Combined Treatment Strategy Shows Benefit in Traumatic Brain Injury Patients - Brain & Behavior Research Foundation",
+      "description": "Combined Treatment Strategy Shows Benefit in Traumatic Brain Injury Patients Brain & Behavior Research Foundation",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQVld4ZVg3Tlg3NFROQmJMU2dZd0RCYnR3bElhQlhHS25DYTJCbFJSMW9oSTREbWIyOGlGNVpnWlNSckcxTTNRUU5CRnZuSEJjQnhHVjRqbmlSNUJYRG9taGQxaWFZVGRvNmFTdGt1WGE0QjhwaFlmS20tT0VYVDJ6elhTRm9hajNFZWcwN0lqMXM5dmVBLXFxUlRNdDRzZklJMEl6NEZlazF4Um8?oc=5",
+      "publishedAt": "2017-01-24T08:00:00+00:00",
+      "loadedAt": "2026-11-04T06:07:14.008441+00:00",
+      "tags": [
         "Neurociencia"
       ]
     },
