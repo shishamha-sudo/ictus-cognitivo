@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T06:07:14.008441+00:00",
+  "updatedAt": "2026-11-05T06:09:05.974985+00:00",
   "items": [
     {
       "id": "90eeee3a645f2d6f6ef8",
@@ -1208,6 +1208,18 @@
       ]
     },
     {
+      "id": "1b9f40d6699cca03080c",
+      "source": "Frontiers",
+      "title": "Cognitive Restoration in Children Following Exposure to Nature: Evidence From the Attention Network Task and Mobile Eye Tracking - Frontiers",
+      "description": "Cognitive Restoration in Children Following Exposure to Nature: Evidence From the Attention Network Task and Mobile Eye Tracking Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcHZVVzQzTWZHNl8tTS01ZFJzZHFLdWZwWnk0Z2JvTENFenhSaUJfYW9sQ3o5RWJaUlJ0VjA0WDBTcXJJUWdKSTFRVzY3dmlKcDFWUGNDb3lCQWwxS1ZzcGtSbUZ2bGxQVk5FMmtYeU9FcmozY2w0SjVOQ0stR1BhYkhHd2xmdzRMVG5GRy1QOA?oc=5",
+      "publishedAt": "2024-02-10T02:52:45+00:00",
+      "loadedAt": "2026-10-24T05:41:58.956537+00:00",
+      "tags": [
+        "Atención"
+      ]
+    },
+    {
       "id": "548dc1a756f802f1e249",
       "source": "Frontiers",
       "title": "Robotic Rehabilitation: An Opportunity to Improve Cognitive Functions in Subjects With Stroke. An Explorative Study - Frontiers",
@@ -1765,18 +1777,6 @@
         "Ictus",
         "Rehabilitación",
         "Neurociencia"
-      ]
-    },
-    {
-      "id": "1b9f40d6699cca03080c",
-      "source": "Frontiers",
-      "title": "Cognitive Restoration in Children Following Exposure to Nature: Evidence From the Attention Network Task and Mobile Eye Tracking - Frontiers",
-      "description": "Cognitive Restoration in Children Following Exposure to Nature: Evidence From the Attention Network Task and Mobile Eye Tracking Frontiers",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcHZVVzQzTWZHNl8tTS01ZFJzZHFLdWZwWnk0Z2JvTENFenhSaUJfYW9sQ3o5RWJaUlJ0VjA0WDBTcXJJUWdKSTFRVzY3dmlKcDFWUGNDb3lCQWwxS1ZzcGtSbUZ2bGxQVk5FMmtYeU9FcmozY2w0SjVOQ0stR1BhYkhHd2xmdzRMVG5GRy1QOA?oc=5",
-      "publishedAt": "2019-02-05T08:00:00+00:00",
-      "loadedAt": "2026-10-24T05:41:58.956537+00:00",
-      "tags": [
-        "Atención"
       ]
     },
     {
