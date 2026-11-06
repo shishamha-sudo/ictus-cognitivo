@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T06:09:05.974985+00:00",
+  "updatedAt": "2026-11-06T06:06:44.213900+00:00",
   "items": [
     {
       "id": "90eeee3a645f2d6f6ef8",
@@ -1872,6 +1872,19 @@
       "loadedAt": "2026-11-03T06:00:32.480664+00:00",
       "tags": [
         "Ictus",
+        "Neurociencia"
+      ]
+    },
+    {
+      "id": "df594d1ac3af2280da06",
+      "source": "Frontiers",
+      "title": "Cognitive Effects of ThinkRx Cognitive Rehabilitation Training for Eleven Soldiers with Brain Injury: A Retrospective Chart Review - Frontiers",
+      "description": "Cognitive Effects of ThinkRx Cognitive Rehabilitation Training for Eleven Soldiers with Brain Injury: A Retrospective Chart Review Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPeEIwM1dsdHNHd1ZxQVlMUXJBbmJkN0EwTEpPVFp0dldSZUVlaFNPN2pxdFlzZElXdEFNV20wTEJTRFZqOEhsRUhfNHBFT09jUDNjSHByUEppX0Eyc0pUNUJ2WG45NDFuRW5mUWJVS2VDTnoybUd0ZVNjUGVvYUZHLWxFbkF2b0Njdl8wc3pmUQ?oc=5",
+      "publishedAt": "2017-05-21T07:00:00+00:00",
+      "loadedAt": "2026-11-06T06:06:44.213900+00:00",
+      "tags": [
+        "Rehabilitación",
         "Neurociencia"
       ]
     },
