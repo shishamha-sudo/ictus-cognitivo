@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T06:06:44.213900+00:00",
+  "updatedAt": "2026-11-07T05:54:33.887855+00:00",
   "items": [
     {
       "id": "90eeee3a645f2d6f6ef8",
@@ -692,18 +692,6 @@
       ]
     },
     {
-      "id": "adeea4fe5c14328a3a76",
-      "source": "Frontiers",
-      "title": "Cognitive performance and stroke-specific quality of life four years after stroke - Frontiers",
-      "description": "Cognitive performance and stroke-specific quality of life four years after stroke Frontiers",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWHdQZWxzeFlMMmlWMWpsaWZ0eWtRVXQzZVFEYVNxZ0h6RU84YnhlT0h5U3o5WHFzd2h5SlhiZG42eWNNUUxhWGdnTXdVX2x3a3pGTERHTXU4UDJGeVNwSWJucVp6T1ZfbTJRbkVob2lrYnRRM1p6TVJLQU1HY3hiLTNmS3ZsS0FranR5NU84MkJUcW5VV0lkUmNXUGNPcU9CZTFV?oc=5",
-      "publishedAt": "2025-10-09T07:00:00+00:00",
-      "loadedAt": "2026-10-19T05:42:04.651355+00:00",
-      "tags": [
-        "Ictus"
-      ]
-    },
-    {
       "id": "bcebba27d2e07340a170",
       "source": "Geriatricarea",
       "title": "Deterioro cognitivo e ictus. Perspectivas desde la neurorrehabilitación - Geriatricarea",
@@ -714,6 +702,18 @@
       "tags": [
         "Ictus",
         "Rehabilitación"
+      ]
+    },
+    {
+      "id": "adeea4fe5c14328a3a76",
+      "source": "Frontiers",
+      "title": "Cognitive performance and stroke-specific quality of life four years after stroke - Frontiers",
+      "description": "Cognitive performance and stroke-specific quality of life four years after stroke Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPWHdQZWxzeFlMMmlWMWpsaWZ0eWtRVXQzZVFEYVNxZ0h6RU84YnhlT0h5U3o5WHFzd2h5SlhiZG42eWNNUUxhWGdnTXdVX2x3a3pGTERHTXU4UDJGeVNwSWJucVp6T1ZfbTJRbkVob2lrYnRRM1p6TVJLQU1HY3hiLTNmS3ZsS0FranR5NU84MkJUcW5VV0lkUmNXUGNPcU9CZTFV?oc=5",
+      "publishedAt": "2025-10-08T07:00:00+00:00",
+      "loadedAt": "2026-10-19T05:42:04.651355+00:00",
+      "tags": [
+        "Ictus"
       ]
     },
     {
@@ -1205,6 +1205,18 @@
       "tags": [
         "Memoria",
         "Atención"
+      ]
+    },
+    {
+      "id": "c180ab93e93a075fa54d",
+      "source": "Frontiers",
+      "title": "Value and Efficacy of Transcranial Direct Current Stimulation in the Cognitive Rehabilitation: A Critical Review Since 2000 - Frontiers",
+      "description": "Value and Efficacy of Transcranial Direct Current Stimulation in the Cognitive Rehabilitation: A Critical Review Since 2000 Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPZmlucU52aVNKbEVicWpuOEJ4Zl9VbnhsVzBqcnIwM3hNOXhLVEk3QjBoRUxyaVFHWmxraFJ0M3hWMHJxSXhNUUM2NC1GTDBsVkJQTkdCR29pZjh3NkZJTnJrYmtJQXptQ3FjR2RhRGd3REhLeEoyTERzNVdsaXg1OWpLdlpxOGhLWFVka1FkZXpkUQ?oc=5",
+      "publishedAt": "2024-02-10T18:57:24+00:00",
+      "loadedAt": "2026-11-07T05:54:33.887855+00:00",
+      "tags": [
+        "Rehabilitación"
       ]
     },
     {
