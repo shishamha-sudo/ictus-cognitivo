@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-16T06:28:45.429298+00:00",
+  "updatedAt": "2026-11-17T06:10:10.882973+00:00",
   "items": [
     {
       "id": "4b7c3411efb5c14e2b95",
@@ -2071,5 +2071,10 @@
     "https://news.google.com/rss/search?q=ictus%20rehabilitacion%20cognitiva%20memoria%20neurorehabilitacion&hl=es&gl=ES&ceid=ES:es",
     "https://news.google.com/rss/search?q=aphasia%20cognitive%20rehabilitation%20stroke&hl=es&gl=ES&ceid=ES:es"
   ],
-  "errors": []
+  "errors": [
+    {
+      "source": "Google News",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ]
 }
