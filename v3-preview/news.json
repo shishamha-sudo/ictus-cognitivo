@@ -1,6 +1,20 @@
 {
-  "updatedAt": "2026-11-19T14:25:53.144083+00:00",
+  "updatedAt": "2026-11-20T13:59:58.965892+00:00",
   "items": [
+    {
+      "id": "b73b1116f50c8f27fc0f",
+      "source": "Bioengineer.org",
+      "title": "Brain-Computer Interfaces Aid Attention After Stroke but Global Cognitive Benefits Remain Uncertain - Bioengineer.org",
+      "description": "Brain-Computer Interfaces Aid Attention After Stroke but Global Cognitive Benefits Remain Uncertain Bioengineer.org",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQU0VqbmJfaDFiWEI2akliYVc1WGc0NEFQTl96cW00VkFxM3ExWkgtN0g2cjNFYk1XbkMtWjh1VElTM2UybEd4R0szd3lqc0FLZEpINnhuUXlpZmJwN2dLZUJhcUtoMktYMFhWTWMxM2VNM3NGbDNIZ1kxMGFRdDFqRy14X2E1TkZ5TG5YN3FyUm9JelJEYkhzV1NXUTEzMEZRMXp5SWc4TERxRHladkZZeDBQMTFzYUU1T1NYajcxU1hKdw?oc=5",
+      "publishedAt": "2026-11-19T20:55:39+00:00",
+      "loadedAt": "2026-11-20T13:59:58.965892+00:00",
+      "tags": [
+        "Ictus",
+        "Neurociencia",
+        "Atención"
+      ]
+    },
     {
       "id": "4b7c3411efb5c14e2b95",
       "source": "Bioengineer.org",
@@ -32,7 +46,7 @@
       "title": "Dragon’s Blood Resin Shows Preclinical Promise for Protecting Post-Stroke Memory - Bioengineer.org",
       "description": "Dragon’s Blood Resin Shows Preclinical Promise for Protecting Post-Stroke Memory Bioengineer.org",
       "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOdmpBNWNsTE5LQl9MTnpJNjRlaXNsaWNIbUVtQk8zZHhJZjROZWRWOWZxcVllMVAtdU1ra2pKS1lDQlFfR1NIUFlqYTVrSEg0SWEtQXBYc3NwVHlQaGswWUlaWDNYTTRORnRKeldEZkNwdE5wSUMtMi1wMTA4YlhCZjJlLWh6SXdzNk44ek5kYW9pdWpsMmJMMUtMMzRRMFhBb0NiTWNmdw?oc=5",
-      "publishedAt": "2026-10-27T20:29:39+00:00",
+      "publishedAt": "2026-10-27T07:00:00+00:00",
       "loadedAt": "2026-10-30T05:53:26.905017+00:00",
       "tags": [
         "Ictus",
@@ -175,7 +189,7 @@
       "title": "Robot-assisted therapy improves arm recovery after chronic stroke: Study - Daijiworld",
       "description": "Robot-assisted therapy improves arm recovery after chronic stroke: Study Daijiworld",
       "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5CNTFvNl8zUElOUnRMQzdDYUIxaEFmd051V3VwOUttMnExcmhadzl2eV85Q1E0U2lhOEtiTldHQUk2LVNQYnNaQThBVXF3RVM1ZG1NU1BBbWpRLWpVM2dia01rel8wSjNFSVE?oc=5",
-      "publishedAt": "2026-09-10T12:26:35+00:00",
+      "publishedAt": "2026-09-10T07:00:00+00:00",
       "loadedAt": "2026-10-23T05:41:41.968202+00:00",
       "tags": [
         "Ictus"
@@ -508,6 +522,18 @@
       "tags": [
         "Ictus",
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "a7be432fbbfcfce6bd03",
+      "source": "KevinMD.com",
+      "title": "Post-stroke cognitive impairment: the hidden challenge of recovery - KevinMD.com",
+      "description": "Post-stroke cognitive impairment: the hidden challenge of recovery KevinMD.com",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOU0N3NUlzdkxtYzBXb1ZfYzhMN3cwZ0lfY0Q3TmpxQW9jWVhxOXdWSlpmY015UEIyNnJpTUpsWlNWVEpsR2pva3Q2VTg5cmYxdUF2aWxZMkpTRE11a0daNDRzVUxmLWp6MlgxdUNsV2o3ZDRNc1I4OHpidnNvYkVsLXVaaVdzM2lQQmJyVWIzLTRPUmhnYi11cm16WDFpTmc?oc=5",
+      "publishedAt": "2026-02-01T08:00:00+00:00",
+      "loadedAt": "2026-11-20T13:59:58.965892+00:00",
+      "tags": [
+        "Ictus"
       ]
     },
     {
@@ -1949,6 +1975,20 @@
       "loadedAt": "2026-11-04T06:07:14.008441+00:00",
       "tags": [
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "9ce7e41950951f9b3ab8",
+      "source": "Nature",
+      "title": "Methylphenidate and Memory and Attention Adaptation Training for Persistent Cognitive Symptoms after Traumatic Brain Injury: A Randomized, Placebo-Controlled Trial - Nature",
+      "description": "Methylphenidate and Memory and Attention Adaptation Training for Persistent Cognitive Symptoms after Traumatic Brain Injury: A Randomized, Placebo-Controlled Trial Nature",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFAyc3RmVGZZYjNMMm51UmtSa0JrZmx5V195VzM0RE1KMFZjYXF3alhTakFXMnZCaGNZMTdpa3V5UlRKS3FleHFoSTMwNXpCUnpDcEV6RA?oc=5",
+      "publishedAt": "2016-11-22T08:00:00+00:00",
+      "loadedAt": "2026-11-20T13:59:58.965892+00:00",
+      "tags": [
+        "Memoria",
+        "Neurociencia",
+        "Atención"
       ]
     },
     {
