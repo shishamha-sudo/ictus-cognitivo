@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20T13:59:58.965892+00:00",
+  "updatedAt": "2026-11-21T13:27:50.276083+00:00",
   "items": [
     {
       "id": "b73b1116f50c8f27fc0f",
@@ -755,6 +755,16 @@
       ]
     },
     {
+      "id": "a99d4b6a8a9850593e8e",
+      "source": "Nature",
+      "title": "Forest soundscapes improve mood, restoration and cognition, but not physiological stress or immunity, relative to industrial soundscapes | Scientific Reports - Nature",
+      "description": "Forest soundscapes improve mood, restoration and cognition, but not physiological stress or immunity, relative to industrial soundscapes | Scientific Reports Nature",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE94NF81QWYwRGxXU1lycWxvY2FhZ0h1bmk4UjBMZWhjUjRsV1RsOW5oNFJVV29JYVYxX3RjbVllWDVvSWZ5SnZrN2RLNzZCcXQ4QWpYRktrODZxU1BBdmtZ?oc=5",
+      "publishedAt": "2025-09-30T07:00:00+00:00",
+      "loadedAt": "2026-11-21T13:27:50.276083+00:00",
+      "tags": []
+    },
+    {
       "id": "c0b39d95af6a207cef3b",
       "source": "Frontiers",
       "title": "Case Report: 40Hz multi-target transcranial alternating current stimulation combined with rehabilitation for post-stroke cognitive impairment - Frontiers",
@@ -934,6 +944,16 @@
         "Ictus",
         "Rehabilitación"
       ]
+    },
+    {
+      "id": "543a3af7cb167e0715ff",
+      "source": "Frontiers",
+      "title": "Effectiveness of a home-based computerized cognitive training in Parkinson's disease: a pilot randomized cross-over study - Frontiers",
+      "description": "Effectiveness of a home-based computerized cognitive training in Parkinson's disease: a pilot randomized cross-over study Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWkFoVUJJMXFVR2F5VElEVndsejVmNUFfcTNxcnhFUGFkMVoyUy00dUlLSHB1OFlfODVTZkFkS2tGN3pHX3FKWjd0TWJvU1lLbV9DY0tJR3R1YjA5RXA1RVFueVBMV1ZjLWxSVG5EU2FzUW9ra2pjWkhxb2pmRk1WNGo2SnZjNFNOQ25yUEp6UENEZw?oc=5",
+      "publishedAt": "2025-01-09T08:00:00+00:00",
+      "loadedAt": "2026-11-21T13:27:50.276083+00:00",
+      "tags": []
     },
     {
       "id": "b895baab2505982c3bf1",
@@ -1475,6 +1495,18 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Memoria"
+      ]
+    },
+    {
+      "id": "2ca441a8ab961fad3ebc",
+      "source": "Psychiatry Online",
+      "title": "rTMS/iTBS and Cognitive Rehabilitation for Deficits Associated With TBI and PTSD: A Theoretical Framework and Review - Psychiatry Online",
+      "description": "rTMS/iTBS and Cognitive Rehabilitation for Deficits Associated With TBI and PTSD: A Theoretical Framework and Review Psychiatry Online",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9jcEdubHY5UVVGTEJJSXhkdWpiWncyUnYxZUpKNUNHOGxGOVdTb1JnTjNwR0poNHlzZG1KVVU3THVNYkZUcjFqejJvOTBqMUxRUGM5eTBHdDBERjJMWlhpUVlFU0huTnF6d3V1ZE16N2FZNUE?oc=5",
+      "publishedAt": "2022-07-25T07:00:00+00:00",
+      "loadedAt": "2026-11-21T13:27:50.276083+00:00",
+      "tags": [
+        "Rehabilitación"
       ]
     },
     {
@@ -2023,7 +2055,7 @@
       "title": "Editorial: Music, Brain, and Rehabilitation: Emerging Therapeutic Applications and Potential Neural Mechanisms - Frontiers",
       "description": "Editorial: Music, Brain, and Rehabilitation: Emerging Therapeutic Applications and Potential Neural Mechanisms Frontiers",
       "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQU1hsWVQ0UThSbi1oNTBDZERQek1nMm55VFQxd2dqU2p3R2JXZVAwbDFJSjVlRDZjbjhmeDVUM0tvMlAtUTl4eTVUbTUtTklxZUI2U080WV96cWljZ1V6aFVmbmlRYU9qWjdlY3QxS3FiRHdiSFZRZmNCOWRkZFdrNFVKSXJWTTFYRTFVMnQzQlFPSElTV2pVUkNR?oc=5",
-      "publishedAt": "2016-03-09T08:00:00+00:00",
+      "publishedAt": "2016-03-08T08:00:00+00:00",
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Rehabilitación",
