@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-23T15:57:42.315487+00:00",
+  "updatedAt": "2026-11-24T15:52:43.108673+00:00",
   "items": [
     {
       "id": "b73b1116f50c8f27fc0f",
@@ -702,6 +702,18 @@
       "loadedAt": "2026-10-24T05:41:58.956537+00:00",
       "tags": [
         "Memoria"
+      ]
+    },
+    {
+      "id": "d06446cb5459b7de5c10",
+      "source": "Psychiatry Online",
+      "title": "Cognitive Rehabilitation in Old Age - Psychiatry Online",
+      "description": "Cognitive Rehabilitation in Old Age Psychiatry Online",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0wQlpMR2UtLUVORmxmY2toWlZTUGRWSUFQV21RNnVlNUMyZjJkYkZyNDluaGhFVzhuUmVSanN0SlFFVlQ2NHg2VGdLLV93SjJHOWY0MFhYZjdEd2lZOG9FZzNjeVF6U2VITUJFdXhHOGw3alVn?oc=5",
+      "publishedAt": "2025-10-29T16:25:34+00:00",
+      "loadedAt": "2026-11-24T15:52:43.108673+00:00",
+      "tags": [
+        "Rehabilitación"
       ]
     },
     {
