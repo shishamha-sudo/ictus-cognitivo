@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T15:52:43.108673+00:00",
+  "updatedAt": "2026-11-25T15:35:32.889977+00:00",
   "items": [
     {
       "id": "b73b1116f50c8f27fc0f",
@@ -1432,6 +1432,19 @@
       "loadedAt": "2026-10-19T05:42:04.651355+00:00",
       "tags": [
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "61e50f9dde950d620383",
+      "source": "Medical News Today",
+      "title": "Dementia after stroke: Signs, symptoms, and prognosis - Medical News Today",
+      "description": "Dementia after stroke: Signs, symptoms, and prognosis Medical News Today",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5ycFBITzhWQXA2Rm56RzU2SC12dS1WdHl4aGw1SWNyNEJTRE5pSDZIcmFfU2RZbFo3eFpUN1lOSTdXMUJCRG43amd6N3pHVGJOeXd6NmZfOTQ5SDM5b21VYi1sTVFpbldNYW9Nc1VXNUI?oc=5",
+      "publishedAt": "2022-11-15T08:00:00+00:00",
+      "loadedAt": "2026-11-25T15:35:32.889977+00:00",
+      "tags": [
+        "Ictus",
+        "Deterioro cognitivo"
       ]
     },
     {
