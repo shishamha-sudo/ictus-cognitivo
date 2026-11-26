@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25T15:35:32.889977+00:00",
+  "updatedAt": "2026-11-26T15:14:12.377817+00:00",
   "items": [
     {
       "id": "b73b1116f50c8f27fc0f",
@@ -623,6 +623,19 @@
       "loadedAt": "2026-10-30T05:53:26.905017+00:00",
       "tags": [
         "Ictus"
+      ]
+    },
+    {
+      "id": "3e2b2df3302e60462e3e",
+      "source": "CORDIS",
+      "title": "Telerrehabilitación domiciliaria del ictus mediante inteligencia artificial - CORDIS",
+      "description": "Telerrehabilitación domiciliaria del ictus mediante inteligencia artificial CORDIS",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPT3B2UGRPYndyNF8zSDhUUmhuWllUeFlTdW5xUURRRkdER3JGMWtDcGRwdzY4TC02ODlzTVpsSGRJV0JwNjlySHVnSEM1ZzdNUnMwUHRkdHJ5NEtfc3FIY1dvTWdESngzNVA5Q193aDBtNl93aWFWSHhNWVdWQVB1Vk9Wb1h4MVA5VndmUXJfV2ZoNWFO?oc=5",
+      "publishedAt": "2025-12-18T08:00:00+00:00",
+      "loadedAt": "2026-11-26T15:14:12.377817+00:00",
+      "tags": [
+        "Ictus",
+        "Rehabilitación"
       ]
     },
     {
