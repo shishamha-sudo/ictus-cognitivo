@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26T15:14:12.377817+00:00",
+  "updatedAt": "2026-11-27T15:03:50.024135+00:00",
   "items": [
     {
       "id": "b73b1116f50c8f27fc0f",
@@ -364,6 +364,31 @@
       "tags": [
         "Rehabilitación",
         "Neurociencia"
+      ]
+    },
+    {
+      "id": "dd104cd2248d924330d7",
+      "source": "Neuroscience News",
+      "title": "Reading Is the Ultimate Cognitive Enhancer - Neuroscience News",
+      "description": "Reading Is the Ultimate Cognitive Enhancer Neuroscience News",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBnRllCTjJuQkR5M1U5bkljZG4tY19ybHgtYUZoWWh1em5BVWtzRkQ5X2FMNG83R3ZsQmc3RFZFWWE4WlUtZFpJVXJidmZVY1NVQWR6VGE1Y0s4cEZ1a0p6d1Q5N20xRjZHbkpHYnZJSHU?oc=5",
+      "publishedAt": "2026-06-27T07:00:00+00:00",
+      "loadedAt": "2026-11-27T15:03:50.024135+00:00",
+      "tags": [
+        "Neurociencia"
+      ]
+    },
+    {
+      "id": "3b68f39dd3e5c65858fc",
+      "source": "Neuroscience News",
+      "title": "Attention Networks Predict Adult Language Learning Success - Neuroscience News",
+      "description": "Attention Networks Predict Adult Language Learning Success Neuroscience News",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1rQVVEaWVBeV9oRUMtcDBMSXdHUzA1emlqOGZlcVc0Qll3dGhOeE9RSk9qa29mLWQweTVvZVBNM3RMM00tNk9kY3d4RU5ZSGs1VEdvc05Ma25zTTBtRGVZMml2LU9QdWxoSlhZV1VjNjNQbnN2eERwcTZwcE4?oc=5",
+      "publishedAt": "2026-06-15T07:00:00+00:00",
+      "loadedAt": "2026-11-27T15:03:50.024135+00:00",
+      "tags": [
+        "Neurociencia",
+        "Atención"
       ]
     },
     {
