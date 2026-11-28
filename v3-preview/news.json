@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-27T15:03:50.024135+00:00",
+  "updatedAt": "2026-11-28T14:11:24.977173+00:00",
   "items": [
     {
       "id": "b73b1116f50c8f27fc0f",
@@ -639,6 +639,18 @@
       ]
     },
     {
+      "id": "bc60c53cdeb946e9082d",
+      "source": "EMJ",
+      "title": "Mental Imagery Links to Executive Function Post Stroke - EMJ",
+      "description": "Mental Imagery Links to Executive Function Post Stroke EMJ",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPa2NRQlZyUVQweEZXNXpuU094Q3V1czhXdFZERXBkVmpIeDM5dlNUSFctSGRYNmVSVGc1MWFvQlNfUC0xd24wdWVaSjhkekJPMllGYV9tQl91ZU5DaGRYMDBuVFl0N1loSjZSenJkZTVVS3ljM0pDTnVhLWVrVk9FWTFObHZ1MmozaGZDUVlvTU5mSkdmbHJidDJ3elB3QQ?oc=5",
+      "publishedAt": "2025-12-21T08:00:00+00:00",
+      "loadedAt": "2026-11-28T14:11:24.977173+00:00",
+      "tags": [
+        "Ictus"
+      ]
+    },
+    {
       "id": "073eeb2ac4cd404e9a76",
       "source": "World Health Organization (WHO)",
       "title": "Stroke - World Health Organization (WHO)",
@@ -888,6 +900,18 @@
       ]
     },
     {
+      "id": "224a4a2b624af61926e8",
+      "source": "Frontiers",
+      "title": "Nature images are more visually engaging than urban images: evidence from neural oscillations in the brain - Frontiers",
+      "description": "Nature images are more visually engaging than urban images: evidence from neural oscillations in the brain Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOWXFQRm1rZXQ3N0U5aDFsbVRVekRxSlFySjJUNm1GbFUwWXQzSWR5aUZWeWRZeS0zWmxYWlVtVUhOZHBkQmhyaDZMYkVMNWwxWWRla2RZMHlCSTJHaXRBSEgxU1VkdGxyb0ZTdHJ5SHVTSmZtLVBWR3dJNGtZc1pXSzBaVFIxSEdtMHFxNWEwMncwV2NlLXZmeG5USmE?oc=5",
+      "publishedAt": "2025-06-16T07:00:00+00:00",
+      "loadedAt": "2026-11-28T14:11:24.977173+00:00",
+      "tags": [
+        "Neurociencia"
+      ]
+    },
+    {
       "id": "81f7415fd4f64029175a",
       "source": "Infobae",
       "title": "Pacientes con ACV muestran mayor adherencia a la rehabilitación con realidad virtual - Infobae",
@@ -996,16 +1020,6 @@
       ]
     },
     {
-      "id": "543a3af7cb167e0715ff",
-      "source": "Frontiers",
-      "title": "Effectiveness of a home-based computerized cognitive training in Parkinson's disease: a pilot randomized cross-over study - Frontiers",
-      "description": "Effectiveness of a home-based computerized cognitive training in Parkinson's disease: a pilot randomized cross-over study Frontiers",
-      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWkFoVUJJMXFVR2F5VElEVndsejVmNUFfcTNxcnhFUGFkMVoyUy00dUlLSHB1OFlfODVTZkFkS2tGN3pHX3FKWjd0TWJvU1lLbV9DY0tJR3R1YjA5RXA1RVFueVBMV1ZjLWxSVG5EU2FzUW9ra2pjWkhxb2pmRk1WNGo2SnZjNFNOQ25yUEp6UENEZw?oc=5",
-      "publishedAt": "2025-01-09T08:00:00+00:00",
-      "loadedAt": "2026-11-21T13:27:50.276083+00:00",
-      "tags": []
-    },
-    {
       "id": "b895baab2505982c3bf1",
       "source": "Nature",
       "title": "Efficacy of home based computerized adaptive cognitive training in patients with post stroke cognitive impairment: a randomized controlled trial - Nature",
@@ -1029,6 +1043,16 @@
         "Ictus",
         "Memoria"
       ]
+    },
+    {
+      "id": "543a3af7cb167e0715ff",
+      "source": "Frontiers",
+      "title": "Effectiveness of a home-based computerized cognitive training in Parkinson's disease: a pilot randomized cross-over study - Frontiers",
+      "description": "Effectiveness of a home-based computerized cognitive training in Parkinson's disease: a pilot randomized cross-over study Frontiers",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWkFoVUJJMXFVR2F5VElEVndsejVmNUFfcTNxcnhFUGFkMVoyUy00dUlLSHB1OFlfODVTZkFkS2tGN3pHX3FKWjd0TWJvU1lLbV9DY0tJR3R1YjA5RXA1RVFueVBMV1ZjLWxSVG5EU2FzUW9ra2pjWkhxb2pmRk1WNGo2SnZjNFNOQ25yUEp6UENEZw?oc=5",
+      "publishedAt": "2024-12-23T17:23:55+00:00",
+      "loadedAt": "2026-11-21T13:27:50.276083+00:00",
+      "tags": []
     },
     {
       "id": "5acf9e79b84252de3c0f",
@@ -1732,6 +1756,18 @@
       ]
     },
     {
+      "id": "d1ace7d304e426689533",
+      "source": "American Psychological Association (APA)",
+      "title": "Building games to train the brain - American Psychological Association (APA)",
+      "description": "Building games to train the brain American Psychological Association (APA)",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9SS2RNM2NrdFlKd2Y0eUtuRzFUVU5WWmNEeWpObFFaV29SakY4TE5PV2pfZzc1M09NWEczNjYwdU5Gc2ZSWGRKWGx4eWd3RGQ5Vm1zR2FGaWk0SVduYjlJ?oc=5",
+      "publishedAt": "2021-01-01T08:00:00+00:00",
+      "loadedAt": "2026-11-28T14:11:24.977173+00:00",
+      "tags": [
+        "Neurociencia"
+      ]
+    },
+    {
       "id": "64583d885df8ed5e73bf",
       "source": "Qatar Tribune",
       "title": "Qatar has low stroke cases with about 58 per 100,000 people yearly: QRI official - Qatar Tribune",
@@ -2206,5 +2242,10 @@
     "https://news.google.com/rss/search?q=ictus%20rehabilitacion%20cognitiva%20memoria%20neurorehabilitacion&hl=es&gl=ES&ceid=ES:es",
     "https://news.google.com/rss/search?q=aphasia%20cognitive%20rehabilitation%20stroke&hl=es&gl=ES&ceid=ES:es"
   ],
-  "errors": []
+  "errors": [
+    {
+      "source": "Google News",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ]
 }
